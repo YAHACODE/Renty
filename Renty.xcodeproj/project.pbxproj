@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08502B941B5DBB5300923308 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08502B931B5DBB5300923308 /* TimelineViewController.swift */; };
+		08502B961B5DBBAE00923308 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08502B951B5DBBAE00923308 /* ChatViewController.swift */; };
+		08502B981B5DBBC800923308 /* PhotoTakingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08502B971B5DBBC800923308 /* PhotoTakingViewController.swift */; };
+		08502B9A1B5DBBE300923308 /* SearchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08502B991B5DBBE300923308 /* SearchPageViewController.swift */; };
+		08502B9C1B5DBDD700923308 /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08502B9B1B5DBDD700923308 /* ProfilePageViewController.swift */; };
 		624262C01B4460CB00005CE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624262B21B4460CB00005CE3 /* AppDelegate.swift */; };
 		624262C11B4460CB00005CE3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 624262B31B4460CB00005CE3 /* LaunchScreen.xib */; };
 		624262C21B4460CB00005CE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 624262B51B4460CB00005CE3 /* Main.storyboard */; };
 		624262C31B4460CB00005CE3 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624262B81B4460CB00005CE3 /* ErrorHandling.swift */; };
 		624262C41B4460CB00005CE3 /* ParseLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624262B91B4460CB00005CE3 /* ParseLoginHelper.swift */; };
 		624262C51B4460CB00005CE3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 624262BA1B4460CB00005CE3 /* Images.xcassets */; };
-		624262C71B4460CB00005CE3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624262BD1B4460CB00005CE3 /* ViewController.swift */; };
 		62551B6C1B06BF6D000913E4 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B631B06BF6D000913E4 /* Bolts.framework */; };
 		62551B6D1B06BF6D000913E4 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B641B06BF6D000913E4 /* FBSDKCoreKit.framework */; };
 		62551B6E1B06BF6D000913E4 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62551B651B06BF6D000913E4 /* FBSDKLoginKit.framework */; };
@@ -125,6 +129,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		08502B931B5DBB5300923308 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
+		08502B951B5DBBAE00923308 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatViewController.swift; path = ../ChatViewController.swift; sourceTree = "<group>"; };
+		08502B971B5DBBC800923308 /* PhotoTakingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoTakingViewController.swift; path = ../PhotoTakingViewController.swift; sourceTree = "<group>"; };
+		08502B991B5DBBE300923308 /* SearchPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchPageViewController.swift; path = ../SearchPageViewController.swift; sourceTree = "<group>"; };
+		08502B9B1B5DBDD700923308 /* ProfilePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
 		624262B21B4460CB00005CE3 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		624262B41B4460CB00005CE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		624262B61B4460CB00005CE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -133,7 +142,6 @@
 		624262BA1B4460CB00005CE3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		624262BB1B4460CB00005CE3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		624262BC1B4460CB00005CE3 /* TemplateProject-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TemplateProject-Bridging-Header.h"; sourceTree = "<group>"; };
-		624262BD1B4460CB00005CE3 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		62551B631B06BF6D000913E4 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Frameworks/Bolts.framework; sourceTree = "<group>"; };
 		62551B641B06BF6D000913E4 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = Frameworks/FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		62551B651B06BF6D000913E4 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = Frameworks/FBSDKLoginKit.framework; sourceTree = "<group>"; };
@@ -189,13 +197,17 @@
 			isa = PBXGroup;
 			children = (
 				624262B21B4460CB00005CE3 /* AppDelegate.swift */,
-				624262BD1B4460CB00005CE3 /* ViewController.swift */,
 				624262B31B4460CB00005CE3 /* LaunchScreen.xib */,
 				624262B51B4460CB00005CE3 /* Main.storyboard */,
 				624262B71B4460CB00005CE3 /* Helpers */,
 				624262BA1B4460CB00005CE3 /* Images.xcassets */,
 				624262BB1B4460CB00005CE3 /* Info.plist */,
 				624262BC1B4460CB00005CE3 /* TemplateProject-Bridging-Header.h */,
+				08502B951B5DBBAE00923308 /* ChatViewController.swift */,
+				08502B991B5DBBE300923308 /* SearchPageViewController.swift */,
+				08502B931B5DBB5300923308 /* TimelineViewController.swift */,
+				08502B971B5DBBC800923308 /* PhotoTakingViewController.swift */,
+				08502B9B1B5DBDD700923308 /* ProfilePageViewController.swift */,
 				624262BE1B4460CB00005CE3 /* ViewControllers */,
 			);
 			path = TemplateProject;
@@ -213,16 +225,8 @@
 		624262BE1B4460CB00005CE3 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				624262BF1B4460CB00005CE3 /* FilterViewController */,
 			);
 			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		624262BF1B4460CB00005CE3 /* FilterViewController */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = FilterViewController;
 			sourceTree = "<group>";
 		};
 		62551B621B06BF33000913E4 /* Frameworks */ = {
@@ -433,9 +437,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				624262C01B4460CB00005CE3 /* AppDelegate.swift in Sources */,
+				08502B941B5DBB5300923308 /* TimelineViewController.swift in Sources */,
+				08502B9A1B5DBBE300923308 /* SearchPageViewController.swift in Sources */,
 				624262C41B4460CB00005CE3 /* ParseLoginHelper.swift in Sources */,
-				624262C71B4460CB00005CE3 /* ViewController.swift in Sources */,
+				08502B961B5DBBAE00923308 /* ChatViewController.swift in Sources */,
 				624262C31B4460CB00005CE3 /* ErrorHandling.swift in Sources */,
+				08502B981B5DBBC800923308 /* PhotoTakingViewController.swift in Sources */,
+				08502B9C1B5DBDD700923308 /* ProfilePageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
