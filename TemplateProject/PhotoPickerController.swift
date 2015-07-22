@@ -1,0 +1,147 @@
+//
+//  PhotoPickerController.swift
+//  Renty
+//
+//  Created by yahya on 7/21/15.
+//  Copyright (c) 2015 Make School. All rights reserved.
+//
+
+
+import UIKit
+import AVFoundation
+
+class Save {
+    class func array(key:String, _ value:[AnyObject]) {
+        NSUserDefaults.standardUserDefaults().setObject(value, forKey: key)
+    }
+}
+class PhotoPickerController: UIViewController {
+    
+    @IBOutlet weak var previewView : UIView!
+    @IBOutlet weak var capturedImage: UIImageView!
+    @IBOutlet weak var capturedImage2: UIImageView!
+    @IBOutlet weak var capturedImage3: UIImageView!
+    
+    @IBOutlet var takePhotoButton: UIButton!
+    
+    @IBAction func close(sender: AnyObject) {
+        
+        self.performSegueWithIdentifier("close", sender: self)
+
+    }
+    var captureSession: AVCaptureSession?
+    var stillImageOutput: AVCaptureStillImageOutput?
+    var previewLayer: AVCaptureVideoPreviewLayer?
+    
+    
+    var counter : Int = 0
+    //    var imageArray : NSMutableArray = []
+    var imageArray : NSMutableArray = []
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        captureSession = AVCaptureSession()
+        captureSession!.sessionPreset = AVCaptureSessionPresetPhoto
+        
+        var backCamera = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+        
+        var error: NSError?
+        var input = AVCaptureDeviceInput(device: backCamera, error: &error)
+        
+        if error == nil && captureSession!.canAddInput(input) {
+            captureSession!.addInput(input)
+            
+            stillImageOutput = AVCaptureStillImageOutput()
+            stillImageOutput!.outputSettings = [AVVideoCodecKey: AVVideoCodecJPEG]
+            if captureSession!.canAddOutput(stillImageOutput) {
+                captureSession!.addOutput(stillImageOutput)
+                
+                previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+                previewLayer!.videoGravity = AVLayerVideoGravityResizeAspect
+                previewLayer!.connection?.videoOrientation = AVCaptureVideoOrientation.Portrait
+                previewView.layer.addSublayer(previewLayer)
+                
+                captureSession!.startRunning()
+            }
+        }
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        // previewLayer!.frame =  CGRect(x: 0, y: 0, width: 500, height: 500)
+        
+        previewLayer!.frame = previewView.bounds
+        
+    }
+    
+    @IBAction func didPressTakePhoto(sender: UIButton) {
+        
+        if let videoConnection = stillImageOutput!.connectionWithMediaType(AVMediaTypeVideo) {
+            videoConnection.videoOrientation = AVCaptureVideoOrientation.Portrait
+            stillImageOutput?.captureStillImageAsynchronouslyFromConnection(videoConnection, completionHandler: {(sampleBuffer, error) in
+                if (sampleBuffer != nil) {
+                    var imageData = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(sampleBuffer)
+                    var dataProvider = CGDataProviderCreateWithCFData(imageData)
+                    var cgImageRef = CGImageCreateWithJPEGDataProvider(dataProvider, nil, true, kCGRenderingIntentDefault)
+                    
+                    
+                    var image = UIImage(CGImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.Right)
+                    
+                    
+                    
+                    self.imageArray.addObject(image!)
+                    
+                    
+                    
+                    if (self.counter<1)
+                    {
+                        //  var image1 = UIImage(CGImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.Right)
+                        
+                        self.capturedImage.image = image
+                        self.counter++;
+                        
+                        
+                    }
+                    else if (self.counter>1 &&  self.counter<3)
+                    {
+                        //  var image2 = UIImage(CGImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.Right)
+                        self.capturedImage2.image = image
+                        self.counter++;
+                        
+                        
+                        
+                    }
+                    else if (self.counter<3)
+                        
+                        
+                    {
+                        // var image3 = UIImage(CGImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.Right)
+                        self.capturedImage3.image = image
+                        self.counter++;
+                        
+                        
+                    }
+                    
+                    println(self.imageArray)
+                    
+                    
+                }
+            })
+        }
+    }
+    
+    @IBAction func didPressTakeAnother(sender: AnyObject) {
+        captureSession!.startRunning()
+    }
+    
+    
+}

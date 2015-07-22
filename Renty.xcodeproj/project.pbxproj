@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		08502B941B5DBB5300923308 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08502B931B5DBB5300923308 /* TimelineViewController.swift */; };
 		08502B961B5DBBAE00923308 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08502B951B5DBBAE00923308 /* ChatViewController.swift */; };
-		08502B981B5DBBC800923308 /* PhotoTakingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08502B971B5DBBC800923308 /* PhotoTakingViewController.swift */; };
 		08502B9A1B5DBBE300923308 /* SearchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08502B991B5DBBE300923308 /* SearchPageViewController.swift */; };
 		08502B9C1B5DBDD700923308 /* ProfilePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08502B9B1B5DBDD700923308 /* ProfilePageViewController.swift */; };
+		086BEB381B5EAE880003A79B /* PhotoPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 086BEB371B5EAE880003A79B /* PhotoPickerController.swift */; };
+		089876B11B5F875700B97C0A /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089876B01B5F875700B97C0A /* CustomTabBarController.swift */; };
 		624262C01B4460CB00005CE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624262B21B4460CB00005CE3 /* AppDelegate.swift */; };
 		624262C11B4460CB00005CE3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 624262B31B4460CB00005CE3 /* LaunchScreen.xib */; };
 		624262C21B4460CB00005CE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 624262B51B4460CB00005CE3 /* Main.storyboard */; };
@@ -131,9 +132,10 @@
 /* Begin PBXFileReference section */
 		08502B931B5DBB5300923308 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		08502B951B5DBBAE00923308 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatViewController.swift; path = ../ChatViewController.swift; sourceTree = "<group>"; };
-		08502B971B5DBBC800923308 /* PhotoTakingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoTakingViewController.swift; path = ../PhotoTakingViewController.swift; sourceTree = "<group>"; };
 		08502B991B5DBBE300923308 /* SearchPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchPageViewController.swift; path = ../SearchPageViewController.swift; sourceTree = "<group>"; };
 		08502B9B1B5DBDD700923308 /* ProfilePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePageViewController.swift; sourceTree = "<group>"; };
+		086BEB371B5EAE880003A79B /* PhotoPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerController.swift; sourceTree = "<group>"; };
+		089876B01B5F875700B97C0A /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		624262B21B4460CB00005CE3 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		624262B41B4460CB00005CE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		624262B61B4460CB00005CE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -206,8 +208,9 @@
 				08502B951B5DBBAE00923308 /* ChatViewController.swift */,
 				08502B991B5DBBE300923308 /* SearchPageViewController.swift */,
 				08502B931B5DBB5300923308 /* TimelineViewController.swift */,
-				08502B971B5DBBC800923308 /* PhotoTakingViewController.swift */,
 				08502B9B1B5DBDD700923308 /* ProfilePageViewController.swift */,
+				086BEB371B5EAE880003A79B /* PhotoPickerController.swift */,
+				089876B01B5F875700B97C0A /* CustomTabBarController.swift */,
 				624262BE1B4460CB00005CE3 /* ViewControllers */,
 			);
 			path = TemplateProject;
@@ -438,11 +441,12 @@
 			files = (
 				624262C01B4460CB00005CE3 /* AppDelegate.swift in Sources */,
 				08502B941B5DBB5300923308 /* TimelineViewController.swift in Sources */,
+				089876B11B5F875700B97C0A /* CustomTabBarController.swift in Sources */,
 				08502B9A1B5DBBE300923308 /* SearchPageViewController.swift in Sources */,
 				624262C41B4460CB00005CE3 /* ParseLoginHelper.swift in Sources */,
 				08502B961B5DBBAE00923308 /* ChatViewController.swift in Sources */,
 				624262C31B4460CB00005CE3 /* ErrorHandling.swift in Sources */,
-				08502B981B5DBBC800923308 /* PhotoTakingViewController.swift in Sources */,
+				086BEB381B5EAE880003A79B /* PhotoPickerController.swift in Sources */,
 				08502B9C1B5DBDD700923308 /* ProfilePageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

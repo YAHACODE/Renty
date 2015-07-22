@@ -1,14 +1,14 @@
 //
-//  PhotoTakingViewController.swift
+//  CustomTabBarController.swift
 //  Renty
 //
-//  Created by yahya on 7/20/15.
+//  Created by yahya on 7/22/15.
 //  Copyright (c) 2015 Make School. All rights reserved.
 //
 
 import UIKit
 
-class PhotoTakingViewController: UIViewController {
+class CustomTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +21,11 @@ class PhotoTakingViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem!) {
+        if item.title == "Item 2" {
+            self.performSegueWithIdentifier("Camera", sender: self)
+        }
+    }
 
     /*
     // MARK: - Navigation
