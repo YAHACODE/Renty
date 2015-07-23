@@ -25,9 +25,7 @@ class AddProductViewController: UIViewController {
         capturedImage.image = image1
         capturedImage2.image = image2
         capturedImage3.image = image3
-//         self.capturedImage.image = imageData
-//        self.capturedImage2.image = image
-//        self.capturedImage3.image = image
+
 
         // Do any additional setup after loading the view.
     }
@@ -38,14 +36,6 @@ class AddProductViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

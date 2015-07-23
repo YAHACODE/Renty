@@ -10,7 +10,7 @@
 import UIKit
 import AVFoundation
 import Bond
-
+import Parse
 
 
 
@@ -21,6 +21,8 @@ class PhotoPickerController: UIViewController   {
     @IBOutlet weak var capturedImage: UIImageView!
     @IBOutlet weak var capturedImage2: UIImageView!
     @IBOutlet weak var capturedImage3: UIImageView!
+    
+    @IBOutlet weak var yesview: UIView!
     
     @IBOutlet var takePhotoButton: UIButton!
     
@@ -36,13 +38,13 @@ class PhotoPickerController: UIViewController   {
     
     var counter : Int = 0
     //    var imageArray : NSMutableArray = []
-    var imageArray : NSMutableArray = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         previewView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width)
+
 //        capturedImage.frame = CGRectMake(capturedImage.frame.origin.x, capturedImage2.frame.origin.y, capturedImage.frame.size.width, capturedImage.frame.size.height)
 //        capturedImage3.frame = CGRectMake(capturedImage3.frame.origin.x, capturedImage2.frame.origin.y, capturedImage3.frame.size.width, capturedImage3.frame.size.height)
 
@@ -105,9 +107,18 @@ class PhotoPickerController: UIViewController   {
                   
 
                      var image = UIImage(CGImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.Right)
-
                     
-//                    self.imageArray.addObject(image!)
+//                    let imageData1 = UIImageJPEGRepresentation(image, 0.8)
+//                    let imageFile = PFFile(data: imageData1)
+//                    imageFile.save()
+//                    
+//                    let post = PFObject(className: "Post")
+//                    post["imageFile"] = imageFile
+//                    post.save()
+//                    
+                    let post = Post()
+                    post.image.value = image
+                    post.uploadImage()
                     
                     
                     
@@ -115,7 +126,8 @@ class PhotoPickerController: UIViewController   {
                     {
                         self.capturedImage.image = image
                         self.counter++;
-                        
+                       
+                   
                     }
                     else if (self.counter>1 &&  self.counter<3)
                     {
@@ -130,6 +142,18 @@ class PhotoPickerController: UIViewController   {
                         self.counter++;
                
                     }
+//                    else if  (self.counter==3)
+//                        
+//                    {
+//
+////                     self.previewView.hidden = true
+////                    self.yesview.hidden = false
+////                     self.yesview.frame = self.previewView.frame
+////
+//                    }
+                    
+                    
+                  
                     
                     
                     
