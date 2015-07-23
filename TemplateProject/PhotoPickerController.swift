@@ -42,6 +42,11 @@ class PhotoPickerController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        previewView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width)
+//        capturedImage.frame = CGRectMake(capturedImage.frame.origin.x, capturedImage2.frame.origin.y, capturedImage.frame.size.width, capturedImage.frame.size.height)
+//        capturedImage3.frame = CGRectMake(capturedImage3.frame.origin.x, capturedImage2.frame.origin.y, capturedImage3.frame.size.width, capturedImage3.frame.size.height)
+
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -67,6 +72,8 @@ class PhotoPickerController: UIViewController {
                 previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
                 previewLayer!.videoGravity = AVLayerVideoGravityResizeAspect
                 previewLayer!.connection?.videoOrientation = AVCaptureVideoOrientation.Portrait
+                
+                previewLayer?.frame = previewView.frame
                 previewView.layer.addSublayer(previewLayer)
                 
                 captureSession!.startRunning()
@@ -98,13 +105,13 @@ class PhotoPickerController: UIViewController {
                     
                     
                     
-                    self.imageArray.addObject(image!)
+//                    self.imageArray.addObject(image!)
                     
                     
                     
                     if (self.counter<1)
                     {
-                        //  var image1 = UIImage(CGImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.Right)
+                  
                         
                         self.capturedImage.image = image
                         self.counter++;
@@ -113,7 +120,6 @@ class PhotoPickerController: UIViewController {
                     }
                     else if (self.counter>1 &&  self.counter<3)
                     {
-                        //  var image2 = UIImage(CGImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.Right)
                         self.capturedImage2.image = image
                         self.counter++;
                         
@@ -124,14 +130,13 @@ class PhotoPickerController: UIViewController {
                         
                         
                     {
-                        // var image3 = UIImage(CGImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.Right)
+                   
                         self.capturedImage3.image = image
                         self.counter++;
                         
                         
                     }
                     
-                    println(self.imageArray)
                     
                     
                 }
