@@ -9,14 +9,14 @@
 
 import UIKit
 import AVFoundation
+import Bond
 
-class Save {
-    class func array(key:String, _ value:[AnyObject]) {
-        NSUserDefaults.standardUserDefaults().setObject(value, forKey: key)
-    }
-}
-class PhotoPickerController: UIViewController {
+
+
+
+class PhotoPickerController: UIViewController   {
     
+    //var image : UIImage!
     @IBOutlet weak var previewView : UIView!
     @IBOutlet weak var capturedImage: UIImageView!
     @IBOutlet weak var capturedImage2: UIImageView!
@@ -90,6 +90,8 @@ class PhotoPickerController: UIViewController {
         
     }
     
+    
+    
     @IBAction func didPressTakePhoto(sender: UIButton) {
         
         if let videoConnection = stillImageOutput!.connectionWithMediaType(AVMediaTypeVideo) {
@@ -100,10 +102,10 @@ class PhotoPickerController: UIViewController {
                     var dataProvider = CGDataProviderCreateWithCFData(imageData)
                     var cgImageRef = CGImageCreateWithJPEGDataProvider(dataProvider, nil, true, kCGRenderingIntentDefault)
                     
-                    
-                    var image = UIImage(CGImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.Right)
-                    
-                    
+                  
+
+                     var image = UIImage(CGImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.Right)
+
                     
 //                    self.imageArray.addObject(image!)
                     
@@ -111,30 +113,22 @@ class PhotoPickerController: UIViewController {
                     
                     if (self.counter<1)
                     {
-                  
-                        
                         self.capturedImage.image = image
                         self.counter++;
-                        
                         
                     }
                     else if (self.counter>1 &&  self.counter<3)
                     {
                         self.capturedImage2.image = image
                         self.counter++;
-                        
-                        
-                        
+
                     }
                     else if (self.counter<3)
-                        
-                        
+                 
                     {
-                   
                         self.capturedImage3.image = image
                         self.counter++;
-                        
-                        
+               
                     }
                     
                     
@@ -148,5 +142,13 @@ class PhotoPickerController: UIViewController {
         captureSession!.startRunning()
     }
     
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "Preview" {
+            if let vc = segue.destinationViewController as? AddProductViewController {
+                vc.image1 = capturedImage.image
+                vc.image2 = capturedImage2.image
+                vc.image3 = capturedImage3.image
+            }
+        }
+    }
 }
