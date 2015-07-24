@@ -214,8 +214,8 @@
 				08502B931B5DBB5300923308 /* TimelineViewController.swift */,
 				08502B9B1B5DBDD700923308 /* ProfilePageViewController.swift */,
 				089876B01B5F875700B97C0A /* CustomTabBarController.swift */,
-				086BEB371B5EAE880003A79B /* PhotoPickerController.swift */,
 				089876BC1B60B96E00B97C0A /* AddProductViewController.swift */,
+				086BEB371B5EAE880003A79B /* PhotoPickerController.swift */,
 				089876CC1B614A5300B97C0A /* Post.swift */,
 				624262BE1B4460CB00005CE3 /* ViewControllers */,
 			);

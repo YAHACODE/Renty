@@ -7,22 +7,26 @@
 //
 
 import UIKit
-import Bond
 import Foundation
 import FBSDKCoreKit
 import Parse
 import ParseUI
-
+import Bond
 
 class Post : PFObject, PFSubclassing {
     
+    @NSManaged var title: NSString?
+
+    
     @NSManaged var imageFile: PFFile?
+
+
     @NSManaged var user: PFUser?
     
     
     // this property will store the UIImage that is displayed
     var image: Dynamic<UIImage?> = Dynamic(nil)
-    
+
     var imageBond: Bond<UIImage?>!
     
     //MARK: Initialization
@@ -44,7 +48,7 @@ class Post : PFObject, PFSubclassing {
     }
     
     //MARK: Actions
-    
+
     func uploadImage() {
         // Parse does not allow this to be set in the initializer - we set it before post gets saved
         user = PFUser.currentUser()
@@ -55,13 +59,18 @@ class Post : PFObject, PFSubclassing {
         
         // when image is set, upload it to the server
         let imageData = UIImageJPEGRepresentation(image.value, 0.8)
+
+
         imageFile = PFFile(data: imageData)
-        
+
         imageFile?.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
             self.saveInBackgroundWithBlock(ErrorHandling.errorHandlingCallback)
         })
+
+
     }
     
+  
     
     
 }

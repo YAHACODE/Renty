@@ -106,24 +106,16 @@ class PhotoPickerController: UIViewController   {
                     
                   
 
-                     var image = UIImage(CGImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.Right)
                     
-//                    let imageData1 = UIImageJPEGRepresentation(image, 0.8)
-//                    let imageFile = PFFile(data: imageData1)
-//                    imageFile.save()
-//                    
-//                    let post = PFObject(className: "Post")
-//                    post["imageFile"] = imageFile
-//                    post.save()
-//                    
-                    let post = Post()
-                    post.image.value = image
-                    post.uploadImage()
+                    var image = UIImage(CGImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.Right)
+                    
+
                     
                     
                     
                     if (self.counter<1)
                     {
+                      
                         self.capturedImage.image = image
                         self.counter++;
                        
@@ -131,6 +123,8 @@ class PhotoPickerController: UIViewController   {
                     }
                     else if (self.counter>1 &&  self.counter<3)
                     {
+    
+
                         self.capturedImage2.image = image
                         self.counter++;
 
@@ -138,6 +132,7 @@ class PhotoPickerController: UIViewController   {
                     else if (self.counter<3)
                  
                     {
+                        
                         self.capturedImage3.image = image
                         self.counter++;
                

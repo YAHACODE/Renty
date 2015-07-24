@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     Parse.setApplicationId("WcGewesLXRGsyQMY2FBn4VWnjxgPSjgvbfvVXuwN", clientKey: "5SfDH4pLjIcEEoOFJVIwHztgSBQq3tdGGmsgAClD")
     PFUser.logInWithUsername("test", password: "test")
     
+   // dispatch_async(dispatch_get_main_queue(), { () ->  Void in
+
     if let user = PFUser.currentUser() {
         println("Log in successful")
     } else {
@@ -28,6 +30,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let acl = PFACL()
     acl.setPublicReadAccess(true)
     PFACL.setDefaultACL(acl, withAccessForCurrentUser: true)
+    
+  //  })r
+
+
+    
     return true
   }
 
@@ -52,6 +59,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func applicationWillTerminate(application: UIApplication) {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   }
+    
+
 
 
 }
