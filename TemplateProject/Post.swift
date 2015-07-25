@@ -17,15 +17,20 @@ class Post : PFObject, PFSubclassing {
     
     @NSManaged var title: NSString?
 
-    
     @NSManaged var imageFile: PFFile?
+    @NSManaged var imageFile2: PFFile?
+    @NSManaged var imageFile3: PFFile?
 
 
     @NSManaged var user: PFUser?
     
     
     // this property will store the UIImage that is displayed
-    var image: Dynamic<UIImage?> = Dynamic(nil)
+    var image1: Dynamic<UIImage?> = Dynamic(nil)
+    var image2: Dynamic<UIImage?> = Dynamic(nil)
+    var image3: Dynamic<UIImage?> = Dynamic(nil)
+
+    var photoUploadTask: UIBackgroundTaskIdentifier?
 
     var imageBond: Bond<UIImage?>!
     
@@ -49,28 +54,38 @@ class Post : PFObject, PFSubclassing {
     
     //MARK: Actions
 
-    func uploadImage() {
-        // Parse does not allow this to be set in the initializer - we set it before post gets saved
-        user = PFUser.currentUser()
-        // only allow this user to write, any other user can only read
-        let ACL = PFACL(user: user!)
-        ACL.setPublicReadAccess(true)
-        self.ACL = ACL
-        
-        // when image is set, upload it to the server
-        let imageData = UIImageJPEGRepresentation(image.value, 0.8)
-
-
-        imageFile = PFFile(data: imageData)
-
-        imageFile?.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
-            self.saveInBackgroundWithBlock(ErrorHandling.errorHandlingCallback)
-        })
-
-
-    }
     
+    func uploadPost() {
+        let imageData = UIImageJPEGRepresentation(image1.value, 0.8)
+        let imageData2 = UIImageJPEGRepresentation(image2.value, 0.8)
+        let imageData3 = UIImageJPEGRepresentation(image3.value, 0.8)
+
+        let imageFile = PFFile(data: imageData)
+        let imageFile2 = PFFile(data: imageData2)
+        let imageFile3 = PFFile(data: imageData3)
+
+        
+        // any uploaded post should be associated with the current user
+        user = PFUser.currentUser()
+        self.imageFile = imageFile
+        self.imageFile2 = imageFile2
+        self.imageFile3 = imageFile3
+
+        
+        photoUploadTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { () -> Void in
+            UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
+        }
+        
+        saveInBackgroundWithBlock { (success: Bool, error: NSError?) -> Void in
+            if let error = error {
+                ErrorHandling.defaultErrorHandler(error)
+            }
+            
+            UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
+        }
+    }
+}
+
   
     
     
-}

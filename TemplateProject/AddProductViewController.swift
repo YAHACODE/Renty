@@ -6,9 +6,14 @@
 //  Copyright (c) 2015 Make School. All rights reserved.
 //
 
+
 import UIKit
+import Foundation
+import FBSDKCoreKit
 import Parse
+import ParseUI
 import Bond
+
 
 
 class AddProductViewController: UIViewController, UITextFieldDelegate  {
@@ -17,6 +22,9 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
     
     @IBOutlet weak var titleTextField: UITextField!
     
+    @NSManaged var imageFile: PFFile?
+    @NSManaged var imageFile2: PFFile?
+    @NSManaged var imageFile3: PFFile?
 
     @IBOutlet weak var DescriptionTextField: UITextField!
  
@@ -33,6 +41,8 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
     var image2:UIImage?
     var image3:UIImage?
     
+
+    
     func textfieldreturn(textfield : UITextField) {
         textfield.delegate = self
     }
@@ -46,19 +56,17 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
         var Description = DescriptionTextField?.text
         var enteredprice = PriceTextField?.text.toInt()
         
-        
-       // PFObject * items = [PFObject objectWithClassName:@"items"];
-
-        let post4 = Post()
-        
+       
     // create an PFFile parse object
+      //  var item: PFObject = PFObject (className: "item")
+
     // convert image to NSDATA *3
     // convert NSDATA to PFFile
     // add PFFile to the parse object 
     // parse.object["file1"]= file1
     //  parse object save in background !
         
-       //upload image separately
+    //upload image separately
         
 //        let post = Post()
 //        post.image.value = image1
@@ -71,7 +79,15 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
 //        let post3 = Post()
 //        post3.image.value = image3
 //        post3.uploadImage()
+      
+       
+        let post = Post()
+        post.image1.value = image1!
+        post.image2.value = image2!
+        post.image3.value = image3!
+
         
+        post.uploadPost()
         
     }
 
@@ -114,8 +130,9 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
         // Dispose of any resources that can be recreated.
     }
     
-
-
+    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        self.view.endEditing(true)
+    }
 }
 
 

@@ -104,21 +104,16 @@ class PhotoPickerController: UIViewController   {
                     var dataProvider = CGDataProviderCreateWithCFData(imageData)
                     var cgImageRef = CGImageCreateWithJPEGDataProvider(dataProvider, nil, true, kCGRenderingIntentDefault)
                     
-                  
-
                     
                     var image = UIImage(CGImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.Right)
-                    
-
-                    
-                    
+       
                     
                     if (self.counter<1)
                     {
                       
                         self.capturedImage.image = image
                         self.counter++;
-                       
+                        var image1 = self.capturedImage.image
                    
                     }
                     else if (self.counter>1 &&  self.counter<3)
@@ -127,6 +122,8 @@ class PhotoPickerController: UIViewController   {
 
                         self.capturedImage2.image = image
                         self.counter++;
+                        var image2 = self.capturedImage2.image
+
 
                     }
                     else if (self.counter<3)
@@ -135,7 +132,9 @@ class PhotoPickerController: UIViewController   {
                         
                         self.capturedImage3.image = image
                         self.counter++;
-               
+                        var image3 = self.capturedImage3.image
+
+                        
                     }
 //                    else if  (self.counter==3)
 //                        
