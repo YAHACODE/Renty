@@ -17,6 +17,8 @@ class Post : PFObject, PFSubclassing {
     
    @NSManaged var title: NSString?
    @NSManaged var productdescription: NSString?
+   @NSManaged var enteredprice: NSNumber
+
     
     
     @NSManaged var imageFile: PFFile?
@@ -43,6 +45,7 @@ class Post : PFObject, PFSubclassing {
         dispatch_once(&onceToken) {
             // inform Parse about this subclass
             self.registerSubclass()
+
         }
     }
     
@@ -56,6 +59,7 @@ class Post : PFObject, PFSubclassing {
     
     //MARK: Actions
 
+  
     
     func uploadPost() {
         
@@ -64,6 +68,10 @@ class Post : PFObject, PFSubclassing {
         
         let description = NSString?(productdescription!)
         let Productdescription = NSString?(description!)
+
+        
+        let price = NSNumber?(enteredprice)
+        let Enteredprice = NSNumber?(price!)
 
         
         let imageData = UIImageJPEGRepresentation(image1.value, 0.8)
@@ -78,6 +86,7 @@ class Post : PFObject, PFSubclassing {
         // any uploaded post should be associated with the current user
         user = PFUser.currentUser()
         self.title = Title
+        self.enteredprice = Enteredprice!
         self.productdescription = Productdescription
 
         self.imageFile = imageFile

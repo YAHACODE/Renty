@@ -54,11 +54,12 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
         var productdescription = DescriptionTextField?.text
         var enteredprice = PriceTextField?.text.toInt()
 
-        
+        println(enteredprice)
        
         let post = Post()
         
         post.title = title!
+        post.enteredprice = enteredprice!
         post.productdescription = productdescription!
         post.image1.value = image1!
         post.image2.value = image2!
