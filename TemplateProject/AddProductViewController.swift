@@ -56,11 +56,22 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
         var enteredprice = PriceTextField?.text.toInt()
 
         println(enteredprice)
-       var userlocation = PFGeoPoint(latitude:40.0, longitude:-30.0)
+       // var userlocation = PFGeoPoint(latitude:40.0, longitude:-30.0)
 
+        PFGeoPoint.geoPointForCurrentLocationInBackground {
+            (geoPoint: PFGeoPoint?, error: NSError?) -> Void in
+            if let point = geoPoint where error == nil {
+                println(point.latitude)
+                println(point.longitude)
+                let point = geoPoint
+                
+            }
+        }
+        
         let post = Post()
-        post.userlocation = userlocation
         post.title = title!
+//       post.userlocation = userlocation
+            post.userlocation = PFGeoPoint()
 
         post.enteredprice = enteredprice!
         post.productdescription = productdescription!

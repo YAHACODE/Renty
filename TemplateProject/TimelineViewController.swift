@@ -9,10 +9,21 @@
 import UIKit
 
 class TimelineViewController: UIViewController {
+    var manager: OneShotLocationManager?
 
     override func viewDidLoad() {
         super.viewDidLoad()
        // self.tabBarController?.delegate = self
+        manager = OneShotLocationManager()
+        manager!.fetchWithCompletion {location, error in
+            // fetch location or an error
+            if let loc = location {
+                println(location)
+            } else if let err = error {
+                println(err.localizedDescription)
+            }
+            self.manager = nil
+        }
 
 
         // Do any additional setup after loading the view.
