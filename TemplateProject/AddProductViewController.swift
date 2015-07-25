@@ -27,8 +27,6 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
     @NSManaged var imageFile3: PFFile?
 
     @IBOutlet weak var DescriptionTextField: UITextField!
- 
-
     
     @IBOutlet weak var PriceTextField: UITextField!
     
@@ -52,47 +50,49 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
     @IBAction func add(sender: UIButton) {
         
         //input data
-        var title = titleTextField?.text    
-        
-        var Description = DescriptionTextField?.text
+        var title = titleTextField?.text
+        var productdescription = DescriptionTextField?.text
         var enteredprice = PriceTextField?.text.toInt()
-        
-       
-    // create an PFFile parse object
-      //  var item: PFObject = PFObject (className: "item")
 
-    // convert image to NSDATA *3
-    // convert NSDATA to PFFile
-    // add PFFile to the parse object 
-    // parse.object["file1"]= file1
-    //  parse object save in background !
-     //spent 10 hours 
-    //upload image separately
-        
-//        let post = Post()
-//        post.image.value = image1
-//        post.uploadImage()
-//        
-//        let post2 = Post()
-//        post2.image.value = image2
-//        post2.uploadImage()
-//        
-//        let post3 = Post()
-//        post3.image.value = image3
-//        post3.uploadImage()
-      
         
        
         let post = Post()
         
         post.title = title!
-        
-        post.image1.value = image1
-        post.image2.value = image2
-        post.image3.value = image3
+        post.productdescription = productdescription!
+        post.image1.value = image1!
+        post.image2.value = image2!
+        post.image3.value = image3!
 
         
         post.uploadPost()
+       
+        
+        
+        // create an PFFile parse object
+        //  var item: PFObject = PFObject (className: "item")
+        
+        // convert image to NSDATA *3
+        // convert NSDATA to PFFile
+        // add PFFile to the parse object
+        // parse.object["file1"]= file1
+        //  parse object save in background !
+        //spent 10 hours
+        //upload image separately
+        
+        //        let post = Post()
+        //        post.image.value = image1
+        //        post.uploadImage()
+        //
+        //        let post2 = Post()
+        //        post2.image.value = image2
+        //        post2.uploadImage()
+        //
+        //        let post3 = Post()
+        //        post3.image.value = image3
+        //        post3.uploadImage()
+        
+        
         
     }
 
