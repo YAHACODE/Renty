@@ -23,6 +23,7 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
     @IBOutlet weak var titleTextField: UITextField!
     
     @NSManaged var imageFile: PFFile?
+
     @NSManaged var imageFile2: PFFile?
     @NSManaged var imageFile3: PFFile?
 
@@ -55,10 +56,12 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
         var enteredprice = PriceTextField?.text.toInt()
 
         println(enteredprice)
-       
+       var userlocation = PFGeoPoint(latitude:40.0, longitude:-30.0)
+
         let post = Post()
-        
+        post.userlocation = userlocation
         post.title = title!
+
         post.enteredprice = enteredprice!
         post.productdescription = productdescription!
         post.image1.value = image1!

@@ -17,9 +17,10 @@ class Post : PFObject, PFSubclassing {
     
    @NSManaged var title: NSString?
    @NSManaged var productdescription: NSString?
-   @NSManaged var enteredprice: NSNumber
+   @NSManaged var enteredprice: NSNumber?
 
-    
+   @NSManaged var userlocation: PFGeoPoint?
+
     
     @NSManaged var imageFile: PFFile?
     @NSManaged var imageFile2: PFFile?
@@ -63,6 +64,16 @@ class Post : PFObject, PFSubclassing {
     
     func uploadPost() {
         
+        PFGeoPoint.geoPointForCurrentLocationInBackground {
+            (geoPoint: PFGeoPoint?, error: NSError?) -> Void in
+            if error == nil {
+                // do something with the new geoPoint
+            }
+        }
+        
+        let location = PFGeoPoint?(userlocation!)
+        let Userlocation = PFGeoPoint?(location!)
+        
         let text = NSString?(title!)
         let Title = NSString?(text!)
         
@@ -70,7 +81,7 @@ class Post : PFObject, PFSubclassing {
         let Productdescription = NSString?(description!)
 
         
-        let price = NSNumber?(enteredprice)
+        let price = NSNumber?(enteredprice!)
         let Enteredprice = NSNumber?(price!)
 
         
@@ -85,6 +96,8 @@ class Post : PFObject, PFSubclassing {
         
         // any uploaded post should be associated with the current user
         user = PFUser.currentUser()
+       self.userlocation = Userlocation!
+
         self.title = Title
         self.enteredprice = Enteredprice!
         self.productdescription = Productdescription
