@@ -15,7 +15,7 @@ import Bond
 
 class Post : PFObject, PFSubclassing {
     
-    @NSManaged var title: NSString?
+   @NSManaged var title: NSString?
 
     @NSManaged var imageFile: PFFile?
     @NSManaged var imageFile2: PFFile?
@@ -56,6 +56,10 @@ class Post : PFObject, PFSubclassing {
 
     
     func uploadPost() {
+        
+        let text = NSString?(title!)
+        let Title = NSString?(text!)
+        
         let imageData = UIImageJPEGRepresentation(image1.value, 0.8)
         let imageData2 = UIImageJPEGRepresentation(image2.value, 0.8)
         let imageData3 = UIImageJPEGRepresentation(image3.value, 0.8)
@@ -67,6 +71,8 @@ class Post : PFObject, PFSubclassing {
         
         // any uploaded post should be associated with the current user
         user = PFUser.currentUser()
+        self.title = Title
+
         self.imageFile = imageFile
         self.imageFile2 = imageFile2
         self.imageFile3 = imageFile3

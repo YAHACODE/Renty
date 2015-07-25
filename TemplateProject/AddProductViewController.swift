@@ -52,7 +52,8 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
     @IBAction func add(sender: UIButton) {
         
         //input data
-        var title = titleTextField?.text
+        var title = titleTextField?.text    
+        
         var Description = DescriptionTextField?.text
         var enteredprice = PriceTextField?.text.toInt()
         
@@ -65,7 +66,7 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
     // add PFFile to the parse object 
     // parse.object["file1"]= file1
     //  parse object save in background !
-        
+     //spent 10 hours 
     //upload image separately
         
 //        let post = Post()
@@ -80,11 +81,15 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
 //        post3.image.value = image3
 //        post3.uploadImage()
       
+        
        
         let post = Post()
-        post.image1.value = image1!
-        post.image2.value = image2!
-        post.image3.value = image3!
+        
+        post.title = title!
+        
+        post.image1.value = image1
+        post.image2.value = image2
+        post.image3.value = image3
 
         
         post.uploadPost()
