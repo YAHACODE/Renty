@@ -52,7 +52,7 @@ class TimelineViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        // 1
+        /*/ 1
         let followingQuery = PFQuery(className: "Follow")
         followingQuery.whereKey("fromUser", equalTo:PFUser.currentUser()!)
         
@@ -71,8 +71,13 @@ class TimelineViewController: UIViewController {
         // 6
         query.orderByDescending("createdAt")
         
-        // 7
-        query.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
+        // 7*/
+
+        
+        
+        let postsQuery = Post.query()
+
+        postsQuery!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
             // 8
             self.posts = result as? [Post] ?? []
             // 9
