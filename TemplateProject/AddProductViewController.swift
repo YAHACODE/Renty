@@ -19,7 +19,8 @@ import Bond
 class AddProductViewController: UIViewController, UITextFieldDelegate  {
     
 
-    
+    @NSManaged var userlocation2: PFGeoPoint?
+
     @IBOutlet weak var titleTextField: UITextField!
     
     @NSManaged var imageFile: PFFile?
@@ -30,7 +31,7 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
     @IBOutlet weak var DescriptionTextField: UITextField!
     
     @IBOutlet weak var PriceTextField: UITextField!
-    
+
     
     @IBOutlet weak var capturedImage: UIImageView!
     @IBOutlet weak var capturedImage2: UIImageView!
@@ -49,38 +50,45 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
 
     
     @IBAction func add(sender: UIButton) {
-        
+        s
         //input data
         var title = titleTextField?.text
         var productdescription = DescriptionTextField?.text
         var enteredprice = PriceTextField?.text.toInt()
 
         println(enteredprice)
-       // var userlocation = PFGeoPoint(latitude:40.0, longitude:-30.0)
-
+        
+//        var userlocation = PFGeoPoint(latitude: point.latitude, longitude: point.longitude)
+       
         PFGeoPoint.geoPointForCurrentLocationInBackground {
-            (geoPoint: PFGeoPoint?, error: NSError?) -> Void in
-            if let point = geoPoint where error == nil {
-                println(point.latitude)
-                println(point.longitude)
-                let point = geoPoint
+            (userlocation: PFGeoPoint?, error: NSError?) -> Void in
+            if error == nil {
+                var geoPointLong = userlocation!.longitude
+                var geoPointLat = userlocation!.latitude
+                var currentLocation = PFGeoPoint(latitude: geoPointLat, longitude: geoPointLong)
+                
+                
+                let post = Post()
+                post.userlocation = currentLocation
+                
+                post.title = title!
+                post.enteredprice = enteredprice!
+                post.productdescription = productdescription!
+                post.image1.value = self.image1!
+                post.image2.value = self.image2!
+                post.image3.value = self.image3!
+                
+                
+                post.uploadPost()
+                
+                
                 
             }
         }
-        
-        let post = Post()
-        post.title = title!
-//       post.userlocation = userlocation
-            post.userlocation = PFGeoPoint()
 
-        post.enteredprice = enteredprice!
-        post.productdescription = productdescription!
-        post.image1.value = image1!
-        post.image2.value = image2!
-        post.image3.value = image3!
 
         
-        post.uploadPost()
+ 
        
         
         
@@ -114,6 +122,7 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
 
     
     override func viewDidLoad() {
+        
     
         super.viewDidLoad()
         capturedImage.image = image1

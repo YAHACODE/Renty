@@ -18,9 +18,9 @@ class TimelineViewController: UIViewController {
         manager!.fetchWithCompletion {location, error in
             // fetch location or an error
             if let loc = location {
-                println(location)
+                //println(location)
             } else if let err = error {
-                println(err.localizedDescription)
+               // println(err.localizedDescription)
             }
             self.manager = nil
         }

@@ -64,13 +64,13 @@ class Post : PFObject, PFSubclassing {
     
     func uploadPost() {
         
-        PFGeoPoint.geoPointForCurrentLocationInBackground {
-            (geoPoint: PFGeoPoint?, error: NSError?) -> Void in
-            if error == nil {
-                // do something with the new geoPoint
-            }
-        }
-        
+//        PFGeoPoint.geoPointForCurrentLocationInBackground {
+//            (geoPoint: PFGeoPoint?, error: NSError?) -> Void in
+//            if error == nil {
+//                // do something with the new geoPoint
+//            }
+//        }
+//        
         let location = PFGeoPoint?(userlocation!)
         let Userlocation = PFGeoPoint?(location!)
         
@@ -96,7 +96,7 @@ class Post : PFObject, PFSubclassing {
         
         // any uploaded post should be associated with the current user
         user = PFUser.currentUser()
-       self.userlocation = Userlocation!
+        self.userlocation = Userlocation!
 
         self.title = Title
         self.enteredprice = Enteredprice!
