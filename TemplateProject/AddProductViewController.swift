@@ -50,7 +50,7 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
 
     
     @IBAction func add(sender: UIButton) {
-        s
+        
         //input data
         var title = titleTextField?.text
         var productdescription = DescriptionTextField?.text
