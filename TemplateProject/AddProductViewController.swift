@@ -50,6 +50,7 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
 
     
     @IBAction func add(sender: UIButton) {
+          
         
         //input data
         var title = titleTextField?.text
@@ -77,8 +78,7 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
                 post.image1.value = self.image1!
                 post.image2.value = self.image2!
                 post.image3.value = self.image3!
-                
-                
+
                 post.uploadPost()
                 
                 

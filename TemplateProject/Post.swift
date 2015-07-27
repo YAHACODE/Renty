@@ -34,6 +34,8 @@ class Post : PFObject, PFSubclassing {
     var image1: Dynamic<UIImage?> = Dynamic(nil)
     var image2: Dynamic<UIImage?> = Dynamic(nil)
     var image3: Dynamic<UIImage?> = Dynamic(nil)
+    
+
 
     var photoUploadTask: UIBackgroundTaskIdentifier?
 
@@ -60,9 +62,49 @@ class Post : PFObject, PFSubclassing {
     
     //MARK: Actions
 
-  
+    func downloadImage() {
+        // if image is not downloaded yet, get it
+        // 1
+        if (image1.value == nil) {
+            // 2
+            imageFile?.getDataInBackgroundWithBlock { (data: NSData?, error: NSError?) -> Void in
+                if let data = data {
+                    let image1 = UIImage(data: data, scale:1.0)!
+                    // 3
+                    self.image1.value = image1
+                }
+            }
+        }
+        if (image2.value == nil) {
+            // 2
+            imageFile2?.getDataInBackgroundWithBlock { (data: NSData?, error: NSError?) -> Void in
+                if let data = data {
+                    let image2 = UIImage(data: data, scale:1.0)!
+                    // 3
+                    self.image2.value = image2
+                }
+            }
+        }
+        
+        if (image3.value == nil) {
+            // 2
+            imageFile3?.getDataInBackgroundWithBlock { (data: NSData?, error: NSError?) -> Void in
+                if let data = data {
+                    let image3 = UIImage(data: data, scale:1.0)!
+                    // 3
+                    self.image3.value = image3
+                }
+            }
+        }
+   
+    
+    
+    }
     
     func uploadPost() {
+        
+        
+        
         
 //        PFGeoPoint.geoPointForCurrentLocationInBackground {
 //            (geoPoint: PFGeoPoint?, error: NSError?) -> Void in
