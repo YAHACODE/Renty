@@ -14,21 +14,26 @@ class ParseHelper {
     
     // 2
     static func timelineRequestforCurrentUser(completionBlock: PFArrayResultBlock) {
-        let followingQuery = PFQuery(className: "Follow")
-        followingQuery.whereKey("fromUser", equalTo:PFUser.currentUser()!)
-        
-        let postsFromFollowedUsers = Post.query()
-        postsFromFollowedUsers!.whereKey("user", matchesKey: "toUser", inQuery: followingQuery)
-        
-        let postsFromThisUser = Post.query()
-        postsFromThisUser!.whereKey("user", equalTo: PFUser.currentUser()!)
-        
-        let query = PFQuery.orQueryWithSubqueries([postsFromFollowedUsers!, postsFromThisUser!])
-        query.includeKey("user")
-        query.orderByDescending("createdAt")
-        
+//        let followingQuery = PFQuery(className: "Follow")
+//        followingQuery.whereKey("fromUser", equalTo:PFUser.currentUser()!)
+//        
+//        let postsFromFollowedUsers = Post.query()
+//        postsFromFollowedUsers!.whereKey("user", matchesKey: "toUser", inQuery: followingQuery)
+//        
+//        let postsFromThisUser = Post.query()
+//        postsFromThisUser!.whereKey("user", equalTo: PFUser.currentUser()!)
+//        
+//        let query = PFQuery.orQueryWithSubqueries([postsFromFollowedUsers!, postsFromThisUser!])
+//        query.includeKey("user")
+//        query.orderByDescending("createdAt")
+//        query.findObjectsInBackgroundWithBlock(completionBlock)
+
         // 3
-        query.findObjectsInBackgroundWithBlock(completionBlock)
+    
+        let postsQuery = Post.query()
+                postsQuery!.includeKey("user")
+                postsQuery!.orderByDescending("createdAt")
+        postsQuery!.findObjectsInBackgroundWithBlock(completionBlock)
     }
     
 }
