@@ -17,7 +17,7 @@ class TimelineViewController: UIViewController {
     var manager: OneShotLocationManager?
     var posts: [Post] = []
 
-    @NSManaged var userlocation: PFGeoPoint?
+    var userlocation: PFGeoPoint?
 
     
     @IBOutlet weak var tableView: UITableView!
@@ -29,9 +29,8 @@ class TimelineViewController: UIViewController {
     
     override func viewDidLoad() {
        
+        self.getusercurrentlocation()
         
-        
-        println(getusercurrentlocation)
         super.viewDidLoad()
         
        // self.tabBarController?.delegate = self
@@ -133,14 +132,26 @@ class TimelineViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        // TODO: make a condition you have to check and see if we have a current user location or no if no show another viewcontroller
         
-        ParseHelper.timelineRequestforCurrentUser {
-            (result: [AnyObject]?, error: NSError?) -> Void in
-            self.posts = result as? [Post] ?? []
-            
-            self.tableView.reloadData()
+        
+        if let userlocation = self.userlocation {
+        
+            ParseHelper.timelineRequestforCurrentLocation(self.userlocation!) {
+                (result: [AnyObject]?, error: NSError?) -> Void in
+                self.posts = result as? [Post] ?? []
+                
+                self.tableView.reloadData()
+            }
+        
         }
-    }
+        else {
+        
+        println("no user location")
+        
+        }
+        
+           }
 
 }
 

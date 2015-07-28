@@ -21,7 +21,7 @@ class Post : PFObject, PFSubclassing {
    @NSManaged var enteredprice: NSNumber?
 
     
-   @NSManaged var userlocation: PFGeoPoint?
+   @NSManaged var postlocation: PFGeoPoint?
 
     
     @NSManaged var imageFile: PFFile?
@@ -115,7 +115,7 @@ class Post : PFObject, PFSubclassing {
 //            }
 //        }
 //        
-        let location = PFGeoPoint?(userlocation!)
+        let location = PFGeoPoint?(postlocation!)
         let Userlocation = PFGeoPoint?(location!)
         
         let text = NSString?(title)
@@ -141,7 +141,7 @@ class Post : PFObject, PFSubclassing {
         
         // any uploaded post should be associated with the current user
         user = PFUser.currentUser()
-        self.userlocation = Userlocation!
+        self.postlocation = Userlocation!
 
         self.title = Title!
         self.enteredprice = Enteredprice!

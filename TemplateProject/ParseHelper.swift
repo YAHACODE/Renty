@@ -17,7 +17,7 @@ class ParseHelper {
     // 2
     
     
-    static func timelineRequestforCurrentUser(completionBlock: PFArrayResultBlock) {
+    static func timelineRequestforCurrentLocation(location : PFGeoPoint,  completionBlock: PFArrayResultBlock) {
       
         
         
@@ -53,27 +53,27 @@ class ParseHelper {
 //        placesObjects = query.findObjects()
 //        
         
-////        // User's location
+//        // User's location
 //        let userGeoPoint = userlocation["location"] as PFGeoPoint
-//        
-//        // Create a query for places
-//        var query = PFQuery(className:"Post")
-//        // Interested in locations near user.
-//        query.whereKey("userlocation", nearGeoPoint:userGeoPoint)
-//        // Limit what could be a lot of points.
-//        query.limit = 10
-//        // Final list of objects
-////        placesObjects = query.findObjects()
+        
+        // Create a query for places
+        var query = PFQuery(className:"Post")
+        // Interested in locations near user.
+        query.whereKey("postlocation", nearGeoPoint:location, withinMiles: 10)
+        // Limit what could be a lot of points.
+        query.limit = 10
+        // Final list of objects
+//        placesObjects = query.findObjects()
      
         
-        
-        let postsQuery = Post.query()
-        
-                postsQuery!.includeKey("user")
-                postsQuery!.orderByDescending("createdAt")
-        
+//
+//        let postsQuery = Post.query()
+//        
+//                postsQuery!.includeKey("user")
+//                postsQuery!.orderByDescending("createdAt")
+//        
 
-        postsQuery!.findObjectsInBackgroundWithBlock(completionBlock)
+        query.findObjectsInBackgroundWithBlock(completionBlock)
     }
     
 }

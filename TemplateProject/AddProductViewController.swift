@@ -69,7 +69,7 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
                 
                 
                 let post = Post()
-                post.userlocation = userlocation
+                post.postlocation = userlocation
                 
                 post.title = title!
                 post.enteredprice = enteredprice!
