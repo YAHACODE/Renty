@@ -24,7 +24,6 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
     @IBOutlet weak var titleTextField: UITextField!
     
     @NSManaged var imageFile: PFFile?
-
     @NSManaged var imageFile2: PFFile?
     @NSManaged var imageFile3: PFFile?
 
@@ -64,13 +63,13 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
         PFGeoPoint.geoPointForCurrentLocationInBackground {
             (userlocation: PFGeoPoint?, error: NSError?) -> Void in
             if error == nil {
-                var geoPointLong = userlocation!.longitude
-                var geoPointLat = userlocation!.latitude
-                var currentLocation = PFGeoPoint(latitude: geoPointLat, longitude: geoPointLong)
+//                var geoPointLong = userlocation!.longitude
+//                var geoPointLat = userlocation!.latitude
+//                var currentLocation = PFGeoPoint(latitude: geoPointLat, longitude: geoPointLong)
                 
                 
                 let post = Post()
-                post.userlocation = currentLocation
+                post.userlocation = userlocation
                 
                 post.title = title!
                 post.enteredprice = enteredprice!

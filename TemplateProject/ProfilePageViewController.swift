@@ -10,9 +10,24 @@
 import UIKit
 import Parse
 import ConvenienceKit
+import AVFoundation
+import Parse
+import CoreImage
 
-class ProfilePageViewController: UIViewController {
+
+class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIPopoverControllerDelegate
+ {
+   
     
+    var users: [User] = []
+
+    @IBOutlet weak var btnClickMe: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
+    var picker:UIImagePickerController?=UIImagePickerController()
+    var popover:UIPopoverController?=nil
+    
+   // @NSManaged var Profilepicture : PFFile?
+
     
     @IBOutlet weak var tableview: UITableView!
     var posts: [Post] = []
@@ -20,6 +35,7 @@ class ProfilePageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        picker!.delegate=self
 
         // Do any additional setup after loading the view.
     }
@@ -30,44 +46,39 @@ class ProfilePageViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        /*/ 1
-        let followingQuery = PFQuery(className: "Follow")
-        followingQuery.whereKey("fromUser", equalTo:PFUser.currentUser()!)
+
+
+        let user = User()
         
-        // 2
-        let postsFromFollowedUsers = Post.query()
-        postsFromFollowedUsers!.whereKey("user", matchesKey: "toUser", inQuery: followingQuery)
+        let profileQuery = User.query()
+
+        profileQuery!.whereKey("user", equalTo: PFUser.currentUser()!)
+
+        profileQuery!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
+            // 8
+            self.users = result as? [User] ?? []
+          
+            for user in self.users {
+            
+            let data = user.Profilepicture?.getData()
+            // 3
+      
+            user.image = UIImage(data: data!, scale:1.0)
+            
+          self.imageView.image = user.image
+            
+        }
         
-        // 3
-        let postsFromThisUser = Post.query()
-        postsFromThisUser!.whereKey("user", equalTo: PFUser.currentUser()!)
+//            self.tableview.reloadData()
+        }
         
-        // 4
-        let query = PFQuery.orQueryWithSubqueries([postsFromFollowedUsers!, postsFromThisUser!])
-        // 5
-        query.includeKey("user")
-        // 6
-        query.orderByDescending("createdAt")
-        
-        // 7*/
-        
+      
         
         
         let postsQuery = Post.query()
-        
         
         postsQuery!.whereKey("user", equalTo: PFUser.currentUser()!)
 
@@ -81,7 +92,97 @@ class ProfilePageViewController: UIViewController {
         }
     }
     
+    @IBAction func btnImagePickerClicked(sender: AnyObject)
+    {
+        var alert:UIAlertController=UIAlertController(title: "Choose Image", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        
+        var cameraAction = UIAlertAction(title: "Camera", style: UIAlertActionStyle.Default)
+            {
+                UIAlertAction in
+                self.openCamera()
+                
+        }
+        var gallaryAction = UIAlertAction(title: "Gallary", style: UIAlertActionStyle.Default)
+            {
+                UIAlertAction in
+                self.openGallary()
+        }
+        var cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel)
+            {
+                UIAlertAction in
+                
+        }
+        
+        // Add the actions
+        picker?.delegate = self
+        alert.addAction(cameraAction)
+        alert.addAction(gallaryAction)
+        alert.addAction(cancelAction)
+        // Present the controller
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone
+        {
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+        else
+        {
+            popover=UIPopoverController(contentViewController: alert)
+            popover!.presentPopoverFromRect(btnClickMe.frame, inView: self.view, permittedArrowDirections: UIPopoverArrowDirection.Any, animated: true)
+        }
+    }
+    func openCamera()
+    {
+        if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera))
+        {
+            picker!.sourceType = UIImagePickerControllerSourceType.Camera
+            self .presentViewController(picker!, animated: true, completion: nil)
+        }
+        else
+        {
+            openGallary()
+        }
+    }
+    func openGallary()
+    {
+        picker!.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        if UIDevice.currentDevice().userInterfaceIdiom == .Phone
+        {
+            self.presentViewController(picker!, animated: true, completion: nil)
+        }
+        else
+        {
+            popover=UIPopoverController(contentViewController: picker!)
+            popover!.presentPopoverFromRect(btnClickMe.frame, inView: self.view, permittedArrowDirections: UIPopoverArrowDirection.Any, animated: true)
+        }
+    }
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject])
+    {
+        picker .dismissViewControllerAnimated(true, completion: nil)
+        imageView.image=info[UIImagePickerControllerOriginalImage] as? UIImage
+        ////yooo
+       
+        var profileimage:UIImage = imageView.image!
+        
+
+        
+        let Profilepicture = PFFile(data: UIImageJPEGRepresentation(profileimage, 0.8))
+        Profilepicture.save()
+
+        
+        let user = User()
+        user.Profilepicture = Profilepicture
+        user.user = PFUser.currentUser()
+        user.save()
+        user.image = profileimage
+        user.uploadImage()
+       
     
+        
+    }
+    func imagePickerControllerDidCancel(picker: UIImagePickerController)
+    {
+        println("picker cancel.")
+    }
+
     
 }
 

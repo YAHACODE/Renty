@@ -11,9 +11,17 @@ import Parse
 
 // 1
 class ParseHelper {
-    
+ 
+//    @NSManaged var userlocation: PFGeoPoint?
+
     // 2
+    
+    
     static func timelineRequestforCurrentUser(completionBlock: PFArrayResultBlock) {
+      
+        
+        
+        
 //        let followingQuery = PFQuery(className: "Follow")
 //        followingQuery.whereKey("fromUser", equalTo:PFUser.currentUser()!)
 //        
@@ -27,12 +35,44 @@ class ParseHelper {
 //        query.includeKey("user")
 //        query.orderByDescending("createdAt")
 //        query.findObjectsInBackgroundWithBlock(completionBlock)
-
-        // 3
+//
+//         3
     
+//        let userObject = []
+//
+//
+//        // User's location
+//        let userGeoPoint = Post()["userlocation"] as! PFGeoPoint
+//        // Create a query for places
+//        var query = PFQuery(className:"PlaceObject")
+//        // Interested in locations near user.
+//        query.whereKey("location", nearGeoPoint:userGeoPoint)
+//        // Limit what could be a lot of points.
+//        query.limit = 10
+//        // Final list of objects
+//        placesObjects = query.findObjects()
+//        
+        
+////        // User's location
+//        let userGeoPoint = userlocation["location"] as PFGeoPoint
+//        
+//        // Create a query for places
+//        var query = PFQuery(className:"Post")
+//        // Interested in locations near user.
+//        query.whereKey("userlocation", nearGeoPoint:userGeoPoint)
+//        // Limit what could be a lot of points.
+//        query.limit = 10
+//        // Final list of objects
+////        placesObjects = query.findObjects()
+     
+        
+        
         let postsQuery = Post.query()
+        
                 postsQuery!.includeKey("user")
                 postsQuery!.orderByDescending("createdAt")
+        
+
         postsQuery!.findObjectsInBackgroundWithBlock(completionBlock)
     }
     

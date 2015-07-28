@@ -17,6 +17,8 @@ class TimelineViewController: UIViewController {
     var manager: OneShotLocationManager?
     var posts: [Post] = []
 
+    @NSManaged var userlocation: PFGeoPoint?
+
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -27,7 +29,9 @@ class TimelineViewController: UIViewController {
     
     override func viewDidLoad() {
        
-
+        
+        
+        println(getusercurrentlocation)
         super.viewDidLoad()
         
        // self.tabBarController?.delegate = self
@@ -35,11 +39,11 @@ class TimelineViewController: UIViewController {
         manager!.fetchWithCompletion {location, error in
             // fetch location or an error
             if let loc = location {
+                
                 //println(location)
             } else if let err = error {
                // println(err.localizedDescription)
             }
-            self.manager = nil
         }
 
         
@@ -47,11 +51,33 @@ class TimelineViewController: UIViewController {
     }
     
     
+    
+    
+    func getusercurrentlocation() {
+        PFGeoPoint.geoPointForCurrentLocationInBackground {
+            (userlocation: PFGeoPoint?, error: NSError?) -> Void in
+            if error == nil {
+                //                var geoPointLong = userlocation!.longitude
+                //                var geoPointLat = userlocation!.latitude
+                //                var currentLocation = PFGeoPoint(latitude: geoPointLat, longitude: geoPointLong)
+                
+                self.userlocation = userlocation
+                
+                println(userlocation)
+                
+                
+            }
+        }
+        
+
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
 //    override func viewDidAppear(animated: Bool) {
 //        super.viewDidAppear(animated)
@@ -102,6 +128,9 @@ class TimelineViewController: UIViewController {
 //            self.tableView.reloadData()
 //        }
 //    }
+    
+    
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -121,7 +150,7 @@ extension TimelineViewController: UITableViewDataSource {
   
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // 1
-       return posts.count
+      return posts.count
 
         
     }

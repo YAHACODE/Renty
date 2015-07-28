@@ -334,9 +334,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="p2J-u2-a0z">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="p2J-u2-a0z">
                                 <rect key="frame" x="0.0" y="220" width="600" height="323"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="323" id="idG-rE-1hh"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" id="ihN-Kh-VBT">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -350,11 +353,29 @@
                                     <outlet property="dataSource" destination="Bld-x3-U9V" id="axY-iQ-FDs"/>
                                 </connections>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NfE-Jr-QoF">
+                                <rect key="frame" x="123" y="35" width="148" height="128"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pnB-BX-pvp">
+                                <rect key="frame" x="145" y="165" width="94" height="30"/>
+                                <state key="normal" title="profile picture">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnImagePickerClicked:" destination="Bld-x3-U9V" eventType="touchUpInside" id="2k6-vF-qMj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="h5E-ta-leB" firstAttribute="top" secondItem="p2J-u2-a0z" secondAttribute="bottom" constant="8" symbolic="YES" id="UIR-Nz-tGM"/>
+                            <constraint firstItem="p2J-u2-a0z" firstAttribute="leading" secondItem="6JV-Fi-KA2" secondAttribute="leading" id="bIK-Ns-Ma7"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item5" id="dbG-Lt-JKQ"/>
                     <connections>
+                        <outlet property="btnClickMe" destination="pnB-BX-pvp" id="ltE-tk-6kW"/>
+                        <outlet property="imageView" destination="NfE-Jr-QoF" id="R2k-0U-AO8"/>
                         <outlet property="tableview" destination="p2J-u2-a0z" id="f5k-lE-GXt"/>
                     </connections>
                 </viewController>
@@ -384,21 +405,28 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" tableViewCell="yq6-TI-Vod" id="AvP-a7-YRi">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P5P-VQ-bBE">
+                                                    <rect key="frame" x="247" y="37" width="94" height="112"/>
+                                                </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k5C-RT-QqM">
-                                                    <rect key="frame" x="68" y="37" width="114" height="112"/>
+                                                    <rect key="frame" x="116" y="37" width="114" height="112"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Gp-1u-Izy">
-                                                    <rect key="frame" x="68" y="157" width="114" height="107"/>
+                                                    <rect key="frame" x="130" y="157" width="211" height="107"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P5P-VQ-bBE">
-                                                    <rect key="frame" x="190" y="98" width="94" height="101"/>
-                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3TR-3T-NSu">
+                                                    <rect key="frame" x="52" y="171" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="postImageView1" destination="P5P-VQ-bBE" id="tn5-26-64h"/>
                                             <outlet property="postImageView2" destination="k5C-RT-QqM" id="wDQ-7g-Msb"/>
                                             <outlet property="postImageView3" destination="2Gp-1u-Izy" id="Cap-dW-TDe"/>
+                                            <outlet property="pricelabel" destination="3TR-3T-NSu" id="NNf-sV-XON"/>
                                             <segue destination="2v4-ic-vYX" kind="show" id="Jxe-PU-so9"/>
                                         </connections>
                                     </tableViewCell>

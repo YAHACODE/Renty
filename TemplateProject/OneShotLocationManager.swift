@@ -59,6 +59,7 @@ class OneShotLocationManager: NSObject, CLLocationManagerDelegate {
     }
     
     internal func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        println("locationupdated")
         if let location = locations[0] as? CLLocation {
             _didComplete(location, error: nil)
         } else {

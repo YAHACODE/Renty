@@ -16,12 +16,13 @@ class PostTableViewCell: UITableViewCell {
 
     
     
+    @IBOutlet weak var pricelabel: UILabel!
     @IBOutlet weak var postImageView1: UIImageView!
     @IBOutlet weak var postImageView2: UIImageView!
     @IBOutlet weak var postImageView3: UIImageView!
     
     weak var timeline: TimelineViewController?
-
+    var query = PFQuery(className: "Post")
     
     var post:Post? {
         didSet {
@@ -32,7 +33,7 @@ class PostTableViewCell: UITableViewCell {
                 post.image1 ->> postImageView1
                 post.image2 ->> postImageView2
                 post.image3 ->> postImageView3
-
+             
             }
         }
     }

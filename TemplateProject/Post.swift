@@ -15,10 +15,12 @@ import Bond
 
 class Post : PFObject, PFSubclassing {
     
-   @NSManaged var title: NSString?
+    @NSManaged var title: NSString
+
    @NSManaged var productdescription: NSString?
    @NSManaged var enteredprice: NSNumber?
 
+    
    @NSManaged var userlocation: PFGeoPoint?
 
     
@@ -116,7 +118,7 @@ class Post : PFObject, PFSubclassing {
         let location = PFGeoPoint?(userlocation!)
         let Userlocation = PFGeoPoint?(location!)
         
-        let text = NSString?(title!)
+        let text = NSString?(title)
         let Title = NSString?(text!)
         
         let description = NSString?(productdescription!)
@@ -126,6 +128,7 @@ class Post : PFObject, PFSubclassing {
         let price = NSNumber?(enteredprice!)
         let Enteredprice = NSNumber?(price!)
 
+        
         
         let imageData = UIImageJPEGRepresentation(image1.value, 0.8)
         let imageData2 = UIImageJPEGRepresentation(image2.value, 0.8)
@@ -140,7 +143,7 @@ class Post : PFObject, PFSubclassing {
         user = PFUser.currentUser()
         self.userlocation = Userlocation!
 
-        self.title = Title
+        self.title = Title!
         self.enteredprice = Enteredprice!
         self.productdescription = Productdescription
 
