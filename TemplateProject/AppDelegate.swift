@@ -34,7 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //    
 //  //  })
     
-    
+    dispatch_async(dispatch_get_main_queue(), { () ->  Void in
+
     var currentUser = PFUser.currentUser()
     if currentUser != nil {
         
@@ -57,7 +58,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = initialViewController
         self.window?.makeKeyAndVisible()
     }
-    
+    })
+
     // [Optional] Track statistics around application opens.
     PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
     
