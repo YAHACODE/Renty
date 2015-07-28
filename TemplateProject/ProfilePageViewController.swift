@@ -50,7 +50,9 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
         super.viewDidAppear(animated)
         
 
+    
 
+        
         let user = User()
         
         let profileQuery = User.query()
@@ -79,7 +81,9 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
         }
         
       
-        
+        dispatch_async(dispatch_get_main_queue(), { () ->  Void in
+            
+       
         
         let postsQuery = Post.query()
         
@@ -93,6 +97,7 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
             
             self.tableview.reloadData()
         }
+             })
     }
     
     @IBAction func btnImagePickerClicked(sender: AnyObject)
