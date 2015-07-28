@@ -55,7 +55,7 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
         
         let profileQuery = User.query()
 
-        profileQuery!.whereKey("user", equalTo: PFUser.currentUser()!)
+       profileQuery!.whereKey("user", equalTo: PFUser.currentUser()!)
 
         profileQuery!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
             // 8
@@ -80,7 +80,7 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
         
         let postsQuery = Post.query()
         
-        postsQuery!.whereKey("user", equalTo: PFUser.currentUser()!)
+      //  postsQuery!.whereKey("user", equalTo: PFUser.currentUser()!)
 
         
         postsQuery!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in

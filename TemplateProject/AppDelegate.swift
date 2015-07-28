@@ -18,21 +18,49 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     // Override point for customization after application launch.
     Parse.setApplicationId("WcGewesLXRGsyQMY2FBn4VWnjxgPSjgvbfvVXuwN", clientKey: "5SfDH4pLjIcEEoOFJVIwHztgSBQq3tdGGmsgAClD")
-    PFUser.logInWithUsername("test", password: "test")
+ 
+//  PFUser.logInWithUsername("test", password: "test")
+//
+//   // dispatch_async(dispatch_get_main_queue(), { () ->  Void in
+//
+//    if let user = PFUser.currentUser() {
+//        println("Log in successful")
+//    } else {
+//        println("No logged in user :(")
+//    }
+//    let acl = PFACL()
+//    acl.setPublicReadAccess(true)
+//    PFACL.setDefaultACL(acl, withAccessForCurrentUser: true)
+//    
+//  //  })
     
-   // dispatch_async(dispatch_get_main_queue(), { () ->  Void in
-
-    if let user = PFUser.currentUser() {
-        println("Log in successful")
-    } else {
-        println("No logged in user :(")
+    
+    var currentUser = PFUser.currentUser()
+    if currentUser != nil {
+        
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
+        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        var initialViewController = storyboard.instantiateViewControllerWithIdentifier("Main") as! UIViewController
+        
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
     }
-    let acl = PFACL()
-    acl.setPublicReadAccess(true)
-    PFACL.setDefaultACL(acl, withAccessForCurrentUser: true)
+    else {
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
+        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        var initialViewController = storyboard.instantiateViewControllerWithIdentifier("start") as! UIViewController
+        
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
+    }
     
-  //  })r
-
+    // [Optional] Track statistics around application opens.
+    PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
+    
 
     
     return true

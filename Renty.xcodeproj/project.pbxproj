@@ -19,6 +19,9 @@
 		089877001B65D54400B97C0A /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089876FF1B65D54400B97C0A /* PostTableViewCell.swift */; };
 		0898770E1B65F1F000B97C0A /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0898770D1B65F1F000B97C0A /* ParseHelper.swift */; };
 		0898771E1B67614C00B97C0A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0898771D1B67614C00B97C0A /* User.swift */; };
+		089877251B682B9000B97C0A /* loginpageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089877241B682B9000B97C0A /* loginpageViewController.swift */; };
+		089877271B682CB700B97C0A /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089877261B682CB700B97C0A /* SignupViewController.swift */; };
+		089877291B682FD700B97C0A /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089877281B682FD700B97C0A /* StartViewController.swift */; };
 		624262C01B4460CB00005CE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624262B21B4460CB00005CE3 /* AppDelegate.swift */; };
 		624262C11B4460CB00005CE3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 624262B31B4460CB00005CE3 /* LaunchScreen.xib */; };
 		624262C21B4460CB00005CE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 624262B51B4460CB00005CE3 /* Main.storyboard */; };
@@ -148,6 +151,9 @@
 		089876FF1B65D54400B97C0A /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		0898770D1B65F1F000B97C0A /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
 		0898771D1B67614C00B97C0A /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		089877241B682B9000B97C0A /* loginpageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginpageViewController.swift; sourceTree = "<group>"; };
+		089877261B682CB700B97C0A /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		089877281B682FD700B97C0A /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		624262B21B4460CB00005CE3 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		624262B41B4460CB00005CE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		624262B61B4460CB00005CE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -212,16 +218,19 @@
 			children = (
 				089876F71B636C9400B97C0A /* OneShotLocationManager.swift */,
 				624262B21B4460CB00005CE3 /* AppDelegate.swift */,
+				089877281B682FD700B97C0A /* StartViewController.swift */,
+				089877241B682B9000B97C0A /* loginpageViewController.swift */,
+				089877261B682CB700B97C0A /* SignupViewController.swift */,
 				624262B31B4460CB00005CE3 /* LaunchScreen.xib */,
 				624262B51B4460CB00005CE3 /* Main.storyboard */,
 				0898770D1B65F1F000B97C0A /* ParseHelper.swift */,
-				089876FF1B65D54400B97C0A /* PostTableViewCell.swift */,
 				624262B71B4460CB00005CE3 /* Helpers */,
 				624262BA1B4460CB00005CE3 /* Images.xcassets */,
 				624262BB1B4460CB00005CE3 /* Info.plist */,
 				624262BC1B4460CB00005CE3 /* TemplateProject-Bridging-Header.h */,
 				08502B951B5DBBAE00923308 /* ChatViewController.swift */,
 				08502B991B5DBBE300923308 /* SearchPageViewController.swift */,
+				089876FF1B65D54400B97C0A /* PostTableViewCell.swift */,
 				08502B931B5DBB5300923308 /* TimelineViewController.swift */,
 				089876B01B5F875700B97C0A /* CustomTabBarController.swift */,
 				0898771D1B67614C00B97C0A /* User.swift */,
@@ -462,14 +471,17 @@
 				089877001B65D54400B97C0A /* PostTableViewCell.swift in Sources */,
 				08502B941B5DBB5300923308 /* TimelineViewController.swift in Sources */,
 				089876BD1B60B96E00B97C0A /* AddProductViewController.swift in Sources */,
+				089877291B682FD700B97C0A /* StartViewController.swift in Sources */,
 				089876B11B5F875700B97C0A /* CustomTabBarController.swift in Sources */,
 				08502B9A1B5DBBE300923308 /* SearchPageViewController.swift in Sources */,
 				624262C41B4460CB00005CE3 /* ParseLoginHelper.swift in Sources */,
 				0898771E1B67614C00B97C0A /* User.swift in Sources */,
 				089876F81B636C9400B97C0A /* OneShotLocationManager.swift in Sources */,
 				0898770E1B65F1F000B97C0A /* ParseHelper.swift in Sources */,
+				089877271B682CB700B97C0A /* SignupViewController.swift in Sources */,
 				08502B961B5DBBAE00923308 /* ChatViewController.swift in Sources */,
 				624262C31B4460CB00005CE3 /* ErrorHandling.swift in Sources */,
+				089877251B682B9000B97C0A /* loginpageViewController.swift in Sources */,
 				086BEB381B5EAE880003A79B /* PhotoPickerController.swift in Sources */,
 				08502B9C1B5DBDD700923308 /* ProfilePageViewController.swift in Sources */,
 			);

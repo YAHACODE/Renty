@@ -17,7 +17,7 @@ class ParseHelper {
     // 2
     
     
-    static func timelineRequestforCurrentLocation(location : PFGeoPoint,  completionBlock: PFArrayResultBlock) {
+    static func timelineRequestforCurrentLocation(location : PFGeoPoint,completionBlock: PFArrayResultBlock) {
       
         
         
@@ -64,7 +64,7 @@ class ParseHelper {
         query.limit = 10
         // Final list of objects
 //        placesObjects = query.findObjects()
-     
+
         
 //
 //        let postsQuery = Post.query()
