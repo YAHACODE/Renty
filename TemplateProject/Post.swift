@@ -105,16 +105,7 @@ class Post : PFObject, PFSubclassing {
     
     func uploadPost() {
         
-        
-        
-        
-//        PFGeoPoint.geoPointForCurrentLocationInBackground {
-//            (geoPoint: PFGeoPoint?, error: NSError?) -> Void in
-//            if error == nil {
-//                // do something with the new geoPoint
-//            }
-//        }
-//        
+     
         let location = PFGeoPoint?(postlocation!)
         let Userlocation = PFGeoPoint?(location!)
         

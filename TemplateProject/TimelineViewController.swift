@@ -12,28 +12,26 @@ import ConvenienceKit
 import Bond
 
 
-class TimelineViewController: UIViewController {
+class TimelineViewController: UIViewController, TimelineComponentTarget {
     
-
+    let defaultRange = 0...4
+    let additionalRangeSize = 5
     
     var manager: OneShotLocationManager?
     var posts: [Post] = []
-
     var userlocation: PFGeoPoint?
 
     
     @IBOutlet weak var tableView: UITableView!
 
-//        var image1: Dynamic<UIImage?> = Dynamic(nil)
-//        var image2: Dynamic<UIImage?> = Dynamic(nil)
-//        var image3: Dynamic<UIImage?> = Dynamic(nil)
-//    
+    var timelineComponent: TimelineComponent<Post, TimelineViewController>!
+
     
     override func viewDidLoad() {
   
-
         self.getusercurrentlocation()
-        
+        timelineComponent = TimelineComponent(target: self)
+
         super.viewDidLoad()
         
        // self.tabBarController?.delegate = self
@@ -59,14 +57,10 @@ class TimelineViewController: UIViewController {
         PFGeoPoint.geoPointForCurrentLocationInBackground {
             (userlocation: PFGeoPoint?, error: NSError?) -> Void in
             if error == nil {
-                //                var geoPointLong = userlocation!.longitude
-                //                var geoPointLat = userlocation!.latitude
-                //                var currentLocation = PFGeoPoint(latitude: geoPointLat, longitude: geoPointLong)
                 
                 self.userlocation = userlocation
                 
                 println(userlocation)
-                
                 
             }
         }
@@ -78,64 +72,77 @@ class TimelineViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-
-    
-    
+  
     override func viewDidAppear(animated: Bool) {
-
         super.viewDidAppear(animated)
-        // TODO: make a condition you have to check and see if we have a current user location or no if no show another viewcontroller
-       
 
+        timelineComponent.loadInitialIfRequired()
+        
+        
+    }
+    
+    func loadInRange(range: Range<Int>, completionBlock: ([Post]?) -> Void) {
+        
         if let userlocation = self.userlocation {
-                ParseHelper.timelineRequestforCurrentLocation(self.userlocation!) {
-                (result: [AnyObject]?, error: NSError?) -> Void in
-                self.posts = result as? [Post] ?? []
-                    println("user location")
-
-                self.tableView.reloadData()
-
+            ParseHelper.timelineRequestforCurrentLocation(range, location: self.userlocation!) { (result: [AnyObject]?, error: NSError?) -> Void in
+               // self.posts = result as? [Post] ?? []
+                println("user have location")
+                
+                //self.tableView.reloadData()
+                let posts = result as? [Post] ?? []
+                // 3
+                completionBlock(posts)
+                
+                
             }
         }
         else {
-        
-        println("no user location")
-        
+            
+            println("no user location")
+            
         }
         
-           }
     }
+    
+    
 
-
+}
 
 
 
 
 extension TimelineViewController: UITableViewDataSource {
     
-
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // 1
-    return posts.count
-
-
+        return timelineComponent.content.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
         
-      let post = posts[indexPath.row]
+//      let post = posts[indexPath.row]
+        
+        let post = timelineComponent.content[indexPath.row]
+
 
         // 1
         post.downloadImage()
         // 2
         cell.post = post
-        cell.timeline = self
+     //   cell.timeline = self
 
         return cell
     }
+}
+
+
+extension TimelineViewController: UITableViewDelegate {
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        timelineComponent.targetWillDisplayEntry(indexPath.row)
+    }
+    
 }
 
 

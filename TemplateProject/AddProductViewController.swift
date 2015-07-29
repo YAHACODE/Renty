@@ -19,7 +19,6 @@ import Bond
 class AddProductViewController: UIViewController, UITextFieldDelegate  {
     
 
-    @NSManaged var userlocation2: PFGeoPoint?
 
     @IBOutlet weak var titleTextField: UITextField!
     
@@ -58,16 +57,10 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
 
         println(enteredprice)
         
-//        var userlocation = PFGeoPoint(latitude: point.latitude, longitude: point.longitude)
        
         PFGeoPoint.geoPointForCurrentLocationInBackground {
             (userlocation: PFGeoPoint?, error: NSError?) -> Void in
             if error == nil {
-//                var geoPointLong = userlocation!.longitude
-//                var geoPointLat = userlocation!.latitude
-//                var currentLocation = PFGeoPoint(latitude: geoPointLat, longitude: geoPointLong)
-                
-                
                 let post = Post()
                 post.postlocation = userlocation
                 
@@ -78,43 +71,11 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
                 post.image2.value = self.image2!
                 post.image3.value = self.image3!
 
-                post.uploadPost()
-                
-                
+                post.uploadPost()    
                 
             }
         }
 
-
-        
- 
-       
-        
-        
-        // create an PFFile parse object
-        //  var item: PFObject = PFObject (className: "item")
-        
-        // convert image to NSDATA *3
-        // convert NSDATA to PFFile
-        // add PFFile to the parse object
-        // parse.object["file1"]= file1
-        //  parse object save in background !
-        //spent 10 hours
-        //upload image separately
-        
-        //        let post = Post()
-        //        post.image.value = image1
-        //        post.uploadImage()
-        //
-        //        let post2 = Post()
-        //        post2.image.value = image2
-        //        post2.uploadImage()
-        //
-        //        let post3 = Post()
-        //        post3.image.value = image3
-        //        post3.uploadImage()
-        
-        
         
     }
 
