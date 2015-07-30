@@ -19,6 +19,7 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
  {
    
     
+    @IBOutlet  var Logoutbutton: UIButton!
     var users: [User] = []
 
     @IBOutlet weak var btnClickMe: UIButton!
@@ -28,6 +29,13 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
     
    // @NSManaged var Profilepicture : PFFile?
 
+    @IBAction func logOut(sender : AnyObject) {
+        
+        PFUser.logOut()
+        var currentUser = PFUser.currentUser()
+        currentUser = nil
+        
+    }
     
     @IBOutlet weak var tableview: UITableView!
     var posts: [Post] = []

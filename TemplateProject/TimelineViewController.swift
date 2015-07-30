@@ -36,15 +36,15 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
         
        // self.tabBarController?.delegate = self
         manager = OneShotLocationManager()
-        manager!.fetchWithCompletion {location, error in
-            // fetch location or an error
-            if let loc = location {
-                
-                //println(location)
-            } else if let err = error {
-               // println(err.localizedDescription)
-            }
-        }
+//        manager!.fetchWithCompletion {location, error in
+//            // fetch location or an error
+//            if let loc = location {
+//                
+//                //println(location)
+//            } else if let err = error {
+//               // println(err.localizedDescription)
+//            }
+//        }
 
         
         // Do any additional setup after loading the view.

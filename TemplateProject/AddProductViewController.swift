@@ -38,7 +38,6 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
     var image1:UIImage?
     var image2:UIImage?
     var image3:UIImage?
-    
 
     
     func textfieldreturn(textfield : UITextField) {

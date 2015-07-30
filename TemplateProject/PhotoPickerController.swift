@@ -39,11 +39,15 @@ class PhotoPickerController: UIViewController   {
     var counter : Int = 0
     //    var imageArray : NSMutableArray = []
     
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        previewView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width)
+//        previewView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width)
+        
+        previewView.frame = CGRectMake(0, 0, 800, 500)
+
 
 //        capturedImage.frame = CGRectMake(capturedImage.frame.origin.x, capturedImage2.frame.origin.y, capturedImage.frame.size.width, capturedImage.frame.size.height)
 //        capturedImage3.frame = CGRectMake(capturedImage3.frame.origin.x, capturedImage2.frame.origin.y, capturedImage3.frame.size.width, capturedImage3.frame.size.height)
@@ -73,10 +77,18 @@ class PhotoPickerController: UIViewController   {
                 
                 previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
                 previewLayer!.videoGravity = AVLayerVideoGravityResizeAspect
-                previewLayer!.connection?.videoOrientation = AVCaptureVideoOrientation.Portrait
+//                previewLayer!.connection?.videoOrientation = AVCaptureVideoOrientation.Portrait
+//                [self.videoController.view setFrame:CGRectMake (0, 0, self.view.frame.size.width, 460)];
+
                 
+                previewLayer!.connection?.videoOrientation = AVCaptureVideoOrientation.Portrait
+
+                previewLayer!.frame = CGRectMake(0, 0, 500, 500)
+
                 previewLayer?.frame = previewView.frame
+
                 previewView.layer.addSublayer(previewLayer)
+
                 
                 captureSession!.startRunning()
             }

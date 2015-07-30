@@ -12,6 +12,7 @@ import FBSDKCoreKit
 import Parse
 import ParseUI
 import Bond
+import ConvenienceKit
 
 class Post : PFObject, PFSubclassing {
     
@@ -37,6 +38,8 @@ class Post : PFObject, PFSubclassing {
     var image2: Dynamic<UIImage?> = Dynamic(nil)
     var image3: Dynamic<UIImage?> = Dynamic(nil)
     
+    static var imageCache: NSCacheSwift<String, UIImage>!
+
 
 
     var photoUploadTask: UIBackgroundTaskIdentifier?
@@ -50,7 +53,8 @@ class Post : PFObject, PFSubclassing {
         dispatch_once(&onceToken) {
             // inform Parse about this subclass
             self.registerSubclass()
-
+            // 1
+            Post.imageCache = NSCacheSwift<String, UIImage>()
         }
     }
     
@@ -65,6 +69,15 @@ class Post : PFObject, PFSubclassing {
     //MARK: Actions
 
     func downloadImage() {
+        
+        //1
+        
+        image1.value = Post.imageCache[self.imageFile!.name]
+        image2.value = Post.imageCache[self.imageFile2!.name]
+//
+      image3.value = Post.imageCache[self.imageFile3!.name]
+
+        
         // if image is not downloaded yet, get it
         // 1
         if (image1.value == nil) {
@@ -74,6 +87,8 @@ class Post : PFObject, PFSubclassing {
                     let image1 = UIImage(data: data, scale:1.0)!
                     // 3
                     self.image1.value = image1
+                    Post.imageCache[self.imageFile!.name] = image1
+
                 }
             }
         }
@@ -84,6 +99,8 @@ class Post : PFObject, PFSubclassing {
                     let image2 = UIImage(data: data, scale:1.0)!
                     // 3
                     self.image2.value = image2
+                    Post.imageCache[self.imageFile2!.name] = image2
+
                 }
             }
         }
@@ -95,6 +112,8 @@ class Post : PFObject, PFSubclassing {
                     let image3 = UIImage(data: data, scale:1.0)!
                     // 3
                     self.image3.value = image3
+                    Post.imageCache[self.imageFile3!.name] = image3
+
                 }
             }
         }

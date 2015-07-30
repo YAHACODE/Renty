@@ -20,7 +20,7 @@ class ParseHelper {
         // Create a query for places
         var query = PFQuery(className:"Post")
         // Interested in locations near user.
-        query.whereKey("postlocation", nearGeoPoint:location, withinMiles: 0)
+        query.whereKey("postlocation", nearGeoPoint:location, withinMiles: 50)
         // Limit what could be a lot of points.
         query.limit = 10
 
@@ -30,7 +30,7 @@ class ParseHelper {
 //                postsQuery!.includeKey("user")
 //                postsQuery!.orderByDescending("createdAt")
 //        
-
+//
         
         query.skip = range.startIndex
         // 3

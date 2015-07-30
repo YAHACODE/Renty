@@ -20,7 +20,6 @@ class User : PFObject, PFSubclassing {
     // this property will store the UIImage that is displayed
     var image: UIImage?
     //var image: UIImage?
-    
     var imageBond: Bond<UIImage?>!
     
     //MARK: Initialization

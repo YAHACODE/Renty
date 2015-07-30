@@ -22,6 +22,7 @@
 		089877251B682B9000B97C0A /* loginpageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089877241B682B9000B97C0A /* loginpageViewController.swift */; };
 		089877271B682CB700B97C0A /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089877261B682CB700B97C0A /* SignupViewController.swift */; };
 		089877291B682FD700B97C0A /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089877281B682FD700B97C0A /* StartViewController.swift */; };
+		089877331B698B0C00B97C0A /* ProductPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089877321B698B0C00B97C0A /* ProductPageViewController.swift */; };
 		624262C01B4460CB00005CE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624262B21B4460CB00005CE3 /* AppDelegate.swift */; };
 		624262C11B4460CB00005CE3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 624262B31B4460CB00005CE3 /* LaunchScreen.xib */; };
 		624262C21B4460CB00005CE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 624262B51B4460CB00005CE3 /* Main.storyboard */; };
@@ -154,6 +155,7 @@
 		089877241B682B9000B97C0A /* loginpageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = loginpageViewController.swift; sourceTree = "<group>"; };
 		089877261B682CB700B97C0A /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		089877281B682FD700B97C0A /* StartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		089877321B698B0C00B97C0A /* ProductPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductPageViewController.swift; sourceTree = "<group>"; };
 		624262B21B4460CB00005CE3 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		624262B41B4460CB00005CE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		624262B61B4460CB00005CE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				089877261B682CB700B97C0A /* SignupViewController.swift */,
 				624262B31B4460CB00005CE3 /* LaunchScreen.xib */,
 				624262B51B4460CB00005CE3 /* Main.storyboard */,
+				089877321B698B0C00B97C0A /* ProductPageViewController.swift */,
 				0898770D1B65F1F000B97C0A /* ParseHelper.swift */,
 				624262B71B4460CB00005CE3 /* Helpers */,
 				624262BA1B4460CB00005CE3 /* Images.xcassets */,
@@ -467,6 +470,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				624262C01B4460CB00005CE3 /* AppDelegate.swift in Sources */,
+				089877331B698B0C00B97C0A /* ProductPageViewController.swift in Sources */,
 				089876CD1B614A5400B97C0A /* Post.swift in Sources */,
 				089877001B65D54400B97C0A /* PostTableViewCell.swift in Sources */,
 				08502B941B5DBB5300923308 /* TimelineViewController.swift in Sources */,
