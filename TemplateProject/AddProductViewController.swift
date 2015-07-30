@@ -20,6 +20,7 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
     
 
 
+    @IBOutlet weak var missingField: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
     
     @NSManaged var imageFile: PFFile?
@@ -47,7 +48,7 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
 
     
     @IBAction func add(sender: UIButton) {
-          
+        
         
         //input data
         var title = titleTextField?.text
@@ -55,7 +56,7 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
         var enteredprice = PriceTextField?.text.toInt()
 
         println(enteredprice)
-        
+
        
         PFGeoPoint.geoPointForCurrentLocationInBackground {
             (userlocation: PFGeoPoint?, error: NSError?) -> Void in
@@ -73,6 +74,13 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
                 post.uploadPost()    
                 
             }
+            
+           else  {
+                self.missingField.hidden = false
+                println("shit ")
+            }
+       
+
         }
 
         
@@ -82,7 +90,11 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
     
     override func viewDidLoad() {
         
-    
+        
+
+        
+    missingField.hidden = true
+        
         super.viewDidLoad()
         capturedImage.image = image1
         capturedImage2.image = image2
