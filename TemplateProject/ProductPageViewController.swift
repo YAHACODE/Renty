@@ -23,6 +23,10 @@ class ProductPageViewController: UIViewController {
     
     @IBOutlet weak var priceLabel: UILabel!
     
+    var image1:UIImage?
+    var image2:UIImage?
+    var image3:UIImage?
+    
     var post: Post? {
         didSet {
             displayPost(self.post)
@@ -30,10 +34,14 @@ class ProductPageViewController: UIViewController {
     }
    
     func displayPost( post: Post?) {
-        if let post = post , titleTextlabel = titleTextlabel, descriptionLabel = descriptionLabel ,priceLabel = priceLabel , productimageview = productimageview  {
+        if let post = post , titleTextlabel = titleTextlabel, descriptionLabel = descriptionLabel ,priceLabel = priceLabel , productimageview = productimageview,productimageview2 = productimageview2  , productimageview3 = productimageview3    {
 
-         
-//           productimageview.image = post.image1
+          
+            
+            productimageview.image = post.image1.value
+            productimageview2.image = post.image2.value
+            productimageview3.image = post.image3.value
+
             titleTextlabel.text = post.title as String
             descriptionLabel.text = post.productdescription as? String
             
