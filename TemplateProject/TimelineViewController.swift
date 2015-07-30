@@ -21,7 +21,7 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
     var posts: [Post] = []
     var userlocation: PFGeoPoint?
 
-    
+    var selectedPost: Post?
     @IBOutlet weak var tableView: UITableView!
 
     var timelineComponent: TimelineComponent<Post, TimelineViewController>!
@@ -50,6 +50,17 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
         // Do any additional setup after loading the view.
     }
     
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "ShowExistingPost" {
+    let postViewControler = segue.destinationViewController as! ProductPageViewController
+        
+        postViewControler.post = selectedPost
+ 
+    }
+    
+    }
     
     
     
@@ -89,9 +100,9 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
                 println("user have location")
                 
                 //self.tableView.reloadData()
-                let posts = result as? [Post] ?? []
+                self.posts = result as? [Post] ?? []
                 // 3
-                completionBlock(posts)
+                completionBlock(self.posts)
                 
                 
             }
@@ -104,8 +115,7 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
         
     }
     
-    
-
+   
 }
 
 
@@ -124,7 +134,6 @@ extension TimelineViewController: UITableViewDataSource {
         
         let post = timelineComponent.content[indexPath.row]
 
-
         // 1
         post.downloadImage()
         // 2
@@ -137,6 +146,14 @@ extension TimelineViewController: UITableViewDataSource {
 
 
 extension TimelineViewController: UITableViewDelegate {
+    
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        selectedPost = posts[indexPath.row] //1
+        self.performSegueWithIdentifier("ShowExistingPost", sender: self) //2
+        println(selectedPost)
+    }
+
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
