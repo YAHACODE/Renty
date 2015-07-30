@@ -74,7 +74,7 @@ class Post : PFObject, PFSubclassing {
         
         image1.value = Post.imageCache[self.imageFile!.name]
         image2.value = Post.imageCache[self.imageFile2!.name]
-//
+
       image3.value = Post.imageCache[self.imageFile3!.name]
 
         

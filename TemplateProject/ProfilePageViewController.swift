@@ -17,7 +17,11 @@ import CoreImage
 
 class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIPopoverControllerDelegate
  {
-   
+    var usernamename : String!
+    
+    var currentUser = PFUser.currentUser()
+
+    @IBOutlet weak var username: UILabel!
     
     @IBOutlet  var Logoutbutton: UIButton!
     var users: [User] = []
@@ -44,6 +48,11 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
     override func viewDidLoad() {
         super.viewDidLoad()
         picker!.delegate=self
+        
+        
+        usernamename = currentUser?.username
+
+        username.text = ("\(usernamename)")
 
         // Do any additional setup after loading the view.
     }
