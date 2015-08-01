@@ -99,9 +99,9 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
             ParseHelper.timelineRequestforCurrentLocation(range, location: self.userlocation!) { (result: [AnyObject]?, error: NSError?) -> Void in
                // self.posts = result as? [Post] ?? []
                 println("user have location")
-                // let posts = result as? [Post] ?? []
+              //let posts = result as? [Post] ?? []
                 //self.tableView.reloadData()
-                self.posts = result as? [Post] ?? []
+             self.posts = result as? [Post] ?? []
                 // 3
                 completionBlock(self.posts)
                 
@@ -126,14 +126,21 @@ extension TimelineViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return timelineComponent.content.count
     }
+//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return Int(posts.count ?? 0)
+//    }
+//
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
         
         
-        let post = timelineComponent.content[indexPath.row]
+        //let row = indexPath.row
+     let post = self.timelineComponent.content[indexPath.row]
+      //  let post = posts[row] as Post
+
         // 1
-        post.downloadImage()
+      post.downloadImage()
         // 2
         cell.post = post
      //   cell.timeline = self
@@ -147,9 +154,9 @@ extension TimelineViewController: UITableViewDelegate {
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-       
+       selectedPost =  self.timelineComponent.content[indexPath.row]
 
-      selectedPost = posts[indexPath.row] //1
+     //   selectedPost = posts[indexPath.row] //1
         self.performSegueWithIdentifier("ShowExistingPost", sender: self) //2
         println(selectedPost)
     }
@@ -157,11 +164,11 @@ extension TimelineViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
-//    
-//    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-//        
-//        timelineComponent.targetWillDisplayEntry(indexPath.row)
-//    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        timelineComponent.targetWillDisplayEntry(indexPath.row)
+    }
     
 }
 

@@ -22,7 +22,7 @@ class ParseHelper {
         // Interested in locations near user.
         query.whereKey("postlocation", nearGeoPoint:location, withinMiles: 50)
         // Limit what could be a lot of points.
-       query.limit = 10
+    //    query.limit = 50
 
 
 //        let postsQuery = Post.query()
@@ -33,7 +33,7 @@ class ParseHelper {
         
         query.skip = range.startIndex
         // 3
-       // query.limit = range.endIndex - range.startIndex
+       query.limit = range.endIndex - range.startIndex
         
         
         query.findObjectsInBackgroundWithBlock(completionBlock)
