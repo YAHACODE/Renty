@@ -72,10 +72,9 @@ class Post : PFObject, PFSubclassing {
         
         //1
         
-        image1.value = Post.imageCache[self.imageFile!.name]
-        image2.value = Post.imageCache[self.imageFile2!.name]
-
-      image3.value = Post.imageCache[self.imageFile3!.name]
+//        image1.value = Post.imageCache[self.imageFile!.name]
+//        image2.value = Post.imageCache[self.imageFile2!.name]
+//        image3.value = Post.imageCache[self.imageFile3!.name]
 
         
         // if image is not downloaded yet, get it

@@ -90,7 +90,6 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
     
     override func viewDidLoad() {
         
-        
 
         
     missingField.hidden = true

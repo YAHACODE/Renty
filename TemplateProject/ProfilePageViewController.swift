@@ -20,11 +20,13 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
     var usernamename : String!
     
     var currentUser = PFUser.currentUser()
+    var selectedPost: Post?
 
     @IBOutlet weak var username: UILabel!
     
     @IBOutlet  var Logoutbutton: UIButton!
     var users: [User] = []
+    var timelineComponent: TimelineComponent<Post, TimelineViewController>!
 
     @IBOutlet weak var btnClickMe: UIButton!
     @IBOutlet weak var imageView: UIImageView!
@@ -207,7 +209,17 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
     {
         println("picker cancel.")
     }
-
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowExistingPost" {
+            let postViewControler = segue.destinationViewController as! ProductPageViewController
+            
+            postViewControler.post = selectedPost
+            
+        }
+        
+    }
     
 }
 
@@ -228,5 +240,34 @@ extension ProfilePageViewController: UITableViewDataSource {
         
         return cell
     }
+    
+}
+
+
+
+extension ProfilePageViewController: UITableViewDelegate {
+    
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        
+        selectedPost = posts[indexPath.row] //1
+        self.performSegueWithIdentifier("ShowExistingPost", sender: self) //2
+        println(selectedPost)
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+  
+    
+//    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+//        
+//        timelineComponent.targetWillDisplayEntry(indexPath.row)
+//    }
+    
+   
+  
+  
     
 }

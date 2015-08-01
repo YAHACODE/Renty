@@ -20,7 +20,7 @@ class ProductPageViewController: UIViewController {
     @IBOutlet weak var titleTextlabel: UILabel!
     
     @IBOutlet weak var descriptionLabel: UILabel!
-    
+
     @IBOutlet weak var priceLabel: UILabel!
     
     var image1:UIImage?
@@ -35,8 +35,7 @@ class ProductPageViewController: UIViewController {
    
     func displayPost( post: Post?) {
         if let post = post , titleTextlabel = titleTextlabel, descriptionLabel = descriptionLabel ,priceLabel = priceLabel , productimageview = productimageview,productimageview2 = productimageview2  , productimageview3 = productimageview3    {
-
-          
+      
             
             productimageview.image = post.image1.value
             productimageview2.image = post.image2.value
@@ -44,11 +43,9 @@ class ProductPageViewController: UIViewController {
 
             titleTextlabel.text = post.title as String
             descriptionLabel.text = post.productdescription as? String
-            
-            
-//            if count(post.title)==0 && count(post.content)==0 { //1
-//                titleTextField.becomeFirstResponder()
-//            }
+       
+            // priceLabel.text = post.enteredprice
+
         }
     }
 

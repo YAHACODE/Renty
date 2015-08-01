@@ -18,7 +18,9 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
     let additionalRangeSize = 5
     
     var manager: OneShotLocationManager?
+    
     var posts: [Post] = []
+    
     var userlocation: PFGeoPoint?
 
     var selectedPost: Post?
@@ -36,15 +38,15 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
         
        // self.tabBarController?.delegate = self
         manager = OneShotLocationManager()
-//        manager!.fetchWithCompletion {location, error in
-//            // fetch location or an error
-//            if let loc = location {
-//                
-//                //println(location)
-//            } else if let err = error {
-//               // println(err.localizedDescription)
-//            }
-//        }
+        manager!.fetchWithCompletion {location, error in
+            // fetch location or an error
+            if let loc = location {
+                
+                //println(location)
+            } else if let err = error {
+               // println(err.localizedDescription)
+            }
+        }
 
         
         // Do any additional setup after loading the view.
@@ -88,8 +90,7 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
         super.viewDidAppear(animated)
 
         timelineComponent.loadInitialIfRequired()
-        
-        
+            
     }
     
     func loadInRange(range: Range<Int>, completionBlock: ([Post]?) -> Void) {
@@ -98,12 +99,11 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
             ParseHelper.timelineRequestforCurrentLocation(range, location: self.userlocation!) { (result: [AnyObject]?, error: NSError?) -> Void in
                // self.posts = result as? [Post] ?? []
                 println("user have location")
-                
+                // let posts = result as? [Post] ?? []
                 //self.tableView.reloadData()
                 self.posts = result as? [Post] ?? []
                 // 3
                 completionBlock(self.posts)
-                
                 
             }
         }
@@ -130,10 +130,8 @@ extension TimelineViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
         
-//      let post = posts[indexPath.row]
         
         let post = timelineComponent.content[indexPath.row]
-
         // 1
         post.downloadImage()
         // 2
@@ -149,16 +147,21 @@ extension TimelineViewController: UITableViewDelegate {
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        selectedPost = posts[indexPath.row] //1
+       
+
+      selectedPost = posts[indexPath.row] //1
         self.performSegueWithIdentifier("ShowExistingPost", sender: self) //2
         println(selectedPost)
     }
 
-    
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        
-        timelineComponent.targetWillDisplayEntry(indexPath.row)
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
     }
+//    
+//    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+//        
+//        timelineComponent.targetWillDisplayEntry(indexPath.row)
+//    }
     
 }
 
