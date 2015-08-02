@@ -44,7 +44,14 @@ class ProductPageViewController: UIViewController {
             titleTextlabel.text = post.title as String
             descriptionLabel.text = post.productdescription as? String
        
-            // priceLabel.text = post.enteredprice
+        var stringg:NSNumber  = post.enteredprice!
+            
+           // let x:NSNumber = 6.0
+            let s:String = String(format:"%d", stringg.doubleValue)
+            
+            println(s)
+            
+        priceLabel.text = s
 
         }
     }

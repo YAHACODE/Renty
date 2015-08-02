@@ -253,7 +253,7 @@ extension ProfilePageViewController: UITableViewDelegate {
         
         selectedPost = posts[indexPath.row] //1
         self.performSegueWithIdentifier("ShowExistingPost", sender: self) //2
-        println(selectedPost)
+       // println(selectedPost)
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

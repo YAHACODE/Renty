@@ -143,7 +143,7 @@ extension TimelineViewController: UITableViewDataSource {
       post.downloadImage()
         // 2
         cell.post = post
-     //   cell.timeline = self
+      // cell.timeline = self
 
         return cell
     }
