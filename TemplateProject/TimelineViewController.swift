@@ -20,6 +20,8 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
     var manager: OneShotLocationManager?
     
     var posts: [Post] = []
+    var users: [User] = []
+
     
     var userlocation: PFGeoPoint?
 
@@ -88,6 +90,11 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
   
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
+        
+        super.viewDidAppear(animated)
+        
+
 
         timelineComponent.loadInitialIfRequired()
             

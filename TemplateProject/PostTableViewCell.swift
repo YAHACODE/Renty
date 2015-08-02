@@ -20,7 +20,7 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var postImageView1: UIImageView!
 //    @IBOutlet weak var postImageView2: UIImageView!
     
-    @IBOutlet weak var profileimageview: UIImageView!
+   // @IBOutlet weak var profileimageview: UIImageView!
     weak var timeline: TimelineViewController?
     var query = PFQuery(className: "Post")
     
@@ -49,6 +49,11 @@ class PostTableViewCell: UITableViewCell {
                 
                   titleTextlabel.text = post.title as String
  
+                var stringg:NSNumber  = post.enteredprice!
+                let price:String = String(format:"%i", stringg.integerValue)
+                pricelabel.text = price + "$"
+                
+                
                 //   post.image2 ->> postImageView2
                // post.pricelabel.text = theAlarmLabel
                 

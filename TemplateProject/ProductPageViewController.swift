@@ -35,7 +35,6 @@ class ProductPageViewController: UIViewController {
    
     func displayPost( post: Post?) {
         if let post = post , titleTextlabel = titleTextlabel, descriptionLabel = descriptionLabel ,priceLabel = priceLabel , productimageview = productimageview,productimageview2 = productimageview2  , productimageview3 = productimageview3    {
-      
             
             productimageview.image = post.image1.value
             productimageview2.image = post.image2.value
@@ -44,14 +43,9 @@ class ProductPageViewController: UIViewController {
             titleTextlabel.text = post.title as String
             descriptionLabel.text = post.productdescription as? String
        
-        var stringg:NSNumber  = post.enteredprice!
-            
-           // let x:NSNumber = 6.0
-            let s:String = String(format:"%i", stringg.integerValue)
-            
-            println(s)
-            
-        priceLabel.text = s
+            var stringg:NSNumber  = post.enteredprice!
+            let price:String = String(format:"%i", stringg.integerValue)
+            priceLabel.text = price
 
         }
     }

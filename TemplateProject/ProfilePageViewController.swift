@@ -69,8 +69,6 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
         super.viewDidAppear(animated)
         
 
-    
-
         
         let user = User()
         

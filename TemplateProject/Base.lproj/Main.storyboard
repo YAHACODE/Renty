@@ -477,28 +477,19 @@
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xq7-ik-bSI">
-                                                                    <rect key="frame" x="8" y="14" width="84" height="84"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" secondItem="Xq7-ik-bSI" secondAttribute="height" multiplier="1:1" id="uQ8-hu-eOT"/>
-                                                                    </constraints>
-                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b0O-qS-MCC">
+                                                                    <rect key="frame" x="29" y="108" width="42" height="21"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="EFj-Xi-3t5" secondAttribute="bottom" constant="21" id="2ya-jf-T30"/>
                                                                 <constraint firstAttribute="centerX" secondItem="EFj-Xi-3t5" secondAttribute="centerX" id="B1G-aY-s9h"/>
-                                                                <constraint firstItem="Xq7-ik-bSI" firstAttribute="top" secondItem="NRY-UD-pE3" secondAttribute="top" constant="14" id="DVH-FX-yIp"/>
-                                                                <constraint firstItem="Xq7-ik-bSI" firstAttribute="leading" secondItem="NRY-UD-pE3" secondAttribute="leading" constant="8" id="b5B-DG-Wt8"/>
-                                                                <constraint firstAttribute="trailing" secondItem="Xq7-ik-bSI" secondAttribute="trailing" constant="8" id="gXM-79-qg4"/>
-                                                                <constraint firstAttribute="centerX" secondItem="Xq7-ik-bSI" secondAttribute="centerX" id="pha-VH-OuF"/>
                                                                 <constraint firstAttribute="width" constant="100" id="pmF-KN-Lp6"/>
                                                             </constraints>
-                                                            <variation key="default">
-                                                                <mask key="constraints">
-                                                                    <exclude reference="pha-VH-OuF"/>
-                                                                </mask>
-                                                            </variation>
                                                         </view>
                                                         <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="96c-xF-wrb">
                                                             <rect key="frame" x="100" y="0.0" width="466" height="179"/>
@@ -537,6 +528,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="postImageView1" destination="ZKe-we-Jea" id="X7U-we-8On"/>
+                                            <outlet property="pricelabel" destination="b0O-qS-MCC" id="EtZ-iU-fRx"/>
                                             <outlet property="titleTextlabel" destination="EFj-Xi-3t5" id="DhK-M0-goc"/>
                                         </connections>
                                     </tableViewCell>
@@ -1016,8 +1008,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="QxO-IR-mwb"/>
         <segue reference="HFC-VU-pPi"/>
-        <segue reference="1dK-1L-tiz"/>
         <segue reference="3ip-T8-EvI"/>
         <segue reference="bp0-Mg-JxF"/>
+        <segue reference="RwK-Cl-k8T"/>
     </inferredMetricsTieBreakers>
 </document>
