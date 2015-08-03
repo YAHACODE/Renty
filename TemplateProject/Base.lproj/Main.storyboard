@@ -105,7 +105,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a6V-wP-goq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1124" y="475"/>
+            <point key="canvasLocation" x="1150" y="495"/>
         </scene>
         <!--PhotoPickerController-->
         <scene sceneID="hOe-qT-Lfl">
@@ -234,7 +234,9 @@
                             <constraint firstItem="blf-8d-U5K" firstAttribute="leading" secondItem="CGd-ec-nE2" secondAttribute="leading" id="xeQ-rr-0Pj"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" enabled="NO" title="Item3" id="Lp8-vh-a7H"/>
+                    <tabBarItem key="tabBarItem" title="Item4" id="Lp8-vh-a7H"/>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="capturedImage" destination="aVq-r5-bCz" id="uUu-TR-PMh"/>
                         <outlet property="capturedImage2" destination="58T-H4-XwU" id="nNk-28-LQS"/>
@@ -247,7 +249,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b0i-i7-nBp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1130" y="1182"/>
+            <point key="canvasLocation" x="1130" y="1294"/>
         </scene>
         <!--Tags Page View Controller-->
         <scene sceneID="gdh-O9-Ex8">
@@ -267,7 +269,7 @@
                                     <navigationItem title="Title" id="TLs-20-uhw">
                                         <barButtonItem key="leftBarButtonItem" title="back" id="mfl-qx-yvQ">
                                             <connections>
-                                                <segue destination="95G-Vf-zHM" kind="show" identifier="" id="x6v-bD-oMs"/>
+                                                <segue destination="95G-Vf-zHM" kind="show" id="seC-Ki-dSu"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -366,7 +368,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SNu-fn-LIz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1928" y="508"/>
+            <point key="canvasLocation" x="2036" y="475"/>
         </scene>
         <!--Add Product View Controller-->
         <scene sceneID="Kld-Xe-QCT">
@@ -446,7 +448,7 @@
                                 </state>
                                 <connections>
                                     <action selector="close:" destination="2Y0-gn-kh0" eventType="touchUpInside" id="2ej-FV-A4t"/>
-                                    <segue destination="2Y0-gn-kh0" kind="show" id="HFC-VU-pPi"/>
+                                    <segue destination="2Y0-gn-kh0" kind="show" identifier="" id="HFC-VU-pPi"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ykX-oI-jrc">
@@ -484,7 +486,7 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="evU-iG-3Eh">
-                                <rect key="frame" x="-80" y="430" width="600" height="162"/>
+                                <rect key="frame" x="-30" y="430" width="600" height="162"/>
                                 <connections>
                                     <outlet property="delegate" destination="Jno-OQ-3P9" id="Sre-Os-3Wd"/>
                                 </connections>
@@ -516,7 +518,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cwv-iJ-0Tb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1952" y="1182"/>
+            <point key="canvasLocation" x="2408" y="1166"/>
         </scene>
         <!--ChatViewController-->
         <scene sceneID="hNE-Eq-pkO">
@@ -1205,19 +1207,18 @@
                         <segue destination="95G-Vf-zHM" kind="relationship" relationship="viewControllers" id="MIl-uu-gw3"/>
                         <segue destination="yvM-ry-tbW" kind="relationship" relationship="viewControllers" id="no5-Kf-qSZ"/>
                         <segue destination="Bld-x3-U9V" kind="relationship" relationship="viewControllers" id="0XR-Fg-Az7"/>
-                        <segue destination="2Y0-gn-kh0" kind="relationship" relationship="viewControllers" id="bxD-4Z-Swr"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9EM-tI-gRk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-278" y="2061"/>
+            <point key="canvasLocation" x="-302" y="2069"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="zAk-Kn-FQZ"/>
-        <segue reference="bxD-4Z-Swr"/>
-        <segue reference="MIl-uu-gw3"/>
+        <segue reference="seC-Ki-dSu"/>
         <segue reference="vox-gb-7yW"/>
+        <segue reference="QxO-IR-mwb"/>
+        <segue reference="HFC-VU-pPi"/>
         <segue reference="3ip-T8-EvI"/>
         <segue reference="bp0-Mg-JxF"/>
     </inferredMetricsTieBreakers>

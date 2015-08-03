@@ -22,7 +22,7 @@ class TagsPageViewController: UIViewController {
 //    products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "Collectibles and Art", "Sporting Goods","Automobile", "other stuff"]
     
 
-    
+ 
     
     @IBOutlet weak var tableView: UITableView!
     

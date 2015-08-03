@@ -29,7 +29,7 @@ class PhotoPickerController: UIViewController   {
     @IBAction func close(sender: AnyObject) {
         
         self.performSegueWithIdentifier("close", sender: self)
-
+        
     }
     var captureSession: AVCaptureSession?
     var stillImageOutput: AVCaptureStillImageOutput?
@@ -38,15 +38,14 @@ class PhotoPickerController: UIViewController   {
     
     var counter : Int = 0
     //    var imageArray : NSMutableArray = []
-    
- 
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
 //        previewView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width)
         
-        previewView.frame = CGRectMake(0, 0, 800, 500)
+     //   previewView.frame = CGRectMake(0, 0, 800, 500)
 
 
 //        capturedImage.frame = CGRectMake(capturedImage.frame.origin.x, capturedImage2.frame.origin.y, capturedImage.frame.size.width, capturedImage.frame.size.height)

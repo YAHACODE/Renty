@@ -14,11 +14,11 @@ import Bond
 
 class TimelineViewController: UIViewController, TimelineComponentTarget {
     
-   //TODO : BUGS NEED TO GET FIXED : post duplicate sometime , post location update in parse when i change my location , item 3 bug, search bar help, camerapicker
+   // TODO: BUGS NEED TO GET FIXED : post duplicate sometime , post location update in parse when i change my location , search bar help, camerapicker
     
     
-    let defaultRange = 0...4
-    let additionalRangeSize = 5
+    let defaultRange = 0...10
+    let additionalRangeSize = 10
     
     var manager: OneShotLocationManager?
     
@@ -94,10 +94,6 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
   
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
-        
-        super.viewDidAppear(animated)
-        
 
 
         timelineComponent.loadInitialIfRequired()
@@ -137,11 +133,9 @@ extension TimelineViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return timelineComponent.content.count
-    }
-//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return Int(posts.count ?? 0)
-//    }
-//
+    }
+
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
