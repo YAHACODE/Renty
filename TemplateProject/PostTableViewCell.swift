@@ -52,6 +52,7 @@ class PostTableViewCell: UITableViewCell {
                   titleTextlabel.text = post.title as String
  
                 var stringg:NSNumber  = post.enteredprice!
+              
                 let price:String = String(format:"%i", stringg.integerValue)
                 pricelabel.text = price + "$"
                 

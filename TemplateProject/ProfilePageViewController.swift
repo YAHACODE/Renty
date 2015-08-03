@@ -232,10 +232,16 @@ extension ProfilePageViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // 2
-        let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! UITableViewCell
         
-        cell.textLabel!.text = "Post"
+        let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
         
+        
+        let post = posts[indexPath.row]
+        
+        // cell.textLabel!.text = "Post"
+        post.downloadImage()
+        // 2
+        cell.post = post
         return cell
     }
     

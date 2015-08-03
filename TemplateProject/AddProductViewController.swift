@@ -109,12 +109,7 @@ var products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "C
                 post.uploadPost()    
                 
             }
-            
-           else  {
-                self.missingField.hidden = false
-                println("shit ")
-            }
-       
+   
 
         }
 
