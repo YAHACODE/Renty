@@ -22,6 +22,8 @@ class PostTableViewCell: UITableViewCell {
     
    // @IBOutlet weak var profileimageview: UIImageView!
     weak var timeline: TimelineViewController?
+     var tagline: TagsPageViewController?
+    
     var query = PFQuery(className: "Post")
     
     var post:Post? {
