@@ -8,7 +8,11 @@
 
 import UIKit
 import Parse
-class TagsPageViewController: UIViewController {
+import ConvenienceKit
+
+
+
+class TagsPageViewController: UIViewController,  TimelineComponentTarget  {
 
     var posts: [Post] = []
     var selectedPost: Post?
@@ -21,12 +25,17 @@ class TagsPageViewController: UIViewController {
     
 //    products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "Collectibles and Art", "Sporting Goods","Automobile", "other stuff"]
     
+    let defaultRange = 0...4
+    let additionalRangeSize = 5
+    var timelineComponent: TimelineComponent<Post, TagsPageViewController>!
 
- 
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
+        
+        timelineComponent = TimelineComponent(target: self)
+
         getusercurrentlocation()
         super.viewDidLoad()
         manager = OneShotLocationManager()
@@ -63,35 +72,44 @@ class TagsPageViewController: UIViewController {
         }
     }
 
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        if let userlocation = self.userlocation {
+    func loadInRange(range: Range<Int>, completionBlock: ([Post]?) -> Void) {
         // 1
-       let query = Post.query()
-       
+        if let userlocation = self.userlocation {
+            // 1
+            let query = Post.query()
+            
             println(userlocation)
-        query!.includeKey("user")
-        query!.whereKey("tag", equalTo: selectedTag)
-        query!.whereKey("postlocation", nearGeoPoint:userlocation, withinMiles: 50)
-
-        // 6
-      //  query!.orderByDescending("createdAt")
-        
-
-        // 7
-        query!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
-            // 8
-            self.posts = result as? [Post] ?? []
-            // 9
-            self.tableView.reloadData()
-        }
+            query!.includeKey("user")
+            query!.whereKey("tag", equalTo: selectedTag)
+            query!.whereKey("postlocation", nearGeoPoint:userlocation, withinMiles: 50)
+            
+            // 6
+            //  query!.orderByDescending("createdAt")
+            
+            
+            // 7
+            query!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
+                // 8
+                self.posts = result as? [Post] ?? []
+                // 9
+                self.tableView.reloadData()
+            }
         }
         else {
             
             println("no user location")
             
         }
+        
+    }
+    
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        timelineComponent.loadInitialIfRequired()
+
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -116,9 +134,13 @@ class TagsPageViewController: UIViewController {
 
 extension TagsPageViewController: UITableViewDataSource {
     
+//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // 1
+//        return posts.count
+//    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // 1
-        return posts.count
+        return timelineComponent.content.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -126,7 +148,8 @@ extension TagsPageViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCellWithIdentifier("PostCellTags") as! PostTableViewCell
         
 
-        let post = posts[indexPath.row]
+        //let post = posts[indexPath.row]
+        let post = timelineComponent.content[indexPath.row]
 
        // cell.textLabel!.text = "Post"
         post.downloadImage()
@@ -139,6 +162,11 @@ extension TagsPageViewController: UITableViewDataSource {
 
 extension TagsPageViewController: UITableViewDelegate {
     
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        timelineComponent.targetWillDisplayEntry(indexPath.row)
+    }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
