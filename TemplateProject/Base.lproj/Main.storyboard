@@ -27,7 +27,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="pLt-4I-ae9" kind="show" id="Mhc-Qs-KJv"/>
+                                            <segue destination="pLt-4I-ae9" kind="show" identifier="ToTagsSegue" id="Mhc-Qs-KJv"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbe-lw-J3z">
@@ -74,11 +74,35 @@
                                     </button>
                                 </subviews>
                             </scrollView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="gTW-cp-RDt">
+                                <rect key="frame" x="16" y="20" width="568" height="580"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TagCell" id="62D-51-xLg">
+                                        <rect key="frame" x="0.0" y="0.0" width="568" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="62D-51-xLg" id="GUW-e9-cue">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="95G-Vf-zHM" id="Yfa-gg-QVX"/>
+                                    <outlet property="delegate" destination="95G-Vf-zHM" id="bpN-pi-bPk"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="gTW-cp-RDt" secondAttribute="trailing" id="9Ml-Ps-PWA"/>
+                            <constraint firstItem="PwF-vf-xHy" firstAttribute="top" secondItem="gTW-cp-RDt" secondAttribute="bottom" id="Gta-HO-oQm"/>
+                            <constraint firstItem="gTW-cp-RDt" firstAttribute="top" secondItem="ana-DI-LtZ" secondAttribute="bottom" id="VIa-En-64c"/>
+                            <constraint firstItem="gTW-cp-RDt" firstAttribute="leading" secondItem="j4p-Br-Ivr" secondAttribute="leadingMargin" id="X9X-WR-Pev"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="BOx-Vi-Nf8"/>
                     <connections>
+                        <outlet property="tagsTableView" destination="gTW-cp-RDt" id="ceD-hT-PCE"/>
                         <segue destination="pLt-4I-ae9" kind="show" id="J18-AV-BaK"/>
                     </connections>
                 </viewController>
@@ -1194,7 +1218,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="vox-gb-7yW"/>
-        <segue reference="J18-AV-BaK"/>
+        <segue reference="Mhc-Qs-KJv"/>
         <segue reference="x6v-bD-oMs"/>
         <segue reference="QxO-IR-mwb"/>
         <segue reference="HFC-VU-pPi"/>

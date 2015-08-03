@@ -13,45 +13,19 @@ class TagsPageViewController: UIViewController {
     var posts: [Post] = []
     var selectedPost: Post?
 
-    var tagvalue: String = ""
+    var selectedTag:String = "Sporting Goods"
     
     
+//    products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "Collectibles and Art", "Sporting Goods","Automobile", "other stuff"]
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 
@@ -78,7 +52,7 @@ class TagsPageViewController: UIViewController {
        let query = Post.query()
        
         query!.includeKey("user")
-        query!.whereKey("tag", equalTo: "/(tagvalue)")
+        query!.whereKey("tag", equalTo: selectedTag)
 
         // 6
       //  query!.orderByDescending("createdAt")
