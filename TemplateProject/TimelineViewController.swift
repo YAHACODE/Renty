@@ -14,6 +14,9 @@ import Bond
 
 class TimelineViewController: UIViewController, TimelineComponentTarget {
     
+   //TODO : BUGS NEED TO GET FIXED : post duplicate sometime , post location update in parse when i change my location , item 3 bug, search bar help, camerapicker
+    
+    
     let defaultRange = 0...4
     let additionalRangeSize = 5
     
