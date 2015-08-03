@@ -7,14 +7,17 @@
 //
 
 import UIKit
-
+import Parse
 class TagsPageViewController: UIViewController {
 
     var posts: [Post] = []
     var selectedPost: Post?
+   
+    var userlocation: PFGeoPoint?
 
     var selectedTag:String = "Sporting Goods"
-    
+    var manager: OneShotLocationManager?
+
     
 //    products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "Collectibles and Art", "Sporting Goods","Automobile", "other stuff"]
     
@@ -24,8 +27,20 @@ class TagsPageViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
+        getusercurrentlocation()
         super.viewDidLoad()
-        
+        manager = OneShotLocationManager()
+        manager!.fetchWithCompletion {location, error in
+            // fetch location or an error
+            if let loc = location {
+                
+                
+                //println(location)
+            } else if let err = error {
+                // println(err.localizedDescription)
+            }
+        }
+
         // Do any additional setup after loading the view.
     }
 
@@ -34,25 +49,31 @@ class TagsPageViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func getusercurrentlocation() {
+        PFGeoPoint.geoPointForCurrentLocationInBackground {
+            (userlocation: PFGeoPoint?, error: NSError?) -> Void in
+            if error == nil {
+                
+                self.userlocation = userlocation
+                
+                println(userlocation)
+                
+            }
+        }
     }
-    */
+
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
+        if let userlocation = self.userlocation {
         // 1
        let query = Post.query()
        
+            println(userlocation)
         query!.includeKey("user")
         query!.whereKey("tag", equalTo: selectedTag)
+        query!.whereKey("postlocation", nearGeoPoint:userlocation, withinMiles: 50)
 
         // 6
       //  query!.orderByDescending("createdAt")
@@ -64,6 +85,12 @@ class TagsPageViewController: UIViewController {
             self.posts = result as? [Post] ?? []
             // 9
             self.tableView.reloadData()
+        }
+        }
+        else {
+            
+            println("no user location")
+            
         }
     }
     
@@ -77,8 +104,15 @@ class TagsPageViewController: UIViewController {
         
     }
     
+  
+    
+    
+    
+    
 
 }
+
+
 
 extension TagsPageViewController: UITableViewDataSource {
     

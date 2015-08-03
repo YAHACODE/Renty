@@ -22,13 +22,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reN-2Z-C87">
-                                        <rect key="frame" x="67" y="162" width="54" height="30"/>
+                                        <rect key="frame" x="67" y="150" width="90" height="42"/>
                                         <state key="normal" title="Fashion">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="pLt-4I-ae9" kind="show" identifier="ToTagsSegue" id="Mhc-Qs-KJv"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbe-lw-J3z">
                                         <rect key="frame" x="67" y="185" width="115" height="30"/>
@@ -103,7 +100,7 @@
                     <tabBarItem key="tabBarItem" title="Item 2" id="BOx-Vi-Nf8"/>
                     <connections>
                         <outlet property="tagsTableView" destination="gTW-cp-RDt" id="ceD-hT-PCE"/>
-                        <segue destination="pLt-4I-ae9" kind="show" id="J18-AV-BaK"/>
+                        <segue destination="pLt-4I-ae9" kind="show" identifier="ToTagsSegue" id="fVm-8z-TES"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a6V-wP-goq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -369,7 +366,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SNu-fn-LIz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2482" y="656"/>
+            <point key="canvasLocation" x="2024" y="484"/>
         </scene>
         <!--Add Product View Controller-->
         <scene sceneID="Kld-Xe-QCT">
@@ -1218,7 +1215,6 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="vox-gb-7yW"/>
-        <segue reference="Mhc-Qs-KJv"/>
         <segue reference="x6v-bD-oMs"/>
         <segue reference="QxO-IR-mwb"/>
         <segue reference="HFC-VU-pPi"/>
