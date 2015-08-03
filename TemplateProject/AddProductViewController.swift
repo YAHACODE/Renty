@@ -16,9 +16,9 @@ import Bond
 
 
 
-class AddProductViewController: UIViewController, UITextFieldDelegate  {
+class AddProductViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate  {
     
-
+var products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "Collectibles and Art", "Sporting Goods", "Sporting Goods", "Automobile", "other stuff"]
 
     @IBOutlet weak var missingField: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
@@ -40,6 +40,36 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
     var image2:UIImage?
     var image3:UIImage?
 
+    var itemselected : String = ""
+    
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int{
+    
+    return 1
+        
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
+        
+     
+        return products.count
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String!{
+        
+
+        return products[row]
+    }
+   
+     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
+        
+        var itemselected = products[row]
+        
+        self.itemselected = itemselected
+        
+        
+    }
+    
     
     func textfieldreturn(textfield : UITextField) {
         textfield.delegate = self
@@ -54,6 +84,10 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
         var title = titleTextField?.text
         var productdescription = DescriptionTextField?.text
         var enteredprice = PriceTextField?.text.toInt()
+        var tag = self.itemselected
+
+        
+        println(tag)
 
         println(enteredprice)
 
@@ -62,8 +96,9 @@ class AddProductViewController: UIViewController, UITextFieldDelegate  {
             (userlocation: PFGeoPoint?, error: NSError?) -> Void in
             if error == nil {
                 let post = Post()
+               
                 post.postlocation = userlocation
-                
+                post.tag = tag
                 post.title = title!
                 post.enteredprice = enteredprice!
                 post.productdescription = productdescription!

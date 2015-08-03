@@ -13,9 +13,9 @@ import Parse
 class ParseHelper {
  
  
-    
+
     static func timelineRequestforCurrentLocation(range: Range<Int>,location : PFGeoPoint,completionBlock: PFArrayResultBlock) {
-        
+
         
         // Create a query for places
         var query = PFQuery(className:"Post")
@@ -37,6 +37,12 @@ class ParseHelper {
         
         
         query.findObjectsInBackgroundWithBlock(completionBlock)
-    }
-    
+        
+        
+        
+  
+            //            self.tableview.reloadData()
+        }
+        
+
 }

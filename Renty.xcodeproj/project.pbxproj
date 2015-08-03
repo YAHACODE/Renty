@@ -218,6 +218,10 @@
 		624262B11B4460CB00005CE3 /* TemplateProject */ = {
 			isa = PBXGroup;
 			children = (
+				624262B71B4460CB00005CE3 /* Helpers */,
+				624262BA1B4460CB00005CE3 /* Images.xcassets */,
+				624262BB1B4460CB00005CE3 /* Info.plist */,
+				624262BC1B4460CB00005CE3 /* TemplateProject-Bridging-Header.h */,
 				089876F71B636C9400B97C0A /* OneShotLocationManager.swift */,
 				624262B21B4460CB00005CE3 /* AppDelegate.swift */,
 				089877281B682FD700B97C0A /* StartViewController.swift */,
@@ -227,20 +231,16 @@
 				624262B31B4460CB00005CE3 /* LaunchScreen.xib */,
 				624262B51B4460CB00005CE3 /* Main.storyboard */,
 				089877321B698B0C00B97C0A /* ProductPageViewController.swift */,
-				0898770D1B65F1F000B97C0A /* ParseHelper.swift */,
-				624262B71B4460CB00005CE3 /* Helpers */,
-				624262BA1B4460CB00005CE3 /* Images.xcassets */,
-				624262BB1B4460CB00005CE3 /* Info.plist */,
-				624262BC1B4460CB00005CE3 /* TemplateProject-Bridging-Header.h */,
 				08502B951B5DBBAE00923308 /* ChatViewController.swift */,
 				08502B991B5DBBE300923308 /* SearchPageViewController.swift */,
-				089876FF1B65D54400B97C0A /* PostTableViewCell.swift */,
-				0898771D1B67614C00B97C0A /* User.swift */,
 				08502B931B5DBB5300923308 /* TimelineViewController.swift */,
 				08502B9B1B5DBDD700923308 /* ProfilePageViewController.swift */,
 				086BEB371B5EAE880003A79B /* PhotoPickerController.swift */,
 				089876BC1B60B96E00B97C0A /* AddProductViewController.swift */,
 				089876CC1B614A5300B97C0A /* Post.swift */,
+				0898771D1B67614C00B97C0A /* User.swift */,
+				089876FF1B65D54400B97C0A /* PostTableViewCell.swift */,
+				0898770D1B65F1F000B97C0A /* ParseHelper.swift */,
 				624262BE1B4460CB00005CE3 /* ViewControllers */,
 			);
 			path = TemplateProject;

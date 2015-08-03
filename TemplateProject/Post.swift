@@ -16,11 +16,13 @@ import ConvenienceKit
 
 class Post : PFObject, PFSubclassing {
     
-    @NSManaged var title: NSString
+   @NSManaged var title: NSString
 
    @NSManaged var productdescription: NSString?
-   @NSManaged var enteredprice: NSNumber?
+  
+   @NSManaged var tag: NSString?
 
+   @NSManaged var enteredprice: NSNumber?
     
    @NSManaged var postlocation: PFGeoPoint?
 
@@ -133,6 +135,9 @@ class Post : PFObject, PFSubclassing {
         let description = NSString?(productdescription!)
         let Productdescription = NSString?(description!)
 
+        let tags = NSString?(tag!)
+        let itemtag = NSString?(tags!)
+        
         
         let price = NSNumber?(enteredprice!)
         let Enteredprice = NSNumber?(price!)
@@ -159,7 +164,7 @@ class Post : PFObject, PFSubclassing {
         self.imageFile = imageFile
         self.imageFile2 = imageFile2
         self.imageFile3 = imageFile3
-
+        self.tag = itemtag
         
         photoUploadTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { () -> Void in
             UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)

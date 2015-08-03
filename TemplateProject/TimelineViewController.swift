@@ -30,6 +30,7 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
 
     var timelineComponent: TimelineComponent<Post, TimelineViewController>!
 
+    @IBOutlet weak var profileimageview: UIImageView!
     
     override func viewDidLoad() {
   
@@ -109,9 +110,10 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
               //let posts = result as? [Post] ?? []
                 //self.tableView.reloadData()
              self.posts = result as? [Post] ?? []
+                
                 // 3
                 completionBlock(self.posts)
-                
+
             }
         }
         else {
