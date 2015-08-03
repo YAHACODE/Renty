@@ -18,7 +18,7 @@ import Bond
 
 class AddProductViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate  {
     
-var products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "Collectibles and Art", "Sporting Goods", "Sporting Goods", "Automobile", "other stuff"]
+var products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "Collectibles and Art", "Sporting Goods","Automobile", "other stuff"]
 
     @IBOutlet weak var missingField: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
