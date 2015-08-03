@@ -11,7 +11,42 @@ import UIKit
 class TagsPageViewController: UIViewController {
 
     var posts: [Post] = []
+    var selectedPost: Post?
 
+    var tagvalue: String = ""
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -43,7 +78,7 @@ class TagsPageViewController: UIViewController {
        let query = Post.query()
        
         query!.includeKey("user")
-        query!.whereKey("tag", equalTo: "Sporting Goods")
+        query!.whereKey("tag", equalTo: "/(tagvalue)")
 
         // 6
       //  query!.orderByDescending("createdAt")
@@ -57,6 +92,17 @@ class TagsPageViewController: UIViewController {
             self.tableView.reloadData()
         }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowExistingPostTag" {
+            let postViewControler = segue.destinationViewController as! ProductPageViewController
+            
+            postViewControler.post = selectedPost
+            
+        }
+        
+    }
+    
 
 }
 
@@ -80,5 +126,32 @@ extension TagsPageViewController: UITableViewDataSource {
         cell.post = post
         return cell
     }
+    
+}
+
+extension TagsPageViewController: UITableViewDelegate {
+    
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        
+        selectedPost = posts[indexPath.row] //1
+        self.performSegueWithIdentifier("ShowExistingPostTag", sender: self) //2
+        // println(selectedPost)
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    
+    //    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+    //
+    //        timelineComponent.targetWillDisplayEntry(indexPath.row)
+    //    }
+    
+    
+    
+    
     
 }

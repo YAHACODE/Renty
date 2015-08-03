@@ -246,29 +246,29 @@
                                     <navigationItem title="Title" id="TLs-20-uhw">
                                         <barButtonItem key="leftBarButtonItem" title="back" id="mfl-qx-yvQ">
                                             <connections>
-                                                <segue destination="95G-Vf-zHM" kind="show" id="x6v-bD-oMs"/>
+                                                <segue destination="95G-Vf-zHM" kind="show" identifier="" id="x6v-bD-oMs"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cg6-hD-5Nx">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cg6-hD-5Nx">
                                 <rect key="frame" x="0.0" y="57" width="600" height="543"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCellTags" rowHeight="200" id="SXV-wn-2nS" customClass="PostTableViewCell" customModule="Renty" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCellTags" rowHeight="215" id="SXV-wn-2nS" customClass="PostTableViewCell" customModule="Renty" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="200" width="600" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" tableViewCell="SXV-wn-2nS" id="NOM-dt-uT8">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n8L-9d-NRo">
+                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n8L-9d-NRo">
                                                     <rect key="frame" x="17" y="10" width="566" height="179"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IUq-LD-h34">
+                                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IUq-LD-h34">
                                                             <rect key="frame" x="0.0" y="0.0" width="100" height="179"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9XC-GV-ywp">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9XC-GV-ywp">
                                                                     <rect key="frame" x="29" y="137" width="42" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -288,10 +288,10 @@
                                                                 <constraint firstAttribute="width" constant="100" id="bAp-pT-Ztz"/>
                                                             </constraints>
                                                         </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jk3-zv-zJK">
+                                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jk3-zv-zJK">
                                                             <rect key="frame" x="100" y="0.0" width="466" height="179"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hEO-gg-K47">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hEO-gg-K47">
                                                                     <rect key="frame" x="0.0" y="0.0" width="466" height="179"/>
                                                                 </imageView>
                                                             </subviews>
@@ -340,11 +340,12 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="cg6-hD-5Nx" id="dYB-cJ-bOW"/>
+                        <segue destination="2v4-ic-vYX" kind="show" identifier="ShowExistingPostTag" id="vox-gb-7yW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SNu-fn-LIz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1952" y="484"/>
+            <point key="canvasLocation" x="2482" y="656"/>
         </scene>
         <!--Add Product View Controller-->
         <scene sceneID="Kld-Xe-QCT">
@@ -1192,12 +1193,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="RwK-Cl-k8T"/>
+        <segue reference="vox-gb-7yW"/>
+        <segue reference="J18-AV-BaK"/>
+        <segue reference="x6v-bD-oMs"/>
         <segue reference="QxO-IR-mwb"/>
         <segue reference="HFC-VU-pPi"/>
         <segue reference="3ip-T8-EvI"/>
         <segue reference="bp0-Mg-JxF"/>
-        <segue reference="Mhc-Qs-KJv"/>
-        <segue reference="x6v-bD-oMs"/>
     </inferredMetricsTieBreakers>
 </document>
