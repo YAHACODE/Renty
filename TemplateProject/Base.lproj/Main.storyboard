@@ -105,7 +105,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a6V-wP-goq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1143" y="519"/>
+            <point key="canvasLocation" x="1047" y="979"/>
         </scene>
         <!--PhotoPickerController-->
         <scene sceneID="hOe-qT-Lfl">
@@ -249,7 +249,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b0i-i7-nBp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1130" y="1294"/>
+            <point key="canvasLocation" x="1143" y="2046"/>
         </scene>
         <!--Tags Page View Controller-->
         <scene sceneID="gdh-O9-Ex8">
@@ -368,7 +368,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SNu-fn-LIz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1928" y="479"/>
+            <point key="canvasLocation" x="1808" y="979"/>
         </scene>
         <!--Add Product View Controller-->
         <scene sceneID="Kld-Xe-QCT">
@@ -518,7 +518,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cwv-iJ-0Tb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1928" y="1281"/>
+            <point key="canvasLocation" x="1968" y="2053"/>
         </scene>
         <!--ChatViewController-->
         <scene sceneID="hNE-Eq-pkO">
@@ -537,7 +537,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z04-8Z-VL2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1124" y="2022"/>
+            <point key="canvasLocation" x="1016" y="2978"/>
         </scene>
         <!--ProfilePageViewController-->
         <scene sceneID="e8b-8t-n8z">
@@ -716,7 +716,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EG8-BZ-saW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1130" y="2750"/>
+            <point key="canvasLocation" x="-302" y="3546"/>
         </scene>
         <!--TimelineViewController-->
         <scene sceneID="2lm-P9-siu">
@@ -830,7 +830,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mRe-bc-2Hl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1124" y="-186"/>
+            <point key="canvasLocation" x="-846" y="774"/>
         </scene>
         <!--Product Page View Controller-->
         <scene sceneID="gui-Hq-CK5">
@@ -1003,7 +1003,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="puw-a1-7Vh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1928" y="-176"/>
+            <point key="canvasLocation" x="24" y="774"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="807-Ba-yaL">
@@ -1282,8 +1282,8 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="HFC-VU-pPi"/>
-        <segue reference="eqh-O5-12b"/>
-        <segue reference="vox-gb-7yW"/>
+        <segue reference="eUZ-iw-nMv"/>
+        <segue reference="RwK-Cl-k8T"/>
         <segue reference="3ip-T8-EvI"/>
         <segue reference="bp0-Mg-JxF"/>
     </inferredMetricsTieBreakers>
