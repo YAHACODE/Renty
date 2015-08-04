@@ -105,7 +105,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a6V-wP-goq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1150" y="495"/>
+            <point key="canvasLocation" x="1143" y="519"/>
         </scene>
         <!--PhotoPickerController-->
         <scene sceneID="hOe-qT-Lfl">
@@ -269,7 +269,7 @@
                                     <navigationItem title="Title" id="TLs-20-uhw">
                                         <barButtonItem key="leftBarButtonItem" title="back" id="mfl-qx-yvQ">
                                             <connections>
-                                                <segue destination="95G-Vf-zHM" kind="show" id="seC-Ki-dSu"/>
+                                                <segue destination="XxP-Pn-TaD" kind="show" id="eqh-O5-12b"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1282,10 +1282,9 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="HFC-VU-pPi"/>
-        <segue reference="QxO-IR-mwb"/>
-        <segue reference="1dK-1L-tiz"/>
+        <segue reference="eqh-O5-12b"/>
+        <segue reference="vox-gb-7yW"/>
         <segue reference="3ip-T8-EvI"/>
         <segue reference="bp0-Mg-JxF"/>
-        <segue reference="seC-Ki-dSu"/>
     </inferredMetricsTieBreakers>
 </document>

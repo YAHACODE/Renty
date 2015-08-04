@@ -74,32 +74,38 @@ class TagsPageViewController: UIViewController,  TimelineComponentTarget  {
 
     func loadInRange(range: Range<Int>, completionBlock: ([Post]?) -> Void) {
         // 1
-        if let userlocation = self.userlocation {
+       // if let userlocation = self.userlocation {
             // 1
             let query = Post.query()
             
-            println(userlocation)
+            //println(userlocation)
             query!.includeKey("user")
             query!.whereKey("tag", equalTo: selectedTag)
-            query!.whereKey("postlocation", nearGeoPoint:userlocation, withinMiles: 50)
+            //query!.whereKey("postlocation", nearGeoPoint:userlocation, withinMiles: 50)
             
             // 6
             //  query!.orderByDescending("createdAt")
             
-            
+        query!.skip = range.startIndex
+        // 3
+        query!.limit = range.endIndex - range.startIndex
+        
+        
             // 7
             query!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
                 // 8
                 self.posts = result as? [Post] ?? []
                 // 9
-                self.tableView.reloadData()
+              //  self.tableView.reloadData()
+                completionBlock(self.posts)
+
             }
-        }
-        else {
-            
-            println("no user location")
-            
-        }
+//        //}
+//        else {
+//            
+//           // println("no user location")
+//            
+//        }
         
     }
     
@@ -171,7 +177,9 @@ extension TagsPageViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         
-        selectedPost = posts[indexPath.row] //1
+//        selectedPost = posts[indexPath.row] //1
+        selectedPost =  self.timelineComponent.content[indexPath.row]
+
         self.performSegueWithIdentifier("ShowExistingPostTag", sender: self) //2
         // println(selectedPost)
     }
@@ -181,11 +189,7 @@ extension TagsPageViewController: UITableViewDelegate {
     }
     
     
-    //    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-    //
-    //        timelineComponent.targetWillDisplayEntry(indexPath.row)
-    //    }
-    
+   
     
     
     
