@@ -68,6 +68,7 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
             
         }
         
+        
     }
     
     
@@ -127,6 +128,16 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
     }
     
     }
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
 }
 
 
@@ -170,9 +181,9 @@ extension TimelineViewController: UITableViewDelegate {
         println(selectedPost)
     }
     
-//    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-//        return true
-//    }
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
