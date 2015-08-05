@@ -103,7 +103,6 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
         
         if let userlocation = self.userlocation {
             ParseHelper.timelineRequestforCurrentLocation(range, location: self.userlocation!) { (result: [AnyObject]?, error: NSError?) -> Void in
-                // self.posts = result as? [Post] ?? []
                 println("user have location")
                 //let posts = result as? [Post] ?? []
                 //self.tableView.reloadData()

@@ -761,6 +761,12 @@
                                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K9c-w7-n9G">
                                                                     <rect key="frame" x="20" y="33" width="61" height="61"/>
                                                                 </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCV-XY-zyE">
+                                                                    <rect key="frame" x="29" y="8" width="42" height="21"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
@@ -809,6 +815,7 @@
                                             <outlet property="pricelabel" destination="b0O-qS-MCC" id="EtZ-iU-fRx"/>
                                             <outlet property="profileimage" destination="K9c-w7-n9G" id="slf-rg-wa0"/>
                                             <outlet property="titleTextlabel" destination="EFj-Xi-3t5" id="DhK-M0-goc"/>
+                                            <outlet property="usernamelabel" destination="sCV-XY-zyE" id="93V-QO-DSF"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

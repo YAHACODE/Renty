@@ -12,7 +12,8 @@ import Parse
 // 1
 class ParseHelper {
  
- 
+    static let ParseUserUsername      = "username"
+
 
     static func timelineRequestforCurrentLocation(range: Range<Int>,location : PFGeoPoint,completionBlock: PFArrayResultBlock) {
 
@@ -34,7 +35,8 @@ class ParseHelper {
         query.skip = range.startIndex
         // 3
        query.limit = range.endIndex - range.startIndex
-        
+     query.orderByDescending("createdAt")
+
         
         query.findObjectsInBackgroundWithBlock(completionBlock)
         
