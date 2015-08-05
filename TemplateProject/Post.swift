@@ -185,6 +185,8 @@ class Post : PFObject, PFSubclassing {
             
             UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
         }
+       // saveInBackgroundWithBlock(nil)
+
     }
     
     

@@ -106,8 +106,9 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
         
       postsQuery!.whereKey("user", equalTo: PFUser.currentUser()!)
 
-        
-        postsQuery!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
+      postsQuery!.orderByDescending("createdAt")
+
+      postsQuery!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
             // 8
             self.posts = result as? [Post] ?? []
             // 9
