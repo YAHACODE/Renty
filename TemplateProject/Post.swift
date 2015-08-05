@@ -124,7 +124,12 @@ class Post : PFObject, PFSubclassing {
     }
     
     func uploadPost() {
-        
+      
+        user = PFUser.currentUser()
+        // only allow this user to write, any other user can only read
+        let ACL = PFACL(user: user!)
+        ACL.setPublicReadAccess(true)
+        self.ACL = ACL
      
         let location = PFGeoPoint?(postlocation!)
         let Userlocation = PFGeoPoint?(location!)

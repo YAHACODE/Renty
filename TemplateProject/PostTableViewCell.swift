@@ -48,49 +48,51 @@ class PostTableViewCell: UITableViewCell {
             }
             
             
-            let user = User()
-            
-            let profileQuery = User.query()
-            
-            
-            profileQuery!.whereKey("user", equalTo: PFUser.currentUser()!)
-            
-            //query the user profile image related to that user post
-
-            
-            profileQuery!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
-                // 8
-                self.users = result as? [User] ?? []
-                
-                for user in self.users {
-                    
-                    let data = user.Profilepicture?.getData()
-                    // 3
-                    
-                    user.image = UIImage(data: data!, scale:1.0)
-                    
-                    self.profileimage.image = user.image
-                    
-                }
-                
-                //            self.tableview.reloadData()
-            }
-            
+//         //   let user = User()
+//            
+//            let profileQuery = User.query()
+//            
+//            
+//          //  profileQuery!.whereKey("user", equalTo: PFUser.currentUser()!)
+//            
+//            //query the user profile image related to that user post
+//
+//            
+//            profileQuery!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
+//                // 8
+//                self.users = result as? [User] ?? []
+//                
+//                for user in self.users {
+//                    
+//                    let data = user.Profilepicture?.getData()
+//                    // 3
+//                    
+//                    user.image = UIImage(data: data!, scale:1.0)
+//                    
+//                    self.profileimage.image = user.image
+//                    
+//                }
+//                
+//                //            self.tableview.reloadData()
+//            }
+//            
             
             
             // 1
             if let post = post {
+                
                 //2
                 // bind the image of the post to the 'postImage' view
                   post.image1 ->> postImageView1
             
                 
              //   usernamelabel.text = post.user
-             // usernamelabel.text = post.user?.username
 
+              
+           //    usernamelabel.text = post.user?.username
                 
                 
-                  titleTextlabel.text = post.title as String
+                titleTextlabel.text = post.title as String
  
                 var stringg:NSNumber  = post.enteredprice!
               
@@ -101,7 +103,7 @@ class PostTableViewCell: UITableViewCell {
                 //   post.image2 ->> postImageView2
                // post.pricelabel.text = theAlarmLabel
                 
-                
+         
                 
             }
             

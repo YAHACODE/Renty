@@ -100,9 +100,10 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
     }
     
     func loadInRange(range: Range<Int>, completionBlock: ([Post]?) -> Void) {
-        
+           dispatch_async(dispatch_get_main_queue()) { () -> Void in
         if let userlocation = self.userlocation {
             ParseHelper.timelineRequestforCurrentLocation(range, location: self.userlocation!) { (result: [AnyObject]?, error: NSError?) -> Void in
+                
                 println("user have location")
                 //let posts = result as? [Post] ?? []
                 //self.tableView.reloadData()
@@ -121,7 +122,7 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
         
     }
     
-    
+    }
 }
 
 
