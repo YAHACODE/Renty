@@ -28,7 +28,9 @@ class PostTableViewCell: UITableViewCell {
     weak var timeline: TimelineViewController?
      var tagline: TagsPageViewController?
     
-    var query = PFQuery(className: "Post")
+      var query = PFQuery(className: "Post")
+    //var query = Post.query()
+
     
     var post:Post? {
         didSet {

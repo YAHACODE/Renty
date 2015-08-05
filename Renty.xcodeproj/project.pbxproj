@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		080EC3C31B71FCA200A1C97C /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080EC3C21B71FCA200A1C97C /* MessageViewController.swift */; };
 		08502B941B5DBB5300923308 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08502B931B5DBB5300923308 /* TimelineViewController.swift */; };
 		08502B961B5DBBAE00923308 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08502B951B5DBBAE00923308 /* ChatViewController.swift */; };
 		08502B9A1B5DBBE300923308 /* SearchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08502B991B5DBBE300923308 /* SearchPageViewController.swift */; };
@@ -141,6 +142,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		080EC3C21B71FCA200A1C97C /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		08502B931B5DBB5300923308 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		08502B951B5DBBAE00923308 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatViewController.swift; path = ../ChatViewController.swift; sourceTree = "<group>"; };
 		08502B991B5DBBE300923308 /* SearchPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchPageViewController.swift; path = ../SearchPageViewController.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				089876B01B5F875700B97C0A /* CustomTabBarController.swift */,
 				624262B31B4460CB00005CE3 /* LaunchScreen.xib */,
 				624262B51B4460CB00005CE3 /* Main.storyboard */,
+				080EC3C21B71FCA200A1C97C /* MessageViewController.swift */,
 				089877321B698B0C00B97C0A /* ProductPageViewController.swift */,
 				08502B951B5DBBAE00923308 /* ChatViewController.swift */,
 				08502B991B5DBBE300923308 /* SearchPageViewController.swift */,
@@ -485,6 +488,7 @@
 				0898771E1B67614C00B97C0A /* User.swift in Sources */,
 				089876F81B636C9400B97C0A /* OneShotLocationManager.swift in Sources */,
 				0898770E1B65F1F000B97C0A /* ParseHelper.swift in Sources */,
+				080EC3C31B71FCA200A1C97C /* MessageViewController.swift in Sources */,
 				089877271B682CB700B97C0A /* SignupViewController.swift in Sources */,
 				08E5D9A01B6F1FA8003EEA79 /* TagsPageViewController.swift in Sources */,
 				08502B961B5DBBAE00923308 /* ChatViewController.swift in Sources */,

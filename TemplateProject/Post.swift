@@ -171,6 +171,9 @@ class Post : PFObject, PFSubclassing {
         self.imageFile3 = imageFile3
         self.tag = itemtag
         
+        
+     
+        
         photoUploadTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { () -> Void in
             UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
         }

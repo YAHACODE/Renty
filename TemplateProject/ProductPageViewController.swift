@@ -27,6 +27,9 @@ class ProductPageViewController: UIViewController {
     var image2:UIImage?
     var image3:UIImage?
     
+    var users: [User] = []
+
+    
     var post: Post? {
         didSet {
             displayPost(self.post)
@@ -50,6 +53,7 @@ class ProductPageViewController: UIViewController {
         }
     }
 
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
