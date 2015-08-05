@@ -22,7 +22,7 @@ class ParseHelper {
         // Interested in locations near user.
         query.whereKey("postlocation", nearGeoPoint:location, withinMiles: 50)
         // Limit what could be a lot of points.
-    //    query.limit = 50
+    //  query.limit = 50
 
 
 //        let postsQuery = Post.query()

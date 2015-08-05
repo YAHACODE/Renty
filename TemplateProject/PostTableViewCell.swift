@@ -15,6 +15,7 @@ import Parse
 class PostTableViewCell: UITableViewCell {
 
 
+    @IBOutlet weak var profileimage: UIImageView!
     @IBOutlet weak var titleTextlabel: UILabel!
     @IBOutlet weak var pricelabel: UILabel!
     @IBOutlet weak var postImageView1: UIImageView!
