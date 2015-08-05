@@ -15,22 +15,11 @@ import Parse
 class PostTableViewCell: UITableViewCell {
 
     @IBOutlet weak var usernamelabel: UILabel!
-    
-    var users: [User] = []
-
     @IBOutlet weak var profileimage: UIImageView!
+    
     @IBOutlet weak var titleTextlabel: UILabel!
     @IBOutlet weak var pricelabel: UILabel!
     @IBOutlet weak var postImageView1: UIImageView!
-//    @IBOutlet weak var postImageView2: UIImageView!
-    
-   // @IBOutlet weak var profileimageview: UIImageView!
-    weak var timeline: TimelineViewController?
-     var tagline: TagsPageViewController?
-    
-      var query = PFQuery(className: "Post")
-    //var query = Post.query()
-
     
     var post:Post? {
         didSet {
@@ -49,37 +38,6 @@ class PostTableViewCell: UITableViewCell {
                
             }
             
-            
-//         //   let user = User()
-//            
-//            let profileQuery = User.query()
-//            
-//            
-//          //  profileQuery!.whereKey("user", equalTo: PFUser.currentUser()!)
-//            
-//            //query the user profile image related to that user post
-//
-//            
-//            profileQuery!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
-//                // 8
-//                self.users = result as? [User] ?? []
-//                
-//                for user in self.users {
-//                    
-//                    let data = user.Profilepicture?.getData()
-//                    // 3
-//                    
-//                    user.image = UIImage(data: data!, scale:1.0)
-//                    
-//                    self.profileimage.image = user.image
-//                    
-//                }
-//                
-//                //            self.tableview.reloadData()
-//            }
-//            
-            
-            
             // 1
             if let post = post {
                 
@@ -88,40 +46,82 @@ class PostTableViewCell: UITableViewCell {
                   post.image1 ->> postImageView1
             
                 
-             //   usernamelabel.text = post.user
-
-              
-           //    usernamelabel.text = post.user?.username
-                
-                
-                titleTextlabel.text = post.title as String
- 
-                var stringg:NSNumber  = post.enteredprice!
-              
-                let price:String = String(format:"%i", stringg.integerValue)
-                pricelabel.text = price + "$"
-                
-                
-                //   post.image2 ->> postImageView2
-               // post.pricelabel.text = theAlarmLabel
-                
-         
-                
             }
             
             
+            
+            
+            
+            
+            
+            self.getUser()
+            self.updateUI()
+
+ 
         }
         
-     
+        
+        
+        
+        
+        
 
+    }
+    
+    
+    var user : User? {
+        
+        
+        didSet{
+        //query profile image
+        // bind user prodile image to actual image in the cell
+        
+            self.updateUI()
+
+            
+        
+        }
+    
+    
     }
 
     
+    func updateUI() {
+        
+        
+        titleTextlabel.text = post!.title as String
+        
+        var stringg:NSNumber  = post!.enteredprice!
+        
+        let price:String = String(format:"%i", stringg.integerValue)
+        pricelabel.text = price + "$"
+        
+      //  self.usernamelabel.text = self.post!.user!.username
+        
+        
+        
+    }
     
+    func getUser(){
+      //query get user and assign to self.user
+        //pass post.user instead of current user
+        
+//        let userQuery = PFQuery(className: "User")
+        let userQuery = User.query()
+        userQuery!.whereKey("user", equalTo: post!.user!)
 
+        userQuery!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
+          
+            
+          //  self.user = result as? [User] ?? []
+        println(self.post!.user!)
+     
+
+        }
+    }
+        
+    }
     
     
+        
     
-    
-    
-}

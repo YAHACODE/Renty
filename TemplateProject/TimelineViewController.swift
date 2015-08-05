@@ -23,7 +23,7 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
     var manager: OneShotLocationManager?
     
     var posts: [Post] = []
-    var users: [User] = []
+//    var users: [User] = []
     
     
     var userlocation: PFGeoPoint?
@@ -132,6 +132,10 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
     
     
     
+    @IBAction func unwindToTimelineVC (segue : UIStoryboardSegue ) {
+
+    
+    }
     
     
     
