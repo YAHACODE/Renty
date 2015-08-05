@@ -33,6 +33,7 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
     
     var timelineComponent: TimelineComponent<Post, TimelineViewController>!
     
+    var hasLocation:Bool = false
     
     override func viewDidLoad() {
         
@@ -79,7 +80,10 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
                 self.userlocation = userlocation
                 
                 println(userlocation)
-                
+                if !self.hasLocation {
+                    self.hasLocation = true
+                    self.timelineComponent.loadInitialIfRequired()
+                }
             }
         }
         
