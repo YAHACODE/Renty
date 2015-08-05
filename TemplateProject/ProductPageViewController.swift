@@ -48,7 +48,7 @@ class ProductPageViewController: UIViewController {
        
             var stringg:NSNumber  = post.enteredprice!
             let price:String = String(format:"%i", stringg.integerValue)
-            priceLabel.text = price
+            priceLabel.text = price + "$"
 
         }
     }
