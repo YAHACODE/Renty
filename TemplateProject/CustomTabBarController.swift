@@ -27,7 +27,7 @@ class CustomTabBarController: UITabBarController {
             self.performSegueWithIdentifier("Camera", sender: self)
         }
     }
-
+  
 
 
 }

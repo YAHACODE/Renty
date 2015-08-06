@@ -33,6 +33,12 @@ class ProductPageViewController: UIViewController {
     var users: [User] = []
 
     
+    @IBAction func unwindToProductPageView (segue : UIStoryboardSegue ) {
+        
+        
+    }
+    
+    
     var post: Post? {
         didSet {
             displayPost(self.post)

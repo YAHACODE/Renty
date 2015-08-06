@@ -15,7 +15,6 @@ import Parse
 class PostTableViewCell: UITableViewCell {
 
     
-    @NSManaged var username: NSString
 
     
     
@@ -99,7 +98,7 @@ class PostTableViewCell: UITableViewCell {
         let price:String = String(format:"%i", stringg.integerValue)
         pricelabel.text = price + "$"
         
-         self.usernamelabel?.text = self.post!.user!.username
+        self.usernamelabel?.text = self.post!.user!.username
         
 
         
@@ -125,7 +124,7 @@ class PostTableViewCell: UITableViewCell {
             println(self.post!.user?.username)
         }
     }
-        
+    
     }
 
 

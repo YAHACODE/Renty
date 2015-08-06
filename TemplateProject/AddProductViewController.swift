@@ -27,10 +27,11 @@ var products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "C
     @NSManaged var imageFile2: PFFile?
     @NSManaged var imageFile3: PFFile?
 
-    @IBOutlet weak var DescriptionTextField: UITextField!
+   // @IBOutlet weak var DescriptionTextField: UITextField!
     
     @IBOutlet weak var PriceTextField: UITextField!
 
+    @IBOutlet weak var DescriptionTextField: UITextView!
     
     @IBOutlet weak var capturedImage: UIImageView!
     @IBOutlet weak var capturedImage2: UIImageView!
@@ -131,11 +132,11 @@ var products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "C
    
         textfieldreturn(titleTextField)
         textfieldreturn(PriceTextField)
-        textfieldreturn(DescriptionTextField)
+      //  textfieldreturn(DescriptionTextField)
 
         textFieldShouldReturn(titleTextField)
         textFieldShouldReturn(PriceTextField)
-        textFieldShouldReturn(DescriptionTextField)
+      //  textFieldShouldReturn(DescriptionTextField)
 
         // Do any additional setup after loading the view.
     }
