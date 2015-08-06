@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		080EC3C31B71FCA200A1C97C /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080EC3C21B71FCA200A1C97C /* MessageViewController.swift */; };
 		080EC3CB1B720AD400A1C97C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080EC3CA1B720AD400A1C97C /* TableViewController.swift */; };
+		084829131B73380400C62391 /* PaginatedScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084829121B73380400C62391 /* PaginatedScrollView.swift */; };
 		08502B941B5DBB5300923308 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08502B931B5DBB5300923308 /* TimelineViewController.swift */; };
 		08502B961B5DBBAE00923308 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08502B951B5DBBAE00923308 /* ChatViewController.swift */; };
 		08502B9A1B5DBBE300923308 /* SearchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08502B991B5DBBE300923308 /* SearchPageViewController.swift */; };
@@ -145,6 +146,7 @@
 /* Begin PBXFileReference section */
 		080EC3C21B71FCA200A1C97C /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		080EC3CA1B720AD400A1C97C /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = Images.xcassets/TableViewController.swift; sourceTree = "<group>"; };
+		084829121B73380400C62391 /* PaginatedScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginatedScrollView.swift; sourceTree = "<group>"; };
 		08502B931B5DBB5300923308 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		08502B951B5DBBAE00923308 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatViewController.swift; path = ../ChatViewController.swift; sourceTree = "<group>"; };
 		08502B991B5DBBE300923308 /* SearchPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchPageViewController.swift; path = ../SearchPageViewController.swift; sourceTree = "<group>"; };
@@ -238,10 +240,11 @@
 				624262B51B4460CB00005CE3 /* Main.storyboard */,
 				080EC3C21B71FCA200A1C97C /* MessageViewController.swift */,
 				089877321B698B0C00B97C0A /* ProductPageViewController.swift */,
+				084829121B73380400C62391 /* PaginatedScrollView.swift */,
+				080EC3CA1B720AD400A1C97C /* TableViewController.swift */,
 				08502B951B5DBBAE00923308 /* ChatViewController.swift */,
 				08502B991B5DBBE300923308 /* SearchPageViewController.swift */,
 				08E5D99F1B6F1FA8003EEA79 /* TagsPageViewController.swift */,
-				080EC3CA1B720AD400A1C97C /* TableViewController.swift */,
 				08502B931B5DBB5300923308 /* TimelineViewController.swift */,
 				089876FF1B65D54400B97C0A /* PostTableViewCell.swift */,
 				08502B9B1B5DBDD700923308 /* ProfilePageViewController.swift */,
@@ -487,6 +490,7 @@
 				089877291B682FD700B97C0A /* StartViewController.swift in Sources */,
 				089876B11B5F875700B97C0A /* CustomTabBarController.swift in Sources */,
 				08502B9A1B5DBBE300923308 /* SearchPageViewController.swift in Sources */,
+				084829131B73380400C62391 /* PaginatedScrollView.swift in Sources */,
 				624262C41B4460CB00005CE3 /* ParseLoginHelper.swift in Sources */,
 				0898771E1B67614C00B97C0A /* User.swift in Sources */,
 				089876F81B636C9400B97C0A /* OneShotLocationManager.swift in Sources */,

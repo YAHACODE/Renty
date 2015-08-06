@@ -10,6 +10,9 @@ import UIKit
 
 class ProductPageViewController: UIViewController {
 
+    var paginatedScrollView: PaginatedScrollView?
+
+    @IBOutlet weak var usernamelabel: UILabel!
     
     @IBOutlet weak var productimageview: UIImageView!
     
@@ -37,12 +40,14 @@ class ProductPageViewController: UIViewController {
     }
    
     func displayPost( post: Post?) {
-        if let post = post , titleTextlabel = titleTextlabel, descriptionLabel = descriptionLabel ,priceLabel = priceLabel , productimageview = productimageview,productimageview2 = productimageview2  , productimageview3 = productimageview3    {
+        if let post = post , titleTextlabel = titleTextlabel, descriptionLabel = descriptionLabel ,priceLabel = priceLabel , productimageview = productimageview,productimageview2 = productimageview2  , productimageview3 = productimageview3 , usernamelabel = usernamelabel   {
             
-            productimageview.image = post.image1.value
-            productimageview2.image = post.image2.value
-            productimageview3.image = post.image3.value
+//            productimageview.image = post.image1.value
+//            productimageview2.image = post.image2.value
+//            productimageview3.image = post.image3.value
 
+            
+            usernamelabel.text = post.user?.username 
             titleTextlabel.text = post.title as String
             descriptionLabel.text = post.productdescription as? String
        
@@ -72,6 +77,12 @@ class ProductPageViewController: UIViewController {
         
         displayPost(post)
         
+        paginatedScrollView = PaginatedScrollView(frame: CGRectMake(0, 0, self.view.frame.size.width, 300))
+        self.view.addSubview(paginatedScrollView!) // add to the
+        
+        let images: [UIImage] = [ (post!.image1.value)!,  (post!.image2.value)!, (post!.image3.value)!]
+        
+        self.paginatedScrollView?.images = images
     }
 
 }
