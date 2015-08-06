@@ -12,8 +12,11 @@ import UIKit
 
 
 class TableViewController: UITableViewController, UISearchResultsUpdating {
+   
+    var posts: [Post] = []
+    
     let tableData = ["One","Two","Three","Twenty-One"]
-    var filteredTableData = [String]()
+    var filteredposts = [String]()
     var resultSearchController = UISearchController()
     
     override func viewDidLoad() {
@@ -50,10 +53,10 @@ class TableViewController: UITableViewController, UISearchResultsUpdating {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // 2
         if (self.resultSearchController.active) {
-            return self.filteredTableData.count
+            return self.filteredposts.count
         }
         else {
-            return self.tableData.count
+            return self.posts.count
         }
     }
     
@@ -63,7 +66,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating {
         
         // 3
         if (self.resultSearchController.active) {
-            cell.textLabel?.text = filteredTableData[indexPath.row]
+            cell.textLabel?.text = filteredposts[indexPath.row]
             
             return cell
         }
@@ -76,11 +79,11 @@ class TableViewController: UITableViewController, UISearchResultsUpdating {
     
     func updateSearchResultsForSearchController(searchController: UISearchController)
     {
-        filteredTableData.removeAll(keepCapacity: false)
+        filteredposts.removeAll(keepCapacity: false)
         
         let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text)
         let array = (tableData as NSArray).filteredArrayUsingPredicate(searchPredicate)
-        filteredTableData = array as! [String]
+        filteredposts = array as! [String]
         
         self.tableView.reloadData()
     }

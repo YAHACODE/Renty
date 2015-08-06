@@ -14,6 +14,11 @@ import Parse
 
 class PostTableViewCell: UITableViewCell {
 
+    
+    @NSManaged var username: NSString
+
+    
+    
     @IBOutlet weak var usernamelabel: UILabel!
     @IBOutlet weak var profileimage: UIImageView!
     
@@ -61,10 +66,6 @@ class PostTableViewCell: UITableViewCell {
         }
         
         
-        
-        
-        
-        
 
     }
     
@@ -77,7 +78,11 @@ class PostTableViewCell: UITableViewCell {
         // bind user prodile image to actual image in the cell
         
             self.updateUI()
+            
+            post!.image1 ->> profileimage
 
+            
+            
             
         
         }
@@ -89,16 +94,16 @@ class PostTableViewCell: UITableViewCell {
     func updateUI() {
         
         
-        titleTextlabel.text = post!.title as String
+        titleTextlabel.text = post!.title as String;
         
         var stringg:NSNumber  = post!.enteredprice!
         
         let price:String = String(format:"%i", stringg.integerValue)
         pricelabel.text = price + "$"
         
-      //  self.usernamelabel.text = self.post!.user!.username
+   self.usernamelabel.text = self.post!.user!.username
         
-        
+
         
     }
     
@@ -106,17 +111,22 @@ class PostTableViewCell: UITableViewCell {
       //query get user and assign to self.user
         //pass post.user instead of current user
         
-//        let userQuery = PFQuery(className: "User")
-        let userQuery = User.query()
-        userQuery!.whereKey("user", equalTo: post!.user!)
+   
+        let userQuery = PFQuery(className: "User")
+       // let userQuery = User.query()
+      //  userQuery!.whereKey("user", equalTo: post!.user!)
+        
+        userQuery.whereKey("username", equalTo: post!.user!)
 
-        userQuery!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
+        userQuery.whereKey("Profilepicture", equalTo: post!.user!)
+
+        userQuery.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
           
             
-          //  self.user = result as? [User] ?? []
-        println(self.post!.user!)
-     
-
+         //  self.user = result as? [User] ?? []
+       // println()
+            
+            //println(self.post!.user?.username)
         }
     }
         
