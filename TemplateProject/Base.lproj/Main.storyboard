@@ -877,7 +877,7 @@
                                                                     <rect key="frame" x="20" y="33" width="61" height="61"/>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sCV-XY-zyE">
-                                                                    <rect key="frame" x="29" y="8" width="42" height="21"/>
+                                                                    <rect key="frame" x="10" y="8" width="82" height="21"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -1499,8 +1499,8 @@
         <segue reference="zAk-Kn-FQZ"/>
         <segue reference="1hl-cc-ncr"/>
         <segue reference="3ip-T8-EvI"/>
+        <segue reference="1dK-1L-tiz"/>
         <segue reference="bp0-Mg-JxF"/>
-        <segue reference="RwK-Cl-k8T"/>
         <segue reference="bTu-fL-EEs"/>
     </inferredMetricsTieBreakers>
 </document>

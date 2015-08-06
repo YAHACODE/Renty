@@ -60,7 +60,7 @@ class PostTableViewCell: UITableViewCell {
             
             
             self.getUser()
-            self.updateUI()
+           self.updateUI()
 
  
         }
@@ -79,11 +79,9 @@ class PostTableViewCell: UITableViewCell {
         
             self.updateUI()
             
-            post!.image1 ->> profileimage
+            
+           // post!.image1 ->> profileimage
 
-            
-            
-            
         
         }
     
@@ -101,7 +99,7 @@ class PostTableViewCell: UITableViewCell {
         let price:String = String(format:"%i", stringg.integerValue)
         pricelabel.text = price + "$"
         
-   self.usernamelabel.text = self.post!.user!.username
+         self.usernamelabel?.text = self.post!.user!.username
         
 
         
@@ -122,16 +120,16 @@ class PostTableViewCell: UITableViewCell {
 
         userQuery.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
           
+    
             
-         //  self.user = result as? [User] ?? []
-       // println()
-            
-            //println(self.post!.user?.username)
+            println(self.post!.user?.username)
         }
     }
         
     }
-    
+
+
+
     
         
     
