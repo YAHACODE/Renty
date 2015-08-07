@@ -21,6 +21,9 @@ class User : PFUser, PFSubclassing {
     var image: UIImage?
     //var image: UIImage?
     var imageBond: Bond<UIImage?>!
+   
+    var profileimage1: Dynamic<UIImage?> = Dynamic(nil)
+
     
     //MARK: Initialization
     
@@ -32,7 +35,7 @@ class User : PFUser, PFSubclassing {
         }
     }
     
-    override init () {
+     override init () {
         super.init()
     }
     
@@ -42,11 +45,10 @@ class User : PFUser, PFSubclassing {
     
     //MARK: Actions
     
-    // TODO: stuiff
     
     func uploadImage() {
         // Parse does not allow this to be set in the initializer - we set it before post gets saved
-//        user = PFUser.currentUser()
+        //   user = PFUser.currentUser()
         // only allow this user to write, any other user can only read
         let ACL = PFACL(user: self)
         ACL.setPublicReadAccess(true)
@@ -62,6 +64,31 @@ class User : PFUser, PFSubclassing {
             self.save()
         })
     }
+    
+    
+    func downloadProfileImage() {
+        
+        if (profileimage1.value == nil) {
+            // 2
+            Profilepicture?.getDataInBackgroundWithBlock { (data: NSData?, error: NSError?) -> Void in
+                if let data = data {
+                    let profileimage1 = UIImage(data: data, scale:1.0)!
+                    // 3
+                    self.profileimage1.value = profileimage1
+                    Post.imageCache[self.Profilepicture!.name] = profileimage1
+                    
+                }
+            }
+        }
+
+    }
+    
+    
+    
+    
+    
+    
+    
       }
 
 

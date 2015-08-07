@@ -56,7 +56,7 @@ class ProductPageViewController: UIViewController {
 //            productimageview3.image = post.image3.value
 
             
-            usernamelabel.text = self.user?.username
+            usernamelabel.text = self.post!.user?.username
             titleTextlabel.text = post.title as String
             descriptionLabel.text = post.productdescription as? String
        

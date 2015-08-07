@@ -159,7 +159,7 @@ class Post : PFObject, PFSubclassing {
 
         
         // any uploaded post should be associated with the current user
-        user = PFUser.currentUser()
+       // user = PFUser.currentUser()
         self.postlocation = Userlocation!
 
         self.title = Title!

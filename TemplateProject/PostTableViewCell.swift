@@ -52,7 +52,7 @@ class PostTableViewCell: UITableViewCell {
             
   
            self.getUser()
-     //     self.user = self.post!.user
+           self.user = self.post!.user as? User
          //   println(self.user!.email)
            // println(self.user!.username)
            self.updateUI()
@@ -65,19 +65,35 @@ class PostTableViewCell: UITableViewCell {
     }
     
     
-    var user : PFUser? {
+    
+    var user : User? {
         
         
         didSet{
         //query profile image
         // bind user prodile image to actual image in the cell
         
-            self.updateUI()
-            
+            //self.updateUI()
+            if let oldValue = oldValue where oldValue != post {
+                // 2
+                profileimage.designatedBond.unbindAll()
+                
+                
+                if (oldValue.profileimage1.bonds.count == 0) {
+                    oldValue.profileimage1.value = nil
+                }
+                
+                
+            }
+            if let user = user {
+
             
            // post!.image1 ->> profileimage
-
-        
+                user.downloadProfileImage()
+              user.profileimage1 ->> profileimage
+            
+            
+            }
         }
     
     
@@ -114,11 +130,10 @@ class PostTableViewCell: UITableViewCell {
 
         userQuery.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
           
-
+//            self.user = self.post!.user as? User
             println(self.post!.user?.email)
             println(self.post!.user!.username)
-            println(self.post!.user)
-//            self.user =
+          //  println(self.post!.user)
 
             
         }

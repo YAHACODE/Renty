@@ -19,6 +19,8 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
  {
     var usernamename : String!
     
+
+    
     var currentUser = PFUser.currentUser()
     var selectedCell: PostTableViewCell?
 
@@ -191,16 +193,16 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
        
         var profileimage:UIImage = imageView.image!
         
-
         
         let Profilepicture = PFFile(data: UIImageJPEGRepresentation(profileimage, 0.8))
         Profilepicture.save()
-
+    
         
         let user = User()
-//         let user = PFUser.currentUser()
         user.Profilepicture = Profilepicture
-       // user = PFUser.currentUser()
+
+      //  user.user = PFUser.currentUser()
+       
         user.save()
         user.image = profileimage
         user.uploadImage()
@@ -220,6 +222,7 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
             
             postViewControler.post = selectedCell!.post
             postViewControler.user = selectedCell!.user
+
             
         }
         
