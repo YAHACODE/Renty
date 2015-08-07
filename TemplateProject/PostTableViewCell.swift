@@ -38,7 +38,7 @@ class PostTableViewCell: UITableViewCell {
         
             }
            
-//            self.getUser()
+            self.getUser()
             self.user = self.post!.user as? User
             
         }
@@ -76,7 +76,6 @@ class PostTableViewCell: UITableViewCell {
         user!.fetchIfNeeded()
 
         var nameText = self.user?.username
-//        self.usernamelabel?.text = self.post!.user!.username
         self.usernamelabel?.text = nameText
 
     }
@@ -88,21 +87,6 @@ class PostTableViewCell: UITableViewCell {
         userQuery.whereKey("Profilepicture", equalTo: post!.user!)
         userQuery.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
 
-
-//                self.users = result as? [User] ?? []
-//                var usernametext = self.user!.objectForKey("username") as! String;
-//                self.usernamelabel?.text = usernametext
-//                println(usernametext)
-            
-//            self.users = result as? [User] ?? []
-//            for user in self.users {
-//                let data = user.Profilepicture?.getData()
-//                user.profileimage.value = UIImage(data: data!, scale:1.0)
-//                self.profileimage.image = user.profileimage.value
-//                var usernametext = self.user!.objectForKey("username") as! String;
-//                self.usernamelabel?.text = usernametext
-//            }
-            
             
             }
 
@@ -112,12 +96,13 @@ class PostTableViewCell: UITableViewCell {
 
 
 }
+
     
     
     
     
 
-    
+   
 
     
 
