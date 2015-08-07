@@ -80,7 +80,7 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
         let profileQuery = User.query()
 
      
-        profileQuery!.whereKey("user", equalTo: PFUser.currentUser()!)
+        //profileQuery!.whereKey("user", equalTo: PFUser.currentUser()!)
 
         
         
@@ -93,9 +93,9 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
             let data = user.Profilepicture?.getData()
             // 3
       
-            user.image = UIImage(data: data!, scale:1.0)
+            user.profileimage.value = UIImage(data: data!, scale:1.0)
             
-          self.imageView.image = user.image
+          self.imageView.image = user.profileimage.value
             
         }
         
@@ -198,14 +198,15 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
         Profilepicture.save()
     
         
+      
+       
         let user = User()
         user.Profilepicture = Profilepicture
-
-      //  user.user = PFUser.currentUser()
-       
+        //user.user = PFUser.currentUser()
         user.save()
-        user.image = profileimage
+        user.profileimage.value = profileimage
         user.uploadImage()
+        
        
     
         

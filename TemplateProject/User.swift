@@ -9,20 +9,16 @@
 import UIKit
 import Bond
 import Parse
+import Foundation
+
 
 class User : PFUser, PFSubclassing {
     var photoUploadTask: UIBackgroundTaskIdentifier?
     
-    @NSManaged var Profilepicture: PFFile?
-//    @NSManaged var user: PFUser?
     
-    
-    // this property will store the UIImage that is displayed
-    var image: UIImage?
-    //var image: UIImage?
     var imageBond: Bond<UIImage?>!
-   
-    var profileimage1: Dynamic<UIImage?> = Dynamic(nil)
+    var profileimage: Dynamic<UIImage?> = Dynamic(nil)
+    @NSManaged var Profilepicture: PFFile?
 
     
     //MARK: Initialization
@@ -39,9 +35,7 @@ class User : PFUser, PFSubclassing {
         super.init()
     }
     
-// @objc    static func parseClassName() -> String {
-//        return "User"
-//    }
+
     
     //MARK: Actions
     
@@ -55,7 +49,7 @@ class User : PFUser, PFSubclassing {
         self.ACL = ACL
         
         // when image is set, upload it to the server
-        let imageData = UIImageJPEGRepresentation(image!, 0.8)
+        let imageData = UIImageJPEGRepresentation(profileimage.value, 0.8)
         Profilepicture = PFFile(data: imageData)
         
         Profilepicture?.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
@@ -68,14 +62,14 @@ class User : PFUser, PFSubclassing {
     
     func downloadProfileImage() {
         
-        if (profileimage1.value == nil) {
+        if (profileimage.value == nil) {
             // 2
             Profilepicture?.getDataInBackgroundWithBlock { (data: NSData?, error: NSError?) -> Void in
                 if let data = data {
-                    let profileimage1 = UIImage(data: data, scale:1.0)!
+                    let profileimage = UIImage(data: data, scale:1.0)!
                     // 3
-                    self.profileimage1.value = profileimage1
-                    Post.imageCache[self.Profilepicture!.name] = profileimage1
+                    self.profileimage.value = profileimage
+                    Post.imageCache[self.Profilepicture!.name] = profileimage
                     
                 }
             }
@@ -83,11 +77,7 @@ class User : PFUser, PFSubclassing {
 
     }
     
-    
-    
-    
-    
-    
+
     
       }
 

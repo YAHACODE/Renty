@@ -28,25 +28,23 @@ class ProductPageViewController: UIViewController {
 
     @IBOutlet weak var priceLabel: UILabel!
     
+    @IBOutlet weak var profileimageview: UIImageView!
+    
     var image1:UIImage?
     var image2:UIImage?
     var image3:UIImage?
     
-    var user: PFUser?
-
+    //var user: PFUser?
+     var user: User?
     
     @IBAction func unwindToProductPageView (segue : UIStoryboardSegue ) {
-        
+
         
     }
     
-    
     var post: Post?
-//        {
-//        didSet {
-//            displayPost(self.post)
-//        }
-//    }
+
+
    
     func displayPost( post: Post?) {
         if let post = post , titleTextlabel = titleTextlabel, descriptionLabel = descriptionLabel ,priceLabel = priceLabel , productimageview = productimageview,productimageview2 = productimageview2  , productimageview3 = productimageview3 , usernamelabel = usernamelabel   {
@@ -55,7 +53,9 @@ class ProductPageViewController: UIViewController {
 //            productimageview2.image = post.image2.value
 //            productimageview3.image = post.image3.value
 
-            
+
+            profileimageview.image = user?.profileimage.value
+
             usernamelabel.text = self.post!.user?.username
             titleTextlabel.text = post.title as String
             descriptionLabel.text = post.productdescription as? String
@@ -67,7 +67,6 @@ class ProductPageViewController: UIViewController {
         }
     }
 
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +84,7 @@ class ProductPageViewController: UIViewController {
         super.viewWillAppear(animated)
         
         displayPost(post)
-        
+
         paginatedScrollView = PaginatedScrollView(frame: CGRectMake(0, 50, self.view.frame.size.width, 330))
         self.view.addSubview(paginatedScrollView!) // add to the
         

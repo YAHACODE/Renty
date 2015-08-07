@@ -9,28 +9,19 @@
 import Foundation
 import Parse
 
-// 1
+
 class ParseHelper {
  
-
 
     static func timelineRequestforCurrentLocation(range: Range<Int>,location : PFGeoPoint,completionBlock: PFArrayResultBlock) {
 
         
-        // Create a query for places
+        // Create a query for post
         var query = PFQuery(className:"Post")
         // Interested in locations near user.
         query.whereKey("postlocation", nearGeoPoint:location, withinMiles: 50)
         // Limit what could be a lot of points.
-    //  query.limit = 50
-
-
-//        let postsQuery = Post.query()
-//                postsQuery!.includeKey("user")
-//                postsQuery!.orderByDescending("createdAt")
-//        
-//
-      //  query.includeKey(ParsePostUser)
+        //  query.limit = 50
 
         query.orderByDescending("createdAt")
         
@@ -40,13 +31,10 @@ class ParseHelper {
         // 3
        query.limit = range.endIndex - range.startIndex
 
-        
         query.findObjectsInBackgroundWithBlock(completionBlock)
         
-        
-        
   
-            //            self.tableview.reloadData()
+  
         }
         
 

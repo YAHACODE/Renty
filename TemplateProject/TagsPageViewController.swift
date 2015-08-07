@@ -14,6 +14,8 @@ import ConvenienceKit
 
 class TagsPageViewController: UIViewController,  TimelineComponentTarget  {
 
+    
+    var user : User?
     var posts: [Post] = []
     var selectedPost: Post?
    
@@ -161,6 +163,8 @@ extension TagsPageViewController: UITableViewDataSource {
         post.downloadImage()
         // 2
         cell.post = post
+       // cell.user = user
+        
         return cell
     }
     

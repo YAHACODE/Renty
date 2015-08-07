@@ -236,24 +236,23 @@
 				089877241B682B9000B97C0A /* loginpageViewController.swift */,
 				089877261B682CB700B97C0A /* SignupViewController.swift */,
 				089876B01B5F875700B97C0A /* CustomTabBarController.swift */,
+				08502B991B5DBBE300923308 /* SearchPageViewController.swift */,
+				080EC3CA1B720AD400A1C97C /* TableViewController.swift */,
+				084829121B73380400C62391 /* PaginatedScrollView.swift */,
+				08502B951B5DBBAE00923308 /* ChatViewController.swift */,
+				080EC3C21B71FCA200A1C97C /* MessageViewController.swift */,
+				086BEB371B5EAE880003A79B /* PhotoPickerController.swift */,
 				624262B31B4460CB00005CE3 /* LaunchScreen.xib */,
 				624262B51B4460CB00005CE3 /* Main.storyboard */,
-				080EC3C21B71FCA200A1C97C /* MessageViewController.swift */,
 				089877321B698B0C00B97C0A /* ProductPageViewController.swift */,
-				084829121B73380400C62391 /* PaginatedScrollView.swift */,
-				080EC3CA1B720AD400A1C97C /* TableViewController.swift */,
-				08502B951B5DBBAE00923308 /* ChatViewController.swift */,
-				08502B991B5DBBE300923308 /* SearchPageViewController.swift */,
 				08E5D99F1B6F1FA8003EEA79 /* TagsPageViewController.swift */,
-				08502B931B5DBB5300923308 /* TimelineViewController.swift */,
-				089876FF1B65D54400B97C0A /* PostTableViewCell.swift */,
-				08502B9B1B5DBDD700923308 /* ProfilePageViewController.swift */,
-				0898770D1B65F1F000B97C0A /* ParseHelper.swift */,
-				086BEB371B5EAE880003A79B /* PhotoPickerController.swift */,
 				089876BC1B60B96E00B97C0A /* AddProductViewController.swift */,
+				08502B931B5DBB5300923308 /* TimelineViewController.swift */,
+				08502B9B1B5DBDD700923308 /* ProfilePageViewController.swift */,
+				089876FF1B65D54400B97C0A /* PostTableViewCell.swift */,
 				089876CC1B614A5300B97C0A /* Post.swift */,
 				0898771D1B67614C00B97C0A /* User.swift */,
-				624262BE1B4460CB00005CE3 /* ViewControllers */,
+				0898770D1B65F1F000B97C0A /* ParseHelper.swift */,
 			);
 			path = TemplateProject;
 			sourceTree = "<group>";
@@ -265,13 +264,6 @@
 				624262B91B4460CB00005CE3 /* ParseLoginHelper.swift */,
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		624262BE1B4460CB00005CE3 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		62551B621B06BF33000913E4 /* Frameworks */ = {

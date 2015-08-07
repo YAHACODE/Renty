@@ -17,13 +17,9 @@ import ConvenienceKit
 class Post : PFObject, PFSubclassing {
     
    @NSManaged var title: NSString
-
    @NSManaged var productdescription: NSString?
-  
    @NSManaged var tag: NSString?
-
    @NSManaged var enteredprice: NSNumber?
-    
    @NSManaged var postlocation: PFGeoPoint?
 
     
@@ -39,15 +35,13 @@ class Post : PFObject, PFSubclassing {
     var image1: Dynamic<UIImage?> = Dynamic(nil)
     var image2: Dynamic<UIImage?> = Dynamic(nil)
     var image3: Dynamic<UIImage?> = Dynamic(nil)
-    
-    static var imageCache: NSCacheSwift<String, UIImage>!
 
 
 
     var photoUploadTask: UIBackgroundTaskIdentifier?
-
     var imageBond: Bond<UIImage?>!
-    
+    static var imageCache: NSCacheSwift<String, UIImage>!
+
     //MARK: Initialization
     
     override class func initialize() {
@@ -74,9 +68,9 @@ class Post : PFObject, PFSubclassing {
         
         //1
         
-//        image1.value = Post.imageCache[self.imageFile!.name]
-//        image2.value = Post.imageCache[self.imageFile2!.name]
-//        image3.value = Post.imageCache[self.imageFile3!.name]
+        image1.value = Post.imageCache[self.imageFile!.name]
+        image2.value = Post.imageCache[self.imageFile2!.name]
+        image3.value = Post.imageCache[self.imageFile3!.name]
 
         
         // if image is not downloaded yet, get it
@@ -159,7 +153,7 @@ class Post : PFObject, PFSubclassing {
 
         
         // any uploaded post should be associated with the current user
-       // user = PFUser.currentUser()
+        user = PFUser.currentUser()
         self.postlocation = Userlocation!
 
         self.title = Title!
@@ -190,9 +184,7 @@ class Post : PFObject, PFSubclassing {
     }
     
     
-    
-   
-    
+ 
     
 }
 
