@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Parse
+
 
 class ProductPageViewController: UIViewController {
 
@@ -30,7 +32,7 @@ class ProductPageViewController: UIViewController {
     var image2:UIImage?
     var image3:UIImage?
     
-    var users: [User] = []
+    var user: PFUser?
 
     
     @IBAction func unwindToProductPageView (segue : UIStoryboardSegue ) {
@@ -39,11 +41,12 @@ class ProductPageViewController: UIViewController {
     }
     
     
-    var post: Post? {
-        didSet {
-            displayPost(self.post)
-        }
-    }
+    var post: Post?
+//        {
+//        didSet {
+//            displayPost(self.post)
+//        }
+//    }
    
     func displayPost( post: Post?) {
         if let post = post , titleTextlabel = titleTextlabel, descriptionLabel = descriptionLabel ,priceLabel = priceLabel , productimageview = productimageview,productimageview2 = productimageview2  , productimageview3 = productimageview3 , usernamelabel = usernamelabel   {
@@ -53,7 +56,7 @@ class ProductPageViewController: UIViewController {
 //            productimageview3.image = post.image3.value
 
             
-            usernamelabel.text = post.user?.username 
+            usernamelabel.text = self.user?.username
             titleTextlabel.text = post.title as String
             descriptionLabel.text = post.productdescription as? String
        

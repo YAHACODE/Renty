@@ -10,11 +10,11 @@ import UIKit
 import Bond
 import Parse
 
-class User : PFObject, PFSubclassing {
+class User : PFUser, PFSubclassing {
     var photoUploadTask: UIBackgroundTaskIdentifier?
     
     @NSManaged var Profilepicture: PFFile?
-    @NSManaged var user: PFUser?
+//    @NSManaged var user: PFUser?
     
     
     // this property will store the UIImage that is displayed
@@ -36,17 +36,19 @@ class User : PFObject, PFSubclassing {
         super.init()
     }
     
-    static func parseClassName() -> String {
-        return "User"
-    }
+// @objc    static func parseClassName() -> String {
+//        return "User"
+//    }
     
     //MARK: Actions
     
+    // TODO: stuiff
+    
     func uploadImage() {
         // Parse does not allow this to be set in the initializer - we set it before post gets saved
-        user = PFUser.currentUser()
+//        user = PFUser.currentUser()
         // only allow this user to write, any other user can only read
-        let ACL = PFACL(user: user!)
+        let ACL = PFACL(user: self)
         ACL.setPublicReadAccess(true)
         self.ACL = ACL
         
@@ -56,8 +58,8 @@ class User : PFObject, PFSubclassing {
         
         Profilepicture?.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
             self.saveInBackgroundWithBlock(ErrorHandling.errorHandlingCallback)
-            self.user!.setValue(self.Profilepicture, forKey: "Profilepicture")
-            self.user!.save()
+            self.setValue(self.Profilepicture, forKey: "Profilepicture")
+            self.save()
         })
     }
       }

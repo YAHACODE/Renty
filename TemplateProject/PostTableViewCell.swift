@@ -15,15 +15,13 @@ import Parse
 class PostTableViewCell: UITableViewCell {
 
     
-
-    
-    
     @IBOutlet weak var usernamelabel: UILabel!
     @IBOutlet weak var profileimage: UIImageView!
-    
     @IBOutlet weak var titleTextlabel: UILabel!
     @IBOutlet weak var pricelabel: UILabel!
     @IBOutlet weak var postImageView1: UIImageView!
+    
+
     
     var post:Post? {
         didSet {
@@ -52,13 +50,11 @@ class PostTableViewCell: UITableViewCell {
                 
             }
             
-            
-            
-            
-            
-            
-            
-            self.getUser()
+  
+           self.getUser()
+     //     self.user = self.post!.user
+         //   println(self.user!.email)
+           // println(self.user!.username)
            self.updateUI()
 
  
@@ -69,7 +65,7 @@ class PostTableViewCell: UITableViewCell {
     }
     
     
-    var user : User? {
+    var user : PFUser? {
         
         
         didSet{
@@ -92,7 +88,7 @@ class PostTableViewCell: UITableViewCell {
         
         
         titleTextlabel.text = post!.title as String;
-        
+
         var stringg:NSNumber  = post!.enteredprice!
         
         let price:String = String(format:"%i", stringg.integerValue)
@@ -100,7 +96,6 @@ class PostTableViewCell: UITableViewCell {
         
         self.usernamelabel?.text = self.post!.user!.username
         
-
         
     }
     
@@ -109,7 +104,7 @@ class PostTableViewCell: UITableViewCell {
         //pass post.user instead of current user
         
    
-        let userQuery = PFQuery(className: "User")
+        let userQuery = PFQuery(className: "_User")
        // let userQuery = User.query()
       //  userQuery!.whereKey("user", equalTo: post!.user!)
         
@@ -119,16 +114,19 @@ class PostTableViewCell: UITableViewCell {
 
         userQuery.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
           
-    
+
+            println(self.post!.user?.email)
+            println(self.post!.user!.username)
+            println(self.post!.user)
+//            self.user =
+
             
-            println(self.post!.user?.username)
         }
     }
     
+
+    
     }
 
 
-
-    
-        
     

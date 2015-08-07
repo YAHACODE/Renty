@@ -20,7 +20,7 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
     var usernamename : String!
     
     var currentUser = PFUser.currentUser()
-    var selectedPost: Post?
+    var selectedCell: PostTableViewCell?
 
     @IBOutlet weak var username: UILabel!
     
@@ -43,15 +43,18 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
         
     }
     
+
+    
+    
     @IBOutlet weak var tableview: UITableView!
     var posts: [Post] = []
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         picker!.delegate=self
         
-        
+
         usernamename = currentUser?.username
 
         username.text = ("\(usernamename)")
@@ -195,8 +198,9 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
 
         
         let user = User()
+//         let user = PFUser.currentUser()
         user.Profilepicture = Profilepicture
-        user.user = PFUser.currentUser()
+       // user = PFUser.currentUser()
         user.save()
         user.image = profileimage
         user.uploadImage()
@@ -214,7 +218,8 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
         if segue.identifier == "ShowExistingPost" {
             let postViewControler = segue.destinationViewController as! ProductPageViewController
             
-            postViewControler.post = selectedPost
+            postViewControler.post = selectedCell!.post
+            postViewControler.user = selectedCell!.user
             
         }
         
@@ -256,7 +261,9 @@ extension ProfilePageViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         
-        selectedPost = posts[indexPath.row] //1
+//        selectedPost = posts[indexPath.row] //1
+        selectedCell = tableView.cellForRowAtIndexPath(indexPath) as? PostTableViewCell
+        
         self.performSegueWithIdentifier("ShowExistingPost", sender: self) //2
        // println(selectedPost)
     }
