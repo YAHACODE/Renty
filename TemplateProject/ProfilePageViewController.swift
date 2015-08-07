@@ -17,53 +17,49 @@ import CoreImage
 
 class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIPopoverControllerDelegate
  {
-    var usernamename : String!
     
+    @NSManaged var user: PFUser?
 
-    
     var currentUser = PFUser.currentUser()
     var selectedCell: PostTableViewCell?
+    var usernamename : String!
+    
+    var users: [User] = []
+    var posts: [Post] = []
+
+    var timelineComponent: TimelineComponent<Post, TimelineViewController>!
+    var popover:UIPopoverController?=nil
+    var picker:UIImagePickerController?=UIImagePickerController()
 
     @IBOutlet weak var username: UILabel!
-    
-    @IBOutlet  var Logoutbutton: UIButton!
-    var users: [User] = []
-    var timelineComponent: TimelineComponent<Post, TimelineViewController>!
-
+    @IBOutlet var Logoutbutton: UIButton!
     @IBOutlet weak var btnClickMe: UIButton!
     @IBOutlet weak var imageView: UIImageView!
-    var picker:UIImagePickerController?=UIImagePickerController()
-    var popover:UIPopoverController?=nil
-    
-   // @NSManaged var Profilepicture : PFFile?
+   
 
     @IBAction func logOut(sender : AnyObject) {
-        
         PFUser.logOut()
         var currentUser = PFUser.currentUser()
         currentUser = nil
-        
     }
     
 
-    
-    
     @IBOutlet weak var tableview: UITableView!
-    var posts: [Post] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         picker!.delegate=self
-        
-
-        usernamename = currentUser?.username
-
-        username.text = ("\(usernamename)")
-
-        // Do any additional setup after loading the view.
+        displayprofileusername()
     }
 
+    
+    func displayprofileusername(){
+    usernamename = currentUser?.username
+    username.text = ("\(usernamename)")
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -72,56 +68,45 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+   
         
-
+        self.queryuserprofilepicture()
+        self.queryuserpost()
         
-        let user = User()
-        
-        let profileQuery = User.query()
-
-     
-        //profileQuery!.whereKey("user", equalTo: PFUser.currentUser()!)
-
-        
-        
-//        profileQuery!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
-//            // 8
-//            self.users = result as? [User] ?? []
-//          
-//            for user in self.users {
-//            
-//            let data = user.Profilepicture?.getData()
-//            // 3
-//      
-//            user.profileimage.value = UIImage(data: data!, scale:1.0)
-//            
-//          self.imageView.image = user.profileimage.value
-//            
-//        }
-//        
-////            self.tableview.reloadData()
-//        }
-        
-      
-        dispatch_async(dispatch_get_main_queue(), { () ->  Void in
-            
-       
-        
-        let postsQuery = Post.query()
-        
-      postsQuery!.whereKey("user", equalTo: PFUser.currentUser()!)
-
-      postsQuery!.orderByDescending("createdAt")
-
-      postsQuery!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
-            // 8
-            self.posts = result as? [Post] ?? []
-            // 9
-            
-            self.tableview.reloadData()
-        }
-             })
     }
+    
+    func queryuserprofilepicture() {
+    
+        let user = User()
+        let profileQuery = User.query()
+      //  profileQuery!.whereKey("user", equalTo: PFUser.currentUser()!)
+        profileQuery!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
+            self.users = result as? [User] ?? []
+            for user in self.users {
+                let data = user.Profilepicture?.getData()
+                user.profileimage.value = UIImage(data: data!, scale:1.0)
+                self.imageView.image = user.profileimage.value
+            }
+        }
+
+    }
+    
+    
+    func queryuserpost() {
+       dispatch_async(dispatch_get_main_queue(), { () ->  Void in
+        let postsQuery = Post.query()
+        postsQuery!.whereKey("user", equalTo: PFUser.currentUser()!)
+        postsQuery!.orderByDescending("createdAt")
+        postsQuery!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
+        self.posts = result as? [Post] ?? []
+        self.tableview.reloadData()
+        }
+       })
+     
+    }
+    
+    
+    //ImagePickerClicked
     
     @IBAction func btnImagePickerClicked(sender: AnyObject)
     {
@@ -189,26 +174,20 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
     {
         picker .dismissViewControllerAnimated(true, completion: nil)
         imageView.image=info[UIImagePickerControllerOriginalImage] as? UIImage
-        ////yooo
        
         var profileimage:UIImage = imageView.image!
         
-        
         let Profilepicture = PFFile(data: UIImageJPEGRepresentation(profileimage, 0.8))
         Profilepicture.save()
-    
         
-      
-       
-        let user = User()
-        user.Profilepicture = Profilepicture
-        //user.user = PFUser.currentUser()
-        user.save()
-        user.profileimage.value = profileimage
-        user.uploadImage()
+        let user = User.currentUser()
         
-       
-    
+       //let user = User()
+        user!.Profilepicture = Profilepicture
+        user!.save()
+        user!.profileimage.value = profileimage
+        user!.uploadImage()
+        
         
     }
     func imagePickerControllerDidCancel(picker: UIImagePickerController)
@@ -252,6 +231,7 @@ extension ProfilePageViewController: UITableViewDataSource {
         post.downloadImage()
         // 2
         cell.post = post
+        
         return cell
     }
     
@@ -277,13 +257,10 @@ extension ProfilePageViewController: UITableViewDelegate {
     }
   
     
-//    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-//        
-//        timelineComponent.targetWillDisplayEntry(indexPath.row)
-//    }
-    
-   
-  
-  
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        timelineComponent.targetWillDisplayEntry(indexPath.row)
+    }
+
     
 }

@@ -12,7 +12,7 @@ import Parse
 import Foundation
 
 
-class User : PFUser, PFSubclassing {
+class User : PFUser, PFSubclassing  {
   
     
 //   @NSManaged var usernametext: NSString?
@@ -21,9 +21,9 @@ class User : PFUser, PFSubclassing {
     
     var imageBond: Bond<UIImage?>!
     var profileimage: Dynamic<UIImage?> = Dynamic(nil)
+    
     @NSManaged var Profilepicture: PFFile?
 
-    
     //MARK: Initialization
     
     override class func initialize() {
@@ -45,7 +45,6 @@ class User : PFUser, PFSubclassing {
     
     func uploadImage() {
         // Parse does not allow this to be set in the initializer - we set it before post gets saved
-        //   user = PFUser.currentUser()
         // only allow this user to write, any other user can only read
         let ACL = PFACL(user: self)
         ACL.setPublicReadAccess(true)

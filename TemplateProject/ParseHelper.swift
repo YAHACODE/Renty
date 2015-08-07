@@ -19,23 +19,22 @@ class ParseHelper {
         // Create a query for post
         var query = PFQuery(className:"Post")
         // Interested in locations near user.
-        query.whereKey("postlocation", nearGeoPoint:location, withinMiles: 50)
+        query.whereKey("postlocation", nearGeoPoint:location, withinMiles: 30)
         // Limit what could be a lot of points.
         //  query.limit = 50
-
         query.orderByDescending("createdAt")
-        
         query.includeKey("user")
-
         query.skip = range.startIndex
-        // 3
-       query.limit = range.endIndex - range.startIndex
-
+        query.limit = range.endIndex - range.startIndex
         query.findObjectsInBackgroundWithBlock(completionBlock)
         
   
   
         }
-        
+    
+//    static func uploadPhotoForUser(user: PFUser, photo: photo) {
+//        
+//    }
+    
 
 }

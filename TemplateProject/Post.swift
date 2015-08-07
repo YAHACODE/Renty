@@ -26,8 +26,6 @@ class Post : PFObject, PFSubclassing {
     @NSManaged var imageFile: PFFile?
     @NSManaged var imageFile2: PFFile?
     @NSManaged var imageFile3: PFFile?
-
-
     @NSManaged var user: PFUser?
     
     
@@ -35,8 +33,6 @@ class Post : PFObject, PFSubclassing {
     var image1: Dynamic<UIImage?> = Dynamic(nil)
     var image2: Dynamic<UIImage?> = Dynamic(nil)
     var image3: Dynamic<UIImage?> = Dynamic(nil)
-
-
 
     var photoUploadTask: UIBackgroundTaskIdentifier?
     var imageBond: Bond<UIImage?>!
@@ -63,24 +59,17 @@ class Post : PFObject, PFSubclassing {
     }
     
     //MARK: Actions
-
     func downloadImage() {
-        
-        //1
         
         image1.value = Post.imageCache[self.imageFile!.name]
         image2.value = Post.imageCache[self.imageFile2!.name]
         image3.value = Post.imageCache[self.imageFile3!.name]
 
         
-        // if image is not downloaded yet, get it
-        // 1
         if (image1.value == nil) {
-            // 2
             imageFile?.getDataInBackgroundWithBlock { (data: NSData?, error: NSError?) -> Void in
                 if let data = data {
                     let image1 = UIImage(data: data, scale:1.0)!
-                    // 3
                     self.image1.value = image1
                     Post.imageCache[self.imageFile!.name] = image1
 
@@ -88,11 +77,9 @@ class Post : PFObject, PFSubclassing {
             }
         }
         if (image2.value == nil) {
-            // 2
             imageFile2?.getDataInBackgroundWithBlock { (data: NSData?, error: NSError?) -> Void in
                 if let data = data {
                     let image2 = UIImage(data: data, scale:1.0)!
-                    // 3
                     self.image2.value = image2
                     Post.imageCache[self.imageFile2!.name] = image2
 
@@ -101,14 +88,11 @@ class Post : PFObject, PFSubclassing {
         }
         
         if (image3.value == nil) {
-            // 2
             imageFile3?.getDataInBackgroundWithBlock { (data: NSData?, error: NSError?) -> Void in
                 if let data = data {
                     let image3 = UIImage(data: data, scale:1.0)!
-                    // 3
                     self.image3.value = image3
                     Post.imageCache[self.imageFile3!.name] = image3
-
                 }
             }
         }
@@ -120,7 +104,6 @@ class Post : PFObject, PFSubclassing {
     func uploadPost() {
       
         user = PFUser.currentUser()
-        // only allow this user to write, any other user can only read
         let ACL = PFACL(user: user!)
         ACL.setPublicReadAccess(true)
         self.ACL = ACL
@@ -141,8 +124,6 @@ class Post : PFObject, PFSubclassing {
         let price = NSNumber?(enteredprice!)
         let Enteredprice = NSNumber?(price!)
 
-        
-        
         let imageData = UIImageJPEGRepresentation(image1.value, 0.8)
         let imageData2 = UIImageJPEGRepresentation(image2.value, 0.8)
         let imageData3 = UIImageJPEGRepresentation(image3.value, 0.8)
@@ -152,7 +133,6 @@ class Post : PFObject, PFSubclassing {
         let imageFile3 = PFFile(data: imageData3)
 
         
-        // any uploaded post should be associated with the current user
         user = PFUser.currentUser()
         self.postlocation = Userlocation!
 
@@ -164,9 +144,7 @@ class Post : PFObject, PFSubclassing {
         self.imageFile2 = imageFile2
         self.imageFile3 = imageFile3
         self.tag = itemtag
-        
-        
-     
+
         
         photoUploadTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { () -> Void in
             UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
@@ -179,13 +157,10 @@ class Post : PFObject, PFSubclassing {
             
             UIApplication.sharedApplication().endBackgroundTask(self.photoUploadTask!)
         }
-       // saveInBackgroundWithBlock(nil)
+        // saveInBackgroundWithBlock(nil)
 
     }
-    
-    
  
-    
 }
 
   

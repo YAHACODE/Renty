@@ -49,10 +49,6 @@ class ProductPageViewController: UIViewController {
     func displayPost( post: Post?) {
         if let post = post , titleTextlabel = titleTextlabel, descriptionLabel = descriptionLabel ,priceLabel = priceLabel , productimageview = productimageview,productimageview2 = productimageview2  , productimageview3 = productimageview3 , usernamelabel = usernamelabel   {
             
-//            productimageview.image = post.image1.value
-//            productimageview2.image = post.image2.value
-//            productimageview3.image = post.image3.value
-
 
             profileimageview.image = user?.profileimage.value
 
