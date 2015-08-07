@@ -14,48 +14,35 @@ import Bond
 
 class TimelineViewController: UIViewController, TimelineComponentTarget {
     
-    // TODO: BUGS NEED TO GET FIXED : post duplicate sometime , post location update in parse when i change my location , search bar help, camerapicker
     
     
     let defaultRange = 0...10
     let additionalRangeSize = 10
     
     var manager: OneShotLocationManager?
-    
     var posts: [Post] = []
-//    var users: [User] = []
-    
-    
     var userlocation: PFGeoPoint?
-    
     var selectedPost: Post?
+    var timelineComponent: TimelineComponent<Post, TimelineViewController>!
+    var hasLocation:Bool = false
+
+
     @IBOutlet weak var tableView: UITableView!
     
-    var timelineComponent: TimelineComponent<Post, TimelineViewController>!
     
-    var hasLocation:Bool = false
-    
-    override func viewDidLoad() {
-        
+     override func viewDidLoad() {
         self.getusercurrentlocation()
         timelineComponent = TimelineComponent(target: self)
-        
         super.viewDidLoad()
-        
-        // self.tabBarController?.delegate = self
         manager = OneShotLocationManager()
         manager!.fetchWithCompletion {location, error in
             // fetch location or an error
             if let loc = location {
-                
-                //println(location)
             } else if let err = error {
-                // println(err.localizedDescription)
             }
         }
         
         
-        // Do any additional setup after loading the view.
     }
     
     
@@ -69,9 +56,8 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
             
         }
         
-        
+
     }
-    
     
     
     func getusercurrentlocation() {
@@ -92,38 +78,31 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
         
     }
     
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        
         timelineComponent.loadInitialIfRequired()
         
     }
+    
     
     func loadInRange(range: Range<Int>, completionBlock: ([Post]?) -> Void) {
            dispatch_async(dispatch_get_main_queue()) { () -> Void in
         if let userlocation = self.userlocation {
             ParseHelper.timelineRequestforCurrentLocation(range, location: self.userlocation!) { (result: [AnyObject]?, error: NSError?) -> Void in
-                
-                println("user have location")
-                //let posts = result as? [Post] ?? []
-                //self.tableView.reloadData()
+                //println("user have location")
                 self.posts = result as? [Post] ?? []
-                
-                // 3
                 completionBlock(self.posts)
                 
             }
         }
         else {
-            
-            println("no user location")
-            
+            //println("no user location")
         }
         
     }
@@ -131,17 +110,9 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
     }
     
     
-    
     @IBAction func unwindToTimelineVC (segue : UIStoryboardSegue ) {
 
-    
     }
-    
-  
-    
-
-    
-    
     
 }
 
@@ -152,21 +123,14 @@ extension TimelineViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return timelineComponent.content.count
-        //        return Int(posts.count ?? 0)
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
-        
-        
-        //let row = indexPath.row
+
         let post = self.timelineComponent.content[indexPath.row]
-        //  let post = posts[row] as Post
-        
-        // 1
         post.downloadImage()
-        // 2
         cell.post = post
         // cell.timeline = self
         
@@ -180,8 +144,6 @@ extension TimelineViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedPost =  self.timelineComponent.content[indexPath.row]
-        
-        //   selectedPost = posts[indexPath.row] //1
         self.performSegueWithIdentifier("ShowExistingPost", sender: self) //2
         println(selectedPost)
     }

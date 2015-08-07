@@ -84,23 +84,23 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
 
         
         
-        profileQuery!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
-            // 8
-            self.users = result as? [User] ?? []
-          
-            for user in self.users {
-            
-            let data = user.Profilepicture?.getData()
-            // 3
-      
-            user.profileimage.value = UIImage(data: data!, scale:1.0)
-            
-          self.imageView.image = user.profileimage.value
-            
-        }
-        
-//            self.tableview.reloadData()
-        }
+//        profileQuery!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
+//            // 8
+//            self.users = result as? [User] ?? []
+//          
+//            for user in self.users {
+//            
+//            let data = user.Profilepicture?.getData()
+//            // 3
+//      
+//            user.profileimage.value = UIImage(data: data!, scale:1.0)
+//            
+//          self.imageView.image = user.profileimage.value
+//            
+//        }
+//        
+////            self.tableview.reloadData()
+//        }
         
       
         dispatch_async(dispatch_get_main_queue(), { () ->  Void in

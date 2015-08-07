@@ -619,6 +619,15 @@
                                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EjJ-aZ-6Ob">
+                                                                    <rect key="frame" x="21" y="37" width="50" height="69"/>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PcL-0b-pPw">
+                                                                    <rect key="frame" x="25" y="8" width="42" height="21"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
                                                             </subviews>
                                                             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
@@ -668,7 +677,9 @@
                                         <connections>
                                             <outlet property="postImageView1" destination="s8m-lB-9aL" id="BIc-9a-myS"/>
                                             <outlet property="pricelabel" destination="woi-MQ-x0u" id="4FR-DA-yRV"/>
+                                            <outlet property="profileimage" destination="EjJ-aZ-6Ob" id="oFW-fA-8fy"/>
                                             <outlet property="titleTextlabel" destination="BXe-u9-anQ" id="Ynb-g7-fWp"/>
+                                            <outlet property="usernamelabel" destination="PcL-0b-pPw" id="FVz-ph-tBr"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1518,8 +1529,8 @@
     <inferredMetricsTieBreakers>
         <segue reference="eqh-O5-12b"/>
         <segue reference="3ip-T8-EvI"/>
+        <segue reference="1dK-1L-tiz"/>
         <segue reference="bp0-Mg-JxF"/>
-        <segue reference="vox-gb-7yW"/>
         <segue reference="bTu-fL-EEs"/>
         <segue reference="HFC-VU-pPi"/>
     </inferredMetricsTieBreakers>

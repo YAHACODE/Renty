@@ -13,8 +13,11 @@ import Foundation
 
 
 class User : PFUser, PFSubclassing {
-    var photoUploadTask: UIBackgroundTaskIdentifier?
+  
     
+//   @NSManaged var usernametext: NSString?
+
+    var photoUploadTask: UIBackgroundTaskIdentifier?
     
     var imageBond: Bond<UIImage?>!
     var profileimage: Dynamic<UIImage?> = Dynamic(nil)
@@ -76,7 +79,7 @@ class User : PFUser, PFSubclassing {
         }
 
     }
-    
+  
 
     
       }
