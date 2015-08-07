@@ -38,7 +38,7 @@ class PostTableViewCell: UITableViewCell {
         
             }
            
-            self.getUser()
+//            self.getUser()
             self.user = self.post!.user as? User
             
         }
@@ -72,6 +72,9 @@ class PostTableViewCell: UITableViewCell {
         var stringg:NSNumber  = post!.enteredprice!
         let price:String = String(format:"%i", stringg.integerValue)
         pricelabel.text = price + "$"
+        
+        user!.fetchIfNeeded()
+
         var nameText = self.user?.username
 //        self.usernamelabel?.text = self.post!.user!.username
         self.usernamelabel?.text = nameText

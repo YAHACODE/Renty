@@ -257,10 +257,10 @@ extension ProfilePageViewController: UITableViewDelegate {
     }
   
     
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        
-        timelineComponent.targetWillDisplayEntry(indexPath.row)
-    }
+//    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+//        
+//        timelineComponent.targetWillDisplayEntry(indexPath.row)
+//    }
 
     
 }
