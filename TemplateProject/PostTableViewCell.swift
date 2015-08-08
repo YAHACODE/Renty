@@ -50,7 +50,7 @@ class PostTableViewCell: UITableViewCell {
         
         didSet{
             self.updateUI()
-            self.user = self.post!.user as? User
+//            self.user = self.post!.user as? User
 
             if let oldValue = oldValue where oldValue != user {
                 profileimage.designatedBond.unbindAll()

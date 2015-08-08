@@ -72,7 +72,8 @@ class ProductPageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        self.user = self.post!.user as? User
+
         self.profileimageview.layer.cornerRadius = self.profileimageview.frame.size.width / 2
         self.profileimageview.clipsToBounds = true
 
