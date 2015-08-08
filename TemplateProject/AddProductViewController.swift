@@ -138,7 +138,6 @@ var products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "C
         textFieldShouldReturn(PriceTextField)
       //  textFieldShouldReturn(DescriptionTextField)
 
-        // Do any additional setup after loading the view.
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

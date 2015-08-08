@@ -69,6 +69,12 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
    
+        self.imageView.layer.borderWidth = 3.0
+        self.imageView.layer.borderColor = UIColor.whiteColor().CGColor
+
+        self.imageView.layer.cornerRadius = 10.0
+
+        
         
         self.queryuserprofilepicture()
         self.queryuserpost()
@@ -245,22 +251,16 @@ extension ProfilePageViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         
-//        selectedPost = posts[indexPath.row] //1
         selectedCell = tableView.cellForRowAtIndexPath(indexPath) as? PostTableViewCell
         
         self.performSegueWithIdentifier("ShowExistingPost", sender: self) //2
-       // println(selectedPost)
+        // println(selectedPost)
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
-  
     
-//    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-//        
-//        timelineComponent.targetWillDisplayEntry(indexPath.row)
-//    }
 
     
 }

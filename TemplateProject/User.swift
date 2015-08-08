@@ -7,9 +7,12 @@
 //
 
 import UIKit
-import Bond
-import Parse
 import Foundation
+import FBSDKCoreKit
+import Parse
+import ParseUI
+import Bond
+import ConvenienceKit
 
 
 class User : PFUser, PFSubclassing  {
@@ -21,7 +24,7 @@ class User : PFUser, PFSubclassing  {
     
     var imageBond: Bond<UIImage?>!
     var profileimage: Dynamic<UIImage?> = Dynamic(nil)
-    
+
     @NSManaged var Profilepicture: PFFile?
 
     //MARK: Initialization
@@ -31,6 +34,7 @@ class User : PFUser, PFSubclassing  {
         dispatch_once(&onceToken) {
             // inform Parse about this subclass
             self.registerSubclass()
+
         }
     }
     
@@ -76,7 +80,7 @@ class User : PFUser, PFSubclassing  {
                 }
             }
         }
-
+        
     }
   
 

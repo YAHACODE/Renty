@@ -35,37 +35,46 @@ class ProductPageViewController: UIViewController {
     var image3:UIImage?
     
     //var user: PFUser?
-     var user: User?
+    var user: User?
+
     
     @IBAction func unwindToProductPageView (segue : UIStoryboardSegue ) {
 
         
     }
     
-    var post: Post?
-
 
    
+    var post: Post?
+    
+    
     func displayPost( post: Post?) {
         if let post = post , titleTextlabel = titleTextlabel, descriptionLabel = descriptionLabel ,priceLabel = priceLabel , productimageview = productimageview,productimageview2 = productimageview2  , productimageview3 = productimageview3 , usernamelabel = usernamelabel   {
             
-
+            
             profileimageview.image = user?.profileimage.value
-
+            
             usernamelabel.text = self.post!.user?.username
             titleTextlabel.text = post.title as String
             descriptionLabel.text = post.productdescription as? String
-       
+            
             var stringg:NSNumber  = post.enteredprice!
             let price:String = String(format:"%i", stringg.integerValue)
             priceLabel.text = price + "$"
-
+            
         }
     }
+    
+    
+
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        self.profileimageview.layer.cornerRadius = self.profileimageview.frame.size.width / 2
+        self.profileimageview.clipsToBounds = true
 
         println(post)
         // Do any additional setup after loading the view.

@@ -18,6 +18,7 @@ class TagsPageViewController: UIViewController,  TimelineComponentTarget  {
     var user : User?
     var posts: [Post] = []
     var selectedPost: Post?
+
     var userlocation: PFGeoPoint?
     var selectedTag:String = "Sporting Goods"
     var manager: OneShotLocationManager?
@@ -67,7 +68,6 @@ class TagsPageViewController: UIViewController,  TimelineComponentTarget  {
     
     func loadInRange(range: Range<Int>, completionBlock: ([Post]?) -> Void) {
            let query = Post.query()
-            //println(userlocation)
            query!.includeKey("user")
            query!.whereKey("tag", equalTo: selectedTag)
             //query!.whereKey("postlocation", nearGeoPoint:userlocation, withinMiles: 50)
@@ -93,10 +93,11 @@ class TagsPageViewController: UIViewController,  TimelineComponentTarget  {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "ShowExistingPostTag" {
+        if segue.identifier == "ShowExistingPost" {
             let postViewControler = segue.destinationViewController as! ProductPageViewController
             
             postViewControler.post = selectedPost
+
             
         }
         
@@ -124,7 +125,6 @@ extension TagsPageViewController: UITableViewDataSource {
     }
     
 }
-
 extension TagsPageViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -133,12 +133,14 @@ extension TagsPageViewController: UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedPost =  self.timelineComponent.content[indexPath.row]
-        self.performSegueWithIdentifier("ShowExistingPostTag", sender: self) //2
+        self.performSegueWithIdentifier("ShowExistingPost", sender: self) //2
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
     
-
+    
 }
+    
+

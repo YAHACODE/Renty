@@ -50,6 +50,8 @@ class PostTableViewCell: UITableViewCell {
         
         didSet{
             self.updateUI()
+            self.user = self.post!.user as? User
+
             if let oldValue = oldValue where oldValue != user {
                 profileimage.designatedBond.unbindAll()
                 if (oldValue.profileimage.bonds.count == 0) {
@@ -58,9 +60,14 @@ class PostTableViewCell: UITableViewCell {
                 
             }
             if let user = user {
+                
+                
+                self.profileimage.layer.cornerRadius = self.profileimage.frame.size.width / 2
+                self.profileimage.clipsToBounds = true
+                
                 user.downloadProfileImage()
                 user.profileimage ->> profileimage
-            
+ 
             }
         }
     }
@@ -74,10 +81,10 @@ class PostTableViewCell: UITableViewCell {
         pricelabel.text = price + "$"
         
         user!.fetchIfNeeded()
-
+        
         var nameText = self.user?.username
         self.usernamelabel?.text = nameText
-
+        
     }
     
     
@@ -86,11 +93,11 @@ class PostTableViewCell: UITableViewCell {
         userQuery.whereKey("username", equalTo: post!.user!)
         userQuery.whereKey("Profilepicture", equalTo: post!.user!)
         userQuery.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
-
             
-            }
-
+            
         }
+        
+    }
  
     
 
