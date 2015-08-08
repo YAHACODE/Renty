@@ -189,7 +189,7 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
         let user = User.currentUser()
         
        //let user = User()
-        user!.Profilepicture = Profilepicture
+      //  user!.Profilepicture = Profilepicture
         user!.save()
         user!.profileimage.value = profileimage
         user!.uploadImage()

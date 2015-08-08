@@ -573,7 +573,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="269"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJA-4b-6Cr">
-                                        <rect key="frame" x="274" y="184" width="44" height="30"/>
+                                        <rect key="frame" x="26" y="79" width="44" height="30"/>
                                         <state key="normal" title="logout">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -1541,11 +1541,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="HFC-VU-pPi"/>
+        <segue reference="1dK-1L-tiz"/>
         <segue reference="eqh-O5-12b"/>
-        <segue reference="vox-gb-7yW"/>
-        <segue reference="bTu-fL-EEs"/>
         <segue reference="3ip-T8-EvI"/>
         <segue reference="bp0-Mg-JxF"/>
+        <segue reference="bTu-fL-EEs"/>
+        <segue reference="HFC-VU-pPi"/>
     </inferredMetricsTieBreakers>
 </document>
