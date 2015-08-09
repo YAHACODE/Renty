@@ -79,7 +79,8 @@ var products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "C
 
     
     @IBAction func add(sender: UIButton) {
-        
+      
+     
         
         //input data
         var title = titleTextField?.text
@@ -96,8 +97,8 @@ var products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "C
         PFGeoPoint.geoPointForCurrentLocationInBackground {
             (userlocation: PFGeoPoint?, error: NSError?) -> Void in
             if error == nil {
+                self.performSegueWithIdentifier("timeline", sender: self)
                 let post = Post()
-               
                 post.postlocation = userlocation
                 post.tag = tag
                 post.title = title!
@@ -106,19 +107,18 @@ var products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "C
                 post.image1.value = self.image1!
                 post.image2.value = self.image2!
                 post.image3.value = self.image3!
-
-                post.uploadPost()    
+                post.uploadPost()
+         
+            }
+            else if self.titleTextField.text != "" && self.DescriptionTextField.text != "" && self.PriceTextField.text != ""  {
+                
+                self.missingField.hidden = true
                 
             }
-   
-
         }
-
-        
     }
 
 
-    
     override func viewDidLoad() {
         
 

@@ -82,16 +82,28 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
     }
     
     func queryuserprofilepicture() {
-    
-        let user = User()
+        let user = User.currentUser()
+
+       // let user = User()
         let profileQuery = User.query()
-      //  profileQuery!.whereKey("user", equalTo: PFUser.currentUser()!)
+     // profileQuery!.whereKey("user", equalTo: PFUser.currentUser()!)
         profileQuery!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
             self.users = result as? [User] ?? []
             for user in self.users {
-                let data = user.Profilepicture?.getData()
+                
+             let data = user.Profilepicture?.getData()
+                
+                if data == nil {
+                    
+                    println("no data")
+                    
+                }
+                else{
+
+                
                 user.profileimage.value = UIImage(data: data!, scale:1.0)
                 self.imageView.image = user.profileimage.value
+                     }
             }
         }
 
@@ -189,7 +201,7 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
         let user = User.currentUser()
         
        //let user = User()
-      //  user!.Profilepicture = Profilepicture
+        user!.Profilepicture = Profilepicture
         user!.save()
         user!.profileimage.value = profileimage
         user!.uploadImage()
