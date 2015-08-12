@@ -86,7 +86,7 @@ class ProductPageViewController: UIViewController {
         
         displayPost(post)
 
-        paginatedScrollView = PaginatedScrollView(frame: CGRectMake(0, 50, self.view.frame.size.width, 330))
+        paginatedScrollView = PaginatedScrollView(frame: CGRectMake(0, 50, self.view.frame.size.width, 300))
         self.view.addSubview(paginatedScrollView!) // add to the
         
         let images: [UIImage] = [ (post!.image1.value)!,  (post!.image2.value)!, (post!.image3.value)!]

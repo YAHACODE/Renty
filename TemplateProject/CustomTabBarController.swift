@@ -23,7 +23,7 @@ class CustomTabBarController: UITabBarController {
     }
     
     override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem!) {
-        if item.title == "Item4" {
+        if item.title == " " {
             self.performSegueWithIdentifier("Camera", sender: self)
         }
     }
