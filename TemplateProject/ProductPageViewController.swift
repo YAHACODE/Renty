@@ -16,12 +16,7 @@ class ProductPageViewController: UIViewController {
 
     @IBOutlet weak var usernamelabel: UILabel!
     
-    @IBOutlet weak var productimageview: UIImageView!
-    
-    @IBOutlet weak var productimageview2: UIImageView!
-    
-    @IBOutlet weak var productimageview3: UIImageView!
-    
+
     @IBOutlet weak var titleTextlabel: UILabel!
     
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -49,7 +44,7 @@ class ProductPageViewController: UIViewController {
     
     
     func displayPost( post: Post?) {
-        if let post = post , titleTextlabel = titleTextlabel, descriptionLabel = descriptionLabel ,priceLabel = priceLabel , productimageview = productimageview,productimageview2 = productimageview2  , productimageview3 = productimageview3 , usernamelabel = usernamelabel   {
+        if let post = post , titleTextlabel = titleTextlabel, descriptionLabel = descriptionLabel ,priceLabel = priceLabel, usernamelabel = usernamelabel   {
             
             
             profileimageview.image = user?.profileimage.value

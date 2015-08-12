@@ -19,8 +19,9 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
     let defaultRange = 0...10
     let additionalRangeSize = 10
     
-    var manager: OneShotLocationManager?
     var posts: [Post] = []
+    var manager: OneShotLocationManager?
+
     var userlocation: PFGeoPoint?
     var selectedPost: Post?
     var timelineComponent: TimelineComponent<Post, TimelineViewController>!
