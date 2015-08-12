@@ -16,23 +16,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    
+    UIApplication.sharedApplication().statusBarStyle = .LightContent
+
+    
     // Override point for customization after application launch.
     Parse.setApplicationId("WcGewesLXRGsyQMY2FBn4VWnjxgPSjgvbfvVXuwN", clientKey: "5SfDH4pLjIcEEoOFJVIwHztgSBQq3tdGGmsgAClD")
  
-//  PFUser.logInWithUsername("test", password: "test")
-//
-//   // dispatch_async(dispatch_get_main_queue(), { () ->  Void in
-//
-//    if let user = PFUser.currentUser() {
-//        println("Log in successful")
-//    } else {
-//        println("No logged in user :(")
-//    }
-//    let acl = PFACL()
-//    acl.setPublicReadAccess(true)
-//    PFACL.setDefaultACL(acl, withAccessForCurrentUser: true)
-//    
-//  //  })
+
     
     dispatch_async(dispatch_get_main_queue(), { () ->  Void in
 
