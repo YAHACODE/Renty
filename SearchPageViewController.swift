@@ -16,13 +16,6 @@ let tags:[String] = ["Fashion", "Home and decor", "Electronics", "Baby and kids"
 
 class SearchPageViewController : UIViewController {
     
-    
-//    @IBOutlet weak var tagImage: UIImageView!
-//    
-//      @IBOutlet weak var tagLabel: UILabel!
-//
-//    @IBOutlet weak var tagView: UIView!
-    
     let tagImages: [String] = ["baby.jpg", "baby.jpg", "baby.jpg", "baby.jpg" , "baby.jpg", "baby.jpg","baby.jpg", "baby.jpg"]
     
     @IBOutlet weak var tagsTableView: UITableView!
@@ -64,10 +57,17 @@ extension SearchPageViewController: UITableViewDataSource {
     //
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("TagCell") as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("TagCell") as! tagTableCell
         
+        cell.backgroundImageView.image = UIImage(named:tagImages[indexPath.row])
+        cell.titleLabel.text = tags[indexPath.row]
         
-        cell.textLabel!.text = tags[indexPath.row]
+        cell.backgroundImageView.layer.cornerRadius = cell.backgroundImageView.frame.height/2.0
+        cell.backgroundImageView.clipsToBounds = true
+        
+        cell.tagView.layer.cornerRadius = cell.tagView.frame.height/2.0
+        cell.tagView.clipsToBounds = true
+        
         return cell
     }
 }
@@ -82,3 +82,16 @@ extension SearchPageViewController: UITableViewDelegate {
         self.performSegueWithIdentifier("ToTagsSegue", sender: self) //2
     }
 }
+
+class tagTableCell : UITableViewCell {
+
+    @IBOutlet weak var backgroundImageView: UIImageView!
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var tagView: UIView!
+    
+    
+}
+
+
