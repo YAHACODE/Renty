@@ -35,7 +35,9 @@ class PhotoPickerController: UIViewController   {
     var stillImageOutput: AVCaptureStillImageOutput?
     var previewLayer: AVCaptureVideoPreviewLayer?
     
-    
+    @IBAction func unwindTophotoPicker (segue : UIStoryboardSegue ) {
+        
+    }
     var counter : Int = 0
     //    var imageArray : NSMutableArray = []
 

@@ -11,6 +11,12 @@
 		080EC3CB1B720AD400A1C97C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080EC3CA1B720AD400A1C97C /* TableViewController.swift */; };
 		084829131B73380400C62391 /* PaginatedScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084829121B73380400C62391 /* PaginatedScrollView.swift */; };
 		084829811B7BCB1800C62391 /* baby.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 084829801B7BCB1700C62391 /* baby.jpg */; };
+		084829871B7C68EA00C62391 /* Automobile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 084829821B7C68EA00C62391 /* Automobile.jpg */; };
+		084829881B7C68EA00C62391 /* Collectibles and Art.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 084829831B7C68EA00C62391 /* Collectibles and Art.jpg */; };
+		084829891B7C68EA00C62391 /* Fashion.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 084829841B7C68EA00C62391 /* Fashion.jpg */; };
+		0848298A1B7C68EA00C62391 /* Home and decor.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 084829851B7C68EA00C62391 /* Home and decor.jpg */; };
+		0848298B1B7C68EA00C62391 /* Sporting Goods.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 084829861B7C68EA00C62391 /* Sporting Goods.jpg */; };
+		0848298D1B7C76AD00C62391 /* Electronics.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0848298C1B7C76AD00C62391 /* Electronics.jpg */; };
 		08502B941B5DBB5300923308 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08502B931B5DBB5300923308 /* TimelineViewController.swift */; };
 		08502B961B5DBBAE00923308 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08502B951B5DBBAE00923308 /* ChatViewController.swift */; };
 		08502B9A1B5DBBE300923308 /* SearchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08502B991B5DBBE300923308 /* SearchPageViewController.swift */; };
@@ -149,6 +155,12 @@
 		080EC3CA1B720AD400A1C97C /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = Images.xcassets/TableViewController.swift; sourceTree = "<group>"; };
 		084829121B73380400C62391 /* PaginatedScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginatedScrollView.swift; sourceTree = "<group>"; };
 		084829801B7BCB1700C62391 /* baby.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = baby.jpg; sourceTree = "<group>"; };
+		084829821B7C68EA00C62391 /* Automobile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Automobile.jpg; sourceTree = "<group>"; };
+		084829831B7C68EA00C62391 /* Collectibles and Art.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Collectibles and Art.jpg"; sourceTree = "<group>"; };
+		084829841B7C68EA00C62391 /* Fashion.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Fashion.jpg; sourceTree = "<group>"; };
+		084829851B7C68EA00C62391 /* Home and decor.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Home and decor.jpg"; sourceTree = "<group>"; };
+		084829861B7C68EA00C62391 /* Sporting Goods.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Sporting Goods.jpg"; sourceTree = "<group>"; };
+		0848298C1B7C76AD00C62391 /* Electronics.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Electronics.jpg; sourceTree = "<group>"; };
 		08502B931B5DBB5300923308 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		08502B951B5DBBAE00923308 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatViewController.swift; path = ../ChatViewController.swift; sourceTree = "<group>"; };
 		08502B991B5DBBE300923308 /* SearchPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchPageViewController.swift; path = ../SearchPageViewController.swift; sourceTree = "<group>"; };
@@ -264,6 +276,12 @@
 		0848297F1B7BCAFE00C62391 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				0848298C1B7C76AD00C62391 /* Electronics.jpg */,
+				084829821B7C68EA00C62391 /* Automobile.jpg */,
+				084829831B7C68EA00C62391 /* Collectibles and Art.jpg */,
+				084829841B7C68EA00C62391 /* Fashion.jpg */,
+				084829851B7C68EA00C62391 /* Home and decor.jpg */,
+				084829861B7C68EA00C62391 /* Sporting Goods.jpg */,
 				084829801B7BCB1700C62391 /* baby.jpg */,
 			);
 			name = images;
@@ -495,10 +513,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0848298B1B7C68EA00C62391 /* Sporting Goods.jpg in Resources */,
 				084829811B7BCB1800C62391 /* baby.jpg in Resources */,
 				624262C51B4460CB00005CE3 /* Images.xcassets in Resources */,
+				0848298A1B7C68EA00C62391 /* Home and decor.jpg in Resources */,
 				624262C11B4460CB00005CE3 /* LaunchScreen.xib in Resources */,
+				084829891B7C68EA00C62391 /* Fashion.jpg in Resources */,
+				084829871B7C68EA00C62391 /* Automobile.jpg in Resources */,
+				084829881B7C68EA00C62391 /* Collectibles and Art.jpg in Resources */,
 				624262C21B4460CB00005CE3 /* Main.storyboard in Resources */,
+				0848298D1B7C76AD00C62391 /* Electronics.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

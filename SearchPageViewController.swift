@@ -16,7 +16,7 @@ let tags:[String] = ["Fashion", "Home and decor", "Electronics", "Baby and kids"
 
 class SearchPageViewController : UIViewController {
     
-    let tagImages: [String] = ["baby.jpg", "baby.jpg", "baby.jpg", "baby.jpg" , "baby.jpg", "baby.jpg","baby.jpg", "baby.jpg"]
+    let tagImages: [String] = ["Fashion.jpg", "Home and decor.jpg", "Electronics.jpg", "baby.jpg" , "Collectibles and Art.jpg", "Sporting Goods.jpg","Automobile.jpg", "other stuff.jpg"]
     
     @IBOutlet weak var tagsTableView: UITableView!
     
@@ -62,8 +62,8 @@ extension SearchPageViewController: UITableViewDataSource {
         cell.backgroundImageView.image = UIImage(named:tagImages[indexPath.row])
         cell.titleLabel.text = tags[indexPath.row]
         
-        cell.backgroundImageView.layer.cornerRadius = cell.backgroundImageView.frame.height/2.0
-        cell.backgroundImageView.clipsToBounds = true
+//        cell.backgroundImageView.layer.cornerRadius = cell.backgroundImageView.frame.height/2.0
+//        cell.backgroundImageView.clipsToBounds = true
         
         cell.tagView.layer.cornerRadius = cell.tagView.frame.height/2.0
         cell.tagView.clipsToBounds = true
