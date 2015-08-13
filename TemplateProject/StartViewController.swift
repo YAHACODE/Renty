@@ -9,6 +9,11 @@ import UIKit
 
 class StartViewController: UIViewController {
 
+    
+    @IBAction func startpage (segue : UIStoryboardSegue ) {
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

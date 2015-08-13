@@ -82,9 +82,11 @@ class PhotoPickerController: UIViewController   {
                 
                 previewLayer!.connection?.videoOrientation = AVCaptureVideoOrientation.Portrait
 
-                previewLayer!.frame = CGRectMake(0, 0, 500, 500)
+//                previewLayer!.frame = CGRectMake(0, 0, 500, 500)
 
-                previewLayer?.frame = previewView.frame
+//                previewLayer?.frame = previewView.frame
+//                previewLayer!.frame = previewView.bounds
+
 
                 previewView.layer.addSublayer(previewLayer)
 
