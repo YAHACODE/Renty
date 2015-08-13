@@ -10,6 +10,7 @@
 		080EC3C31B71FCA200A1C97C /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080EC3C21B71FCA200A1C97C /* MessageViewController.swift */; };
 		080EC3CB1B720AD400A1C97C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080EC3CA1B720AD400A1C97C /* TableViewController.swift */; };
 		084829131B73380400C62391 /* PaginatedScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084829121B73380400C62391 /* PaginatedScrollView.swift */; };
+		084829811B7BCB1800C62391 /* baby.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 084829801B7BCB1700C62391 /* baby.jpg */; };
 		08502B941B5DBB5300923308 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08502B931B5DBB5300923308 /* TimelineViewController.swift */; };
 		08502B961B5DBBAE00923308 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08502B951B5DBBAE00923308 /* ChatViewController.swift */; };
 		08502B9A1B5DBBE300923308 /* SearchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08502B991B5DBBE300923308 /* SearchPageViewController.swift */; };
@@ -147,6 +148,7 @@
 		080EC3C21B71FCA200A1C97C /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		080EC3CA1B720AD400A1C97C /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewController.swift; path = Images.xcassets/TableViewController.swift; sourceTree = "<group>"; };
 		084829121B73380400C62391 /* PaginatedScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaginatedScrollView.swift; sourceTree = "<group>"; };
+		084829801B7BCB1700C62391 /* baby.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = baby.jpg; sourceTree = "<group>"; };
 		08502B931B5DBB5300923308 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		08502B951B5DBBAE00923308 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatViewController.swift; path = ../ChatViewController.swift; sourceTree = "<group>"; };
 		08502B991B5DBBE300923308 /* SearchPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchPageViewController.swift; path = ../SearchPageViewController.swift; sourceTree = "<group>"; };
@@ -231,9 +233,9 @@
 				089877241B682B9000B97C0A /* loginpageViewController.swift */,
 				089877261B682CB700B97C0A /* SignupViewController.swift */,
 				08502B991B5DBBE300923308 /* SearchPageViewController.swift */,
+				08E5D99F1B6F1FA8003EEA79 /* TagsPageViewController.swift */,
 				08502B951B5DBBAE00923308 /* ChatViewController.swift */,
 				089877321B698B0C00B97C0A /* ProductPageViewController.swift */,
-				08E5D99F1B6F1FA8003EEA79 /* TagsPageViewController.swift */,
 				089876BC1B60B96E00B97C0A /* AddProductViewController.swift */,
 				08502B931B5DBB5300923308 /* TimelineViewController.swift */,
 				08502B9B1B5DBDD700923308 /* ProfilePageViewController.swift */,
@@ -259,6 +261,14 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
+		0848297F1B7BCAFE00C62391 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				084829801B7BCB1700C62391 /* baby.jpg */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		624262B11B4460CB00005CE3 /* TemplateProject */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +280,7 @@
 				624262B21B4460CB00005CE3 /* AppDelegate.swift */,
 				089876B01B5F875700B97C0A /* CustomTabBarController.swift */,
 				086BEB371B5EAE880003A79B /* PhotoPickerController.swift */,
+				0848297F1B7BCAFE00C62391 /* images */,
 				080EC3CA1B720AD400A1C97C /* TableViewController.swift */,
 				084829121B73380400C62391 /* PaginatedScrollView.swift */,
 				0848295E1B755AD300C62391 /* Helpers */,
@@ -484,6 +495,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				084829811B7BCB1800C62391 /* baby.jpg in Resources */,
 				624262C51B4460CB00005CE3 /* Images.xcassets in Resources */,
 				624262C11B4460CB00005CE3 /* LaunchScreen.xib in Resources */,
 				624262C21B4460CB00005CE3 /* Main.storyboard in Resources */,

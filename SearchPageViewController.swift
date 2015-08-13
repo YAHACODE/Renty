@@ -11,9 +11,19 @@ import Foundation
 import UIKit
 import Parse
 
-let TAGS:[String] = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "Collectibles and Art", "Sporting Goods","Automobile", "other stuff"]
-    
+let tags:[String] = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "Collectibles and Art", "Sporting Goods","Automobile", "other stuff"]
+
+
 class SearchPageViewController : UIViewController {
+    
+    
+//    @IBOutlet weak var tagImage: UIImageView!
+//    
+//      @IBOutlet weak var tagLabel: UILabel!
+//
+//    @IBOutlet weak var tagView: UIView!
+    
+    let tagImages: [String] = ["baby.jpg", "baby.jpg", "baby.jpg", "baby.jpg" , "baby.jpg", "baby.jpg","baby.jpg", "baby.jpg"]
     
     @IBOutlet weak var tagsTableView: UITableView!
     
@@ -34,7 +44,7 @@ class SearchPageViewController : UIViewController {
         if segue.identifier == "ToTagsSegue" {
             if let vc = segue.destinationViewController as? TagsPageViewController {
                 if let ip = tagsTableView.indexPathForSelectedRow() {
-                    vc.selectedTag = TAGS[ip.row]
+                    vc.selectedTag = tags[ip.row]
                 }
             }
         }
@@ -46,7 +56,7 @@ class SearchPageViewController : UIViewController {
 extension SearchPageViewController: UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return TAGS.count
+        return tags.count
     }
     //    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     //        return Int(posts.count ?? 0)
@@ -56,7 +66,8 @@ extension SearchPageViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("TagCell") as! UITableViewCell
         
-        cell.textLabel!.text = TAGS[indexPath.row]
+        
+        cell.textLabel!.text = tags[indexPath.row]
         return cell
     }
 }
