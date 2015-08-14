@@ -143,7 +143,14 @@ class PhotoPickerController: UIViewController   {
                         self.takePhotoButton.hidden = true
                        // self.takePhotoButtonDone.hidden = false
 
-                     self.previewView.hidden = true
+                    // self.previewView.hidden = true
+                        
+                        
+                       // self.yesview.frame = self.view.frame
+                        
+                         //       self.view.addSubview(self.yesview)
+                        
+                        
                     self.yesview.hidden = false
                      self.yesview.frame = self.previewView.frame
 

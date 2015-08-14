@@ -15,6 +15,9 @@ import Bond
 class TimelineViewController: UIViewController, TimelineComponentTarget {
     
     
+    // TODO: REMOVE THE EMAIL VIEW
+    // TODO: FIX IMAGED IN SEARCH
+    // TODO: INCREASE THE SPACING BETWEEN THE STATIC TOP BAR 
     
     let defaultRange = 0...10
     let additionalRangeSize = 10
