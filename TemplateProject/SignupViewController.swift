@@ -41,7 +41,17 @@ class SignupViewController: UIViewController,UITextFieldDelegate {
         textFieldShouldReturn(emailTextField)
         textFieldShouldReturn(usernameTextField)
         textFieldShouldReturn(fulLNameTextField)
-        border.setBorder(5.0, width: 1.0, color: UIColor.whiteColor())
+        border.setBorder(20.0, width: 1.0, color: UIColor.whiteColor())
+        
+        
+        fulLNameTextField.attributedPlaceholder = NSAttributedString(string:"what's your name",
+            attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
+        emailTextField.attributedPlaceholder = NSAttributedString(string:"what's your email",
+            attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
+        usernameTextField.attributedPlaceholder = NSAttributedString(string:"what's your username",
+            attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
+        passwordTextField.attributedPlaceholder = NSAttributedString(string:"what's your password",
+            attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
     }
     
     //    @IBAction func tappedOutside(sender : AnyObject) {
