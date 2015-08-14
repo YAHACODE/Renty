@@ -19,6 +19,8 @@ class Post : PFObject, PFSubclassing {
    @NSManaged var title: NSString
    @NSManaged var productdescription: NSString?
    @NSManaged var tag: NSString?
+   @NSManaged var periode: NSString?
+
    @NSManaged var enteredprice: NSNumber?
    @NSManaged var postlocation: PFGeoPoint?
 
@@ -121,6 +123,10 @@ class Post : PFObject, PFSubclassing {
         let itemtag = NSString?(tags!)
         
         
+        
+        let period = NSString?(periode!)
+        let periodfield = NSString?(period!)
+        
         let price = NSNumber?(enteredprice!)
         let Enteredprice = NSNumber?(price!)
 
@@ -135,7 +141,8 @@ class Post : PFObject, PFSubclassing {
         
         user = PFUser.currentUser()
         self.postlocation = Userlocation!
-
+      
+        self.periode = periodfield!
         self.title = Title!
         self.enteredprice = Enteredprice!
         self.productdescription = Productdescription

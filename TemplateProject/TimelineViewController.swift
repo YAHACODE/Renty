@@ -27,11 +27,26 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
     var timelineComponent: TimelineComponent<Post, TimelineViewController>!
     var hasLocation:Bool = false
 
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     @IBOutlet weak var tableView: UITableView!
     
     
      override func viewDidLoad() {
+        
+        
+        activityIndicator.hidden = false
+        activityIndicator.startAnimating()
+        
+//        let loadingScreenViewNib = UINib(nibName: "loadingScreen", bundle: nil)
+//        let loadingScreenView:UIView = loadingScreenViewNib.instantiateWithOwner(nil, options: nil).last as! UIView
+//        
+//        loadingScreenView.frame = self.view.frame
+//        
+//        self.view.addSubview(loadingScreenView)
+        
+        
         self.getusercurrentlocation()
         timelineComponent = TimelineComponent(target: self)
         super.viewDidLoad()
@@ -106,7 +121,10 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
             //println("no user location")
         }
         
-    }
+       }
+        
+        activityIndicator.hidden = true
+        activityIndicator.stopAnimating()
     
     }
     

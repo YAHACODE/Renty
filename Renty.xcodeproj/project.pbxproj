@@ -17,6 +17,7 @@
 		0848298A1B7C68EA00C62391 /* Home and decor.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 084829851B7C68EA00C62391 /* Home and decor.jpg */; };
 		0848298B1B7C68EA00C62391 /* Sporting Goods.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 084829861B7C68EA00C62391 /* Sporting Goods.jpg */; };
 		0848298D1B7C76AD00C62391 /* Electronics.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0848298C1B7C76AD00C62391 /* Electronics.jpg */; };
+		0848298F1B7D61A400C62391 /* loadingScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0848298E1B7D61A400C62391 /* loadingScreen.xib */; };
 		08502B941B5DBB5300923308 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08502B931B5DBB5300923308 /* TimelineViewController.swift */; };
 		08502B961B5DBBAE00923308 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08502B951B5DBBAE00923308 /* ChatViewController.swift */; };
 		08502B9A1B5DBBE300923308 /* SearchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08502B991B5DBBE300923308 /* SearchPageViewController.swift */; };
@@ -161,6 +162,7 @@
 		084829851B7C68EA00C62391 /* Home and decor.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Home and decor.jpg"; sourceTree = "<group>"; };
 		084829861B7C68EA00C62391 /* Sporting Goods.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Sporting Goods.jpg"; sourceTree = "<group>"; };
 		0848298C1B7C76AD00C62391 /* Electronics.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Electronics.jpg; sourceTree = "<group>"; };
+		0848298E1B7D61A400C62391 /* loadingScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = loadingScreen.xib; sourceTree = "<group>"; };
 		08502B931B5DBB5300923308 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		08502B951B5DBBAE00923308 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatViewController.swift; path = ../ChatViewController.swift; sourceTree = "<group>"; };
 		08502B991B5DBBE300923308 /* SearchPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchPageViewController.swift; path = ../SearchPageViewController.swift; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 				0848295C1B755AB600C62391 /* Models */,
 				624262B31B4460CB00005CE3 /* LaunchScreen.xib */,
 				624262B51B4460CB00005CE3 /* Main.storyboard */,
+				0848298E1B7D61A400C62391 /* loadingScreen.xib */,
 			);
 			path = TemplateProject;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				084829871B7C68EA00C62391 /* Automobile.jpg in Resources */,
 				084829881B7C68EA00C62391 /* Collectibles and Art.jpg in Resources */,
 				624262C21B4460CB00005CE3 /* Main.storyboard in Resources */,
+				0848298F1B7D61A400C62391 /* loadingScreen.xib in Resources */,
 				0848298D1B7C76AD00C62391 /* Electronics.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -15,9 +15,9 @@ class ProductPageViewController: UIViewController {
     var paginatedScrollView: PaginatedScrollView?
 
     @IBOutlet weak var usernamelabel: UILabel!
-    
 
     @IBOutlet weak var titleTextlabel: UILabel!
+    
     
     @IBOutlet weak var descriptionLabel: UILabel!
 

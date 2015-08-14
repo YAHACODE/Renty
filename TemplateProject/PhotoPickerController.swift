@@ -103,7 +103,7 @@ class PhotoPickerController: UIViewController   {
         super.viewDidAppear(animated)
         // previewLayer!.frame =  CGRect(x: 0, y: 0, width: 500, height: 500)
         
-        previewLayer!.frame = previewView.bounds
+      previewLayer!.frame = previewView.bounds
         
     }
     

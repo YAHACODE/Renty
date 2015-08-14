@@ -21,6 +21,9 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var pricelabel: UILabel!
     @IBOutlet weak var postImageView1: UIImageView!
     
+    @IBOutlet weak var periodlabel: UILabel!
+    
+    
     var post:Post? {
         didSet {
             // free memory of image stored with post that is no longer displayed
@@ -75,10 +78,12 @@ class PostTableViewCell: UITableViewCell {
     
     
     func updateUI() {
-        titleTextlabel.text = post!.title as String;
+        
+        periodlabel.text = post!.periode as? String
+        titleTextlabel.text = post!.title as? String
         var stringg:NSNumber  = post!.enteredprice!
         let price:String = String(format:"%i", stringg.integerValue)
-        pricelabel.text = price + "$"
+        pricelabel.text =  "$" + price + "/"
         
         user!.fetchIfNeeded()
         

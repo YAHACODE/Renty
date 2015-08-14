@@ -33,6 +33,7 @@ var products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "C
 
     @IBOutlet weak var DescriptionTextField: UITextView!
     
+    @IBOutlet weak var periodField: UITextField!
     @IBOutlet weak var capturedImage: UIImageView!
     @IBOutlet weak var capturedImage2: UIImageView!
     @IBOutlet weak var capturedImage3: UIImageView!
@@ -87,6 +88,8 @@ var products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "C
         var productdescription = DescriptionTextField?.text
         var enteredprice = PriceTextField?.text.toInt()
         var tag = self.itemselected
+        
+        var periode = periodField?.text
 
         
         println(tag)
@@ -97,8 +100,12 @@ var products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "C
         PFGeoPoint.geoPointForCurrentLocationInBackground {
             (userlocation: PFGeoPoint?, error: NSError?) -> Void in
             if error == nil {
+                
                 self.performSegueWithIdentifier("timeline", sender: self)
+
                 let post = Post()
+                
+                post.periode = periode
                 post.postlocation = userlocation
                 post.tag = tag
                 post.title = title!
@@ -112,7 +119,7 @@ var products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "C
             }
             else if self.titleTextField.text != "" && self.DescriptionTextField.text != "" && self.PriceTextField.text != ""  {
                 
-                self.missingField.hidden = true
+                self.missingField.hidden = false
                 
             }
         }
