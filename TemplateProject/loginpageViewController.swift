@@ -39,6 +39,13 @@ class loginpageViewController: UIViewController, UITextFieldDelegate {
         missingUsername.hidden = true
         textFieldShouldReturn(usernameTextField)
         textFieldShouldReturn(passwordTextField)
+        
+        
+        usernameTextField.attributedPlaceholder = NSAttributedString(string:"what's your username",
+            attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
+        passwordTextField.attributedPlaceholder = NSAttributedString(string:"what's your password",
+            attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
+
     }
     
     
