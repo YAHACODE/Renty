@@ -146,8 +146,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="twc-u4-QSH" userLabel="looksgood">
-                                <rect key="frame" x="0.0" y="139" width="600" height="323"/>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="twc-u4-QSH" userLabel="looksgood">
+                                <rect key="frame" x="0.0" y="60" width="600" height="323"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
@@ -190,10 +190,10 @@
                                                 <rect key="frame" x="0.0" y="-1" width="103" height="88"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i8T-6M-lzz">
-                                                <rect key="frame" x="214" y="-1" width="103" height="88"/>
+                                                <rect key="frame" x="111" y="0.0" width="103" height="88"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="58T-H4-XwU">
-                                                <rect key="frame" x="107" y="0.0" width="103" height="88"/>
+                                                <rect key="frame" x="222" y="0.0" width="103" height="88"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -282,9 +282,6 @@
                             <constraint firstItem="blf-8d-U5K" firstAttribute="leading" secondItem="CGd-ec-nE2" secondAttribute="leading" id="xeQ-rr-0Pj"/>
                         </constraints>
                         <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="twc-u4-QSH"/>
-                            </mask>
                             <mask key="constraints">
                                 <exclude reference="9eA-kR-mYm"/>
                             </mask>
@@ -906,9 +903,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jx3-Qt-Ip4">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="224"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJA-4b-6Cr">
-                                        <rect key="frame" x="535" y="18" width="44" height="30"/>
-                                        <state key="normal" title="logout">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJA-4b-6Cr">
+                                        <rect key="frame" x="500" y="18" width="79" height="27"/>
+                                        <state key="normal" image="gear 2">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
@@ -2143,6 +2140,7 @@
         <image name="add2" width="20" height="35"/>
         <image name="back" width="20" height="35"/>
         <image name="email" width="320" height="48"/>
+        <image name="gear 2" width="28" height="27"/>
         <image name="home icon" width="25" height="25"/>
         <image name="iteminfo icon" width="36" height="33"/>
         <image name="login" width="302" height="52"/>
@@ -2159,7 +2157,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="1dK-1L-tiz"/>
         <segue reference="FY6-EC-P0P"/>
+        <segue reference="3ip-T8-EvI"/>
         <segue reference="tgb-Ke-piN"/>
-        <segue reference="6uf-dv-StC"/>
     </inferredMetricsTieBreakers>
 </document>

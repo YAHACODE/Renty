@@ -151,18 +151,21 @@ class PhotoPickerController: UIViewController   {
 
                         
                     }
-//                    else if  (self.counter==3)
-//                        
-//                    {
+                    else if  (self.counter==3)
+                        
+                    {
+
+                     self.previewView.hidden = true
+                    self.yesview.hidden = false
+                     self.yesview.frame = self.previewView.frame
 //
-////                     self.previewView.hidden = true
-////                    self.yesview.hidden = false
-////                     self.yesview.frame = self.previewView.frame
-////
-//                    }
+                    }
                     
                     
-                  
+                    let borderColor = UIColor(red: 174.0/255.0, green: 174.0/255.0, blue: 174.0/255.0, alpha: 1.0)
+                    self.capturedImage.setBorder(13, width: 1, color: borderColor)
+                    self.capturedImage2.setBorder(13, width: 1, color: borderColor)
+                    self.capturedImage3.setBorder(13, width: 1, color: borderColor)
                     
                     
                     
