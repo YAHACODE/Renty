@@ -17,7 +17,7 @@ import ConvenienceKit
 
 class User : PFUser, PFSubclassing  {
   
-    
+
 //   @NSManaged var usernametext: NSString?
 
     var photoUploadTask: UIBackgroundTaskIdentifier?
@@ -41,12 +41,16 @@ class User : PFUser, PFSubclassing  {
      override init () {
         super.init()
     }
+
     
+    class func User() -> String! {
+        return "_User"
+    }
 
     
     
     //MARK: Actions
-    
+
     
     func uploadImage() {
         // Parse does not allow this to be set in the initializer - we set it before post gets saved

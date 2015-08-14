@@ -916,12 +916,6 @@
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S6w-Np-IMQ">
                                         <rect key="frame" x="140" y="28" width="322" height="178"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9R-eQ-dlk">
-                                                <rect key="frame" x="139" y="136" width="42" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pnB-BX-pvp">
                                                 <rect key="frame" x="113" y="74" width="94" height="30"/>
                                                 <state key="normal">
@@ -937,6 +931,12 @@
                                                     <constraint firstAttribute="width" secondItem="zii-6I-2CA" secondAttribute="height" multiplier="1:1" id="KbW-cc-bpt"/>
                                                 </constraints>
                                             </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9R-eQ-dlk">
+                                                <rect key="frame" x="107" y="136" width="108" height="21"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="25"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="178" id="IXo-dm-hUt"/>
@@ -2157,7 +2157,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="1dK-1L-tiz"/>
         <segue reference="FY6-EC-P0P"/>
-        <segue reference="3ip-T8-EvI"/>
         <segue reference="tgb-Ke-piN"/>
+        <segue reference="6uf-dv-StC"/>
     </inferredMetricsTieBreakers>
 </document>

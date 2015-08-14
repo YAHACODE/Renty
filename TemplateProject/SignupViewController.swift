@@ -12,7 +12,7 @@ import UIKit
 import Parse
 
 
-class SignupViewController: UIViewController,UITextFieldDelegate {
+class SignupViewController: UIViewController, UITextFieldDelegate {
   
     
     @IBOutlet var passwordTextField : UITextField!
@@ -91,7 +91,7 @@ class SignupViewController: UIViewController,UITextFieldDelegate {
     func keyboardWillShow(notification: NSNotification) {
         if let userInfo = notification.userInfo {
             if let keyboardSize =  (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-                kbHeight = keyboardSize.height - 68.0
+                kbHeight = keyboardSize.height - 70.0
                 self.animateTextField(true)
             }
         }
@@ -107,7 +107,6 @@ class SignupViewController: UIViewController,UITextFieldDelegate {
             self.view.frame = CGRectOffset(self.view.frame, 0, movement)
         })
     }
-    
     
     @IBAction func signUp(sender : AnyObject) {
         
@@ -126,7 +125,7 @@ class SignupViewController: UIViewController,UITextFieldDelegate {
             [user .setObject(fullNameEntered, forKey: "FullName")]
             savedUser.setObject(userEntered, forKey: "username")
             savedUser.setObject(passEntered, forKey: "password")
-            savedUser.setObject(fullNameEntered, forKey: "FullName")
+            savedUser.setObject(emailEntered, forKey: "email")
             
             
             savedUser.saveInBackgroundWithBlock { (succeeded , error) -> Void in

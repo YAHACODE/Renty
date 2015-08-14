@@ -45,14 +45,6 @@ class PhotoPickerController: UIViewController   {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        previewView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width)
-        
-     //   previewView.frame = CGRectMake(0, 0, 800, 500)
-
-
-//        capturedImage.frame = CGRectMake(capturedImage.frame.origin.x, capturedImage2.frame.origin.y, capturedImage.frame.size.width, capturedImage.frame.size.height)
-//        capturedImage3.frame = CGRectMake(capturedImage3.frame.origin.x, capturedImage2.frame.origin.y, capturedImage3.frame.size.width, capturedImage3.frame.size.height)
-
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -78,16 +70,8 @@ class PhotoPickerController: UIViewController   {
                 
                 previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
                 previewLayer!.videoGravity = AVLayerVideoGravityResizeAspect
-//                previewLayer!.connection?.videoOrientation = AVCaptureVideoOrientation.Portrait
-//                [self.videoController.view setFrame:CGRectMake (0, 0, self.view.frame.size.width, 460)];
-
-                
                 previewLayer!.connection?.videoOrientation = AVCaptureVideoOrientation.Portrait
 
-//                previewLayer!.frame = CGRectMake(0, 0, 500, 500)
-
-//                previewLayer?.frame = previewView.frame
-//                previewLayer!.frame = previewView.bounds
 
 
                 previewView.layer.addSublayer(previewLayer)
@@ -101,7 +85,6 @@ class PhotoPickerController: UIViewController   {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        // previewLayer!.frame =  CGRect(x: 0, y: 0, width: 500, height: 500)
         
       previewLayer!.frame = previewView.bounds
         
@@ -121,15 +104,16 @@ class PhotoPickerController: UIViewController   {
                     
                     
                     var image = UIImage(CGImage: cgImageRef, scale: 1.0, orientation: UIImageOrientation.Right)
-       
-                    
+                    let borderColor = UIColor(red: 174.0/255.0, green: 174.0/255.0, blue: 174.0/255.0, alpha: 1.0)
+
                     if (self.counter<1)
                     {
                       
                         self.capturedImage.image = image
                         self.counter++;
                         var image1 = self.capturedImage.image
-                   
+                        self.capturedImage.setBorder(13, width: 1, color: borderColor)
+
                     }
                     else if (self.counter>1 &&  self.counter<3)
                     {
@@ -139,6 +123,7 @@ class PhotoPickerController: UIViewController   {
                         self.counter++;
                         var image2 = self.capturedImage2.image
 
+                        self.capturedImage2.setBorder(13, width: 1, color: borderColor)
 
                     }
                     else if (self.counter<3)
@@ -148,6 +133,7 @@ class PhotoPickerController: UIViewController   {
                         self.capturedImage3.image = image
                         self.counter++;
                         var image3 = self.capturedImage3.image
+                        self.capturedImage3.setBorder(13, width: 1, color: borderColor)
 
                         
                     }
@@ -158,14 +144,10 @@ class PhotoPickerController: UIViewController   {
                      self.previewView.hidden = true
                     self.yesview.hidden = false
                      self.yesview.frame = self.previewView.frame
+
 //
                     }
                     
-                    
-                    let borderColor = UIColor(red: 174.0/255.0, green: 174.0/255.0, blue: 174.0/255.0, alpha: 1.0)
-                    self.capturedImage.setBorder(13, width: 1, color: borderColor)
-                    self.capturedImage2.setBorder(13, width: 1, color: borderColor)
-                    self.capturedImage3.setBorder(13, width: 1, color: borderColor)
                     
                     
                     

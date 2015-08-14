@@ -21,6 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     // Override point for customization after application launch.
+    
+//    User.registerSubclass()
+
     Parse.setApplicationId("WcGewesLXRGsyQMY2FBn4VWnjxgPSjgvbfvVXuwN", clientKey: "5SfDH4pLjIcEEoOFJVIwHztgSBQq3tdGGmsgAClD")
  
 
