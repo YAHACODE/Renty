@@ -1529,7 +1529,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ngu-ty-iGK" userLabel="Fullname">
                                         <rect key="frame" x="17" y="23" width="504" height="43"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iwn-VP-DQR">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile icon" translatesAutoresizingMaskIntoConstraints="NO" id="iwn-VP-DQR">
                                                 <rect key="frame" x="8" y="3" width="37" height="38"/>
                                             </imageView>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="fulLNameTextField" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JWZ-TX-tNt">
@@ -1539,7 +1539,6 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="43" id="g7Z-of-CyH"/>
                                         </constraints>
@@ -1609,7 +1608,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="FiI-0u-cfT" firstAttribute="leading" secondItem="aYR-CR-EZS" secondAttribute="leading" id="3v0-HO-TAx"/>
                                     <constraint firstItem="ngu-ty-iGK" firstAttribute="leading" secondItem="D6a-6I-Fe5" secondAttribute="leading" id="50A-54-cpH"/>
@@ -1702,7 +1701,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="4w9-yA-MbD"/>
                                     <constraint firstAttribute="width" constant="161" id="fHg-vT-D3A"/>
