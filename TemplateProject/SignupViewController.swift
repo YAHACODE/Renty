@@ -23,11 +23,17 @@ class SignupViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet var emailTaken : UILabel!
     @IBOutlet var missingField : UILabel!
     @IBOutlet var invalidEmail : UILabel!
-    
+    var kbHeight: CGFloat!
+
     
     @IBOutlet weak var border: UIView!
     
+ 
+    
     override func viewDidLoad() {
+        
+        passwordTextField.delegate = self
+
         super.viewDidLoad()
         passwordTextField.delegate = self
         usernameTextField.delegate = self
@@ -65,8 +71,43 @@ class SignupViewController: UIViewController,UITextFieldDelegate {
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+
         return true
     }
+    
+    override func viewWillAppear(animated:Bool) {
+        super.viewWillAppear(animated)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
+    }
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            if let keyboardSize =  (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+                kbHeight = keyboardSize.height - 65.0
+                self.animateTextField(true)
+            }
+        }
+    }
+    func keyboardWillHide(notification: NSNotification) {
+        self.animateTextField(false)
+    }
+    
+    func animateTextField(up: Bool) {
+        var movement = (up ? -kbHeight : kbHeight)
+        
+        UIView.animateWithDuration(0.3, animations: {
+            self.view.frame = CGRectOffset(self.view.frame, 0, movement)
+        })
+    }
+    
     
     @IBAction func signUp(sender : AnyObject) {
         
