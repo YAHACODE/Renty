@@ -104,9 +104,9 @@ var products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "C
         PFGeoPoint.geoPointForCurrentLocationInBackground {
             (userlocation: PFGeoPoint?, error: NSError?) -> Void in
             if error == nil {
-                if self.titleTextField.text == "" || self.DescriptionTextField.text == "" || self.PriceTextField.text == ""  {
+                if self.titleTextField.text == "" || self.DescriptionTextField.text == "" || self.PriceTextField.text == "" || self.capturedImage.image == nil || self.capturedImage2.image == nil || self.capturedImage3.image == nil {
                     
-                    self.missingField.hidden = true
+                    self.missingField.hidden = false
                     
                 }
                 else {

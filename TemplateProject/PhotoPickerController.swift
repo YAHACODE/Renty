@@ -26,6 +26,7 @@ class PhotoPickerController: UIViewController   {
     
     @IBOutlet var takePhotoButton: UIButton!
     
+   // @IBOutlet weak var takePhotoButtonDone: UIButton!
     @IBAction func close(sender: AnyObject) {
         
         self.performSegueWithIdentifier("close", sender: self)
@@ -134,12 +135,13 @@ class PhotoPickerController: UIViewController   {
                         self.counter++;
                         var image3 = self.capturedImage3.image
                         self.capturedImage3.setBorder(13, width: 1, color: borderColor)
-
                         
                     }
                     else if  (self.counter==3)
                         
                     {
+                        self.takePhotoButton.hidden = true
+                       // self.takePhotoButtonDone.hidden = false
 
                      self.previewView.hidden = true
                     self.yesview.hidden = false
