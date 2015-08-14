@@ -136,6 +136,11 @@ var products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "C
         capturedImage.image = image1
         capturedImage2.image = image2
         capturedImage3.image = image3
+        
+        let borderColor = UIColor(red: 174.0/255.0, green: 174.0/255.0, blue: 174.0/255.0, alpha: 1.0)
+        capturedImage.setBorder(13, width: 1, color: borderColor)
+        capturedImage2.setBorder(13, width: 1, color: borderColor)
+        capturedImage3.setBorder(13, width: 1, color: borderColor)
    
         textfieldreturn(titleTextField)
         textfieldreturn(PriceTextField)
@@ -171,4 +176,11 @@ var products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "C
     }
 }
 
-
+extension UIView {
+    func setBorder(radius:CGFloat, width:CGFloat, color:UIColor) {
+        self.layer.cornerRadius = radius
+        self.clipsToBounds = true
+        self.layer.borderColor = color.CGColor
+        self.layer.borderWidth = width
+    }
+}

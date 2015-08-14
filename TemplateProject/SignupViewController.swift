@@ -25,6 +25,7 @@ class SignupViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet var invalidEmail : UILabel!
     
     
+    @IBOutlet weak var border: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +41,7 @@ class SignupViewController: UIViewController,UITextFieldDelegate {
         textFieldShouldReturn(emailTextField)
         textFieldShouldReturn(usernameTextField)
         textFieldShouldReturn(fulLNameTextField)
-        
+        border.setBorder(5.0, width: 1.0, color: UIColor.whiteColor())
     }
     
     //    @IBAction func tappedOutside(sender : AnyObject) {
