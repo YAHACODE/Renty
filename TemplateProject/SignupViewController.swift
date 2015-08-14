@@ -91,7 +91,7 @@ class SignupViewController: UIViewController,UITextFieldDelegate {
     func keyboardWillShow(notification: NSNotification) {
         if let userInfo = notification.userInfo {
             if let keyboardSize =  (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
-                kbHeight = keyboardSize.height - 65.0
+                kbHeight = keyboardSize.height - 68.0
                 self.animateTextField(true)
             }
         }
