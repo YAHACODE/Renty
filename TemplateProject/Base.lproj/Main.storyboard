@@ -743,14 +743,14 @@
                                                 <rect key="frame" x="15" y="120" width="290" height="1"/>
                                                 <color key="backgroundColor" red="0.17254901960784313" green="0.17254901960784313" blue="0.17254901960784313" alpha="0.20999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                             </view>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Description" translatesAutoresizingMaskIntoConstraints="NO" id="o5Q-be-rns">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o5Q-be-rns">
                                                 <rect key="frame" x="21" y="58" width="318" height="66"/>
                                                 <color key="textColor" red="0.17254901959999999" green="0.17254901959999999" blue="0.17254901959999999" alpha="0.20999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="20"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSn-5P-VKH">
-                                                <rect key="frame" x="23" y="122" width="10" height="21"/>
+                                                <rect key="frame" x="23" y="128" width="10" height="21"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="20"/>
                                                 <color key="textColor" red="0.17254901959999999" green="0.17254901959999999" blue="0.17254901959999999" alpha="0.20999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -858,6 +858,7 @@
                         <outlet property="capturedImage" destination="NqA-vQ-Ctd" id="ZqH-yT-gSr"/>
                         <outlet property="capturedImage2" destination="z9D-Zy-AUC" id="LdE-Aa-I6p"/>
                         <outlet property="capturedImage3" destination="5kL-El-WFk" id="zag-cf-iUy"/>
+                        <outlet property="dolarlabel" destination="JSn-5P-VKH" id="PTh-Sr-xlp"/>
                         <outlet property="missingField" destination="02X-49-mIg" id="OLa-iP-1BZ"/>
                         <outlet property="periodField" destination="QtG-a3-rY8" id="Rg8-ik-dO3"/>
                         <outlet property="titleTextField" destination="ykX-oI-jrc" id="WaZ-xK-83m"/>
@@ -953,7 +954,7 @@
                                         </variation>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="centerX" secondItem="S6w-Np-IMQ" secondAttribute="centerX" id="KVc-Xp-kiK"/>
                                     <constraint firstItem="UJA-4b-6Cr" firstAttribute="top" secondItem="jx3-Qt-Ip4" secondAttribute="top" constant="18" id="RTu-Is-v6y"/>
@@ -2156,8 +2157,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="1dK-1L-tiz"/>
-        <segue reference="FY6-EC-P0P"/>
+        <segue reference="cbM-PI-TMt"/>
+        <segue reference="3ip-T8-EvI"/>
         <segue reference="tgb-Ke-piN"/>
-        <segue reference="6uf-dv-StC"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -23,6 +23,7 @@ var products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "C
     @IBOutlet weak var missingField: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
     
+    @IBOutlet weak var dolarlabel: UILabel!
     @NSManaged var imageFile: PFFile?
     @NSManaged var imageFile2: PFFile?
     @NSManaged var imageFile3: PFFile?
@@ -43,6 +44,9 @@ var products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "C
     var image3:UIImage?
 
     var itemselected : String = ""
+    
+    
+
     
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int{
@@ -100,35 +104,55 @@ var products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "C
         PFGeoPoint.geoPointForCurrentLocationInBackground {
             (userlocation: PFGeoPoint?, error: NSError?) -> Void in
             if error == nil {
-                
-                self.performSegueWithIdentifier("timeline", sender: self)
-
-                let post = Post()
-                
-                post.periode = periode
-                post.postlocation = userlocation
-                post.tag = tag
-                post.title = title!
-                post.enteredprice = enteredprice!
-                post.productdescription = productdescription!
-                post.image1.value = self.image1!
-                post.image2.value = self.image2!
-                post.image3.value = self.image3!
-                post.uploadPost()
+                if self.titleTextField.text == "" || self.DescriptionTextField.text == "" || self.PriceTextField.text == ""  {
+                    
+                    self.missingField.hidden = true
+                    
+                }
+                else {
+                    self.performSegueWithIdentifier("timeline", sender: self)
+                    
+                    let post = Post()
+                    
+                    post.periode = periode
+                    post.postlocation = userlocation
+                    post.tag = tag
+                    post.title = title!
+                    post.enteredprice = enteredprice!
+                    post.productdescription = productdescription!
+                    post.image1.value = self.image1!
+                    post.image2.value = self.image2!
+                    post.image3.value = self.image3!
+                    post.uploadPost()
+                }
+               
          
             }
-            else if self.titleTextField.text != "" && self.DescriptionTextField.text != "" && self.PriceTextField.text != ""  {
-                
-                self.missingField.hidden = false
-                
-            }
+            
         }
     }
 
 
     override func viewDidLoad() {
         
+        
+        PriceTextField.attributedPlaceholder = NSAttributedString(string:"Price",
+            attributes:[NSForegroundColorAttributeName: UIColor.blackColor()])
+        titleTextField.attributedPlaceholder = NSAttributedString(string:"Title",
+            attributes:[NSForegroundColorAttributeName: UIColor.blackColor()])
+        
+//        dolarlabel.attributedPlaceholder = NSAttributedString(string:"$",
+//            attributes:[NSForegroundColorAttributeName: UIColor.blackColor()])
 
+        
+           dolarlabel.text = "$"
+           dolarlabel.textColor =  UIColor.blackColor()
+        
+           DescriptionTextField?.text = "Description"
+           DescriptionTextField?.textColor = UIColor.blackColor()
+
+            periodField.attributedPlaceholder = NSAttributedString(string:"month hour or day",
+            attributes:[NSForegroundColorAttributeName: UIColor.blackColor()])
         
     missingField.hidden = true
         
