@@ -8,9 +8,10 @@
 
 import UIKit
 import Parse
+import MessageUI
 
 
-class ProductPageViewController: UIViewController {
+class ProductPageViewController: UIViewController, MFMailComposeViewControllerDelegate{
 
     var paginatedScrollView: PaginatedScrollView?
 
@@ -31,7 +32,44 @@ class ProductPageViewController: UIViewController {
     
     //var user: PFUser?
     var user: User?
+    var post: Post?
 
+    
+    
+    @IBAction func launchEmail(sender: AnyObject) {
+        
+        
+        var emailTitle = "Rent product"
+        var messageBody = "know everything about this item"
+        var toRecipents = ["friend@stackoverflow.com"]
+        var mc: MFMailComposeViewController = MFMailComposeViewController()
+        mc.mailComposeDelegate = self
+        mc.setSubject(emailTitle)
+        mc.setMessageBody(messageBody, isHTML: false)
+        mc.setToRecipients(toRecipents)
+        
+        self.presentViewController(mc, animated: true, completion: nil)
+    }
+    
+    func mailComposeController(controller:MFMailComposeViewController, didFinishWithResult result:MFMailComposeResult, error:NSError) {
+        switch result.value {
+        case MFMailComposeResultCancelled.value:
+            println("Mail cancelled")
+        case MFMailComposeResultSaved.value:
+            println("Mail saved")
+        case MFMailComposeResultSent.value:
+            println("Mail sent")
+        case MFMailComposeResultFailed.value:
+            println("Mail sent failure: %@", [error.localizedDescription])
+        default:
+            break
+        }
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    
+    
     
     @IBAction func unwindToProductPageView (segue : UIStoryboardSegue ) {
 
