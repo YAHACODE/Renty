@@ -60,14 +60,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
             attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
     }
     
-    //    @IBAction func tappedOutside(sender : AnyObject) {
-    //
-    //        passwordTextField.resignFirstResponder()
-    //        emailTextField.resignFirstResponder()
-    //        usernameTextField.resignFirstResponder()
-    //        fulLNameTextField.resignFirstResponder()
-    //
-    //    }
+
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()

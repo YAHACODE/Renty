@@ -32,16 +32,20 @@ class ProductPageViewController: UIViewController, MFMailComposeViewControllerDe
     
     //var user: PFUser?
     var user: User?
-    var post: Post?
 
     
     
+    
+    
     @IBAction func launchEmail(sender: AnyObject) {
-        
+        var usermail  : NSString?
+
+        usermail = self.post!.user?.email
+        println(usermail)
         
         var emailTitle = "Rent product"
         var messageBody = "know everything about this item"
-        var toRecipents = ["friend@stackoverflow.com"]
+        var toRecipents = ["usermail"]
         var mc: MFMailComposeViewController = MFMailComposeViewController()
         mc.mailComposeDelegate = self
         mc.setSubject(emailTitle)
@@ -84,7 +88,8 @@ class ProductPageViewController: UIViewController, MFMailComposeViewControllerDe
     func displayPost( post: Post?) {
         if let post = post , titleTextlabel = titleTextlabel, descriptionLabel = descriptionLabel ,priceLabel = priceLabel, usernamelabel = usernamelabel   {
             
-            
+           
+        
             profileimageview.image = user?.profileimage.value
             
             usernamelabel.text = self.post!.user?.username
