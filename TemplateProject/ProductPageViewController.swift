@@ -19,7 +19,6 @@ class ProductPageViewController: UIViewController, MFMailComposeViewControllerDe
 
     @IBOutlet weak var titleTextlabel: UILabel!
     
-    
     @IBOutlet weak var descriptionLabel: UILabel!
 
     @IBOutlet weak var priceLabel: UILabel!
@@ -69,6 +68,7 @@ class ProductPageViewController: UIViewController, MFMailComposeViewControllerDe
             break
         }
         self.dismissViewControllerAnimated(true, completion: nil)
+        
     }
     
     

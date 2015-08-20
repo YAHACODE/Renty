@@ -13,13 +13,17 @@ import ConvenienceKit
 import AVFoundation
 import Parse
 import CoreImage
-
+import Bond
 
 class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UIPopoverControllerDelegate
  {
     
     @NSManaged var user: PFUser?
 
+    var profileimage: Dynamic<UIImage?> = Dynamic(nil)
+    
+    @NSManaged var Profilepicture: PFFile?
+    
     var currentUser = PFUser.currentUser()
     var selectedCell: PostTableViewCell?
     var usernamename : String!
@@ -36,6 +40,7 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
     @IBOutlet weak var btnClickMe: UIButton!
     @IBOutlet weak var imageView: UIImageView!
    
+    
 
     @IBAction func logOut(sender : AnyObject) {
         PFUser.logOut()
@@ -88,15 +93,30 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
     
     func queryuserprofilepicture() {
         let user = User.currentUser()
-
-       // let user = User()
+        
+//        if (profileimage.value == nil) {
+//            // 2
+//            Profilepicture?.getDataInBackgroundWithBlock { (data: NSData?, error: NSError?) -> Void in
+//                if let data = data {
+//                    let profileimage = UIImage(data: data, scale:1.0)!
+//                    // 3
+//                    self.profileimage.value = profileimage
+//                    self.imageView.image = user!.profileimage.value
+//
+//                    
+//                }
+//            }
+//        }
+        
+        
+        // let user = User()
         let profileQuery = User.query()
-     // profileQuery!.whereKey("user", equalTo: PFUser.currentUser()!)
+        // profileQuery!.whereKey("user", equalTo: PFUser.currentUser()!)
         profileQuery!.findObjectsInBackgroundWithBlock {(result: [AnyObject]?, error: NSError?) -> Void in
             self.users = result as? [User] ?? []
             for user in self.users {
                 
-             let data = user.Profilepicture?.getData()
+                let data = user.Profilepicture?.getData()
                 
                 if data == nil {
                     
@@ -104,14 +124,14 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
                     
                 }
                 else{
-
-                
-                user.profileimage.value = UIImage(data: data!, scale:1.0)
-                self.imageView.image = user.profileimage.value
-                     }
+                    
+                    
+                    user.profileimage.value = UIImage(data: data!, scale:1.0)
+                    self.imageView.image = user.profileimage.value
+                }
             }
         }
-
+        
     }
     
     
@@ -230,6 +250,7 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
         }
         
     }
+
     
 }
 
