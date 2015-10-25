@@ -240,8 +240,8 @@
 		0848295B1B755A7200C62391 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				089877281B682FD700B97C0A /* StartViewController.swift */,
 				089877241B682B9000B97C0A /* loginpageViewController.swift */,
+				089877281B682FD700B97C0A /* StartViewController.swift */,
 				089877261B682CB700B97C0A /* SignupViewController.swift */,
 				08502B991B5DBBE300923308 /* SearchPageViewController.swift */,
 				08E5D99F1B6F1FA8003EEA79 /* TagsPageViewController.swift */,

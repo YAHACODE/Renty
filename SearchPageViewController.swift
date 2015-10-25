@@ -13,13 +13,10 @@ import Parse
 
 let tags:[String] = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "Collectibles and Art", "Sporting Goods","Automobile", "other stuff"]
 
-
 class SearchPageViewController : UIViewController {
     
     let tagImages: [String] = ["Fashion.jpg", "Home and decor.jpg", "Electronics.jpg", "baby.jpg" , "Collectibles and Art.jpg", "Sporting Goods.jpg","Automobile.jpg", "other stuff.jpg"]
-    
     @IBOutlet weak var tagsTableView: UITableView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,10 +27,7 @@ class SearchPageViewController : UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ToTagsSegue" {
             if let vc = segue.destinationViewController as? TagsPageViewController {
                 if let ip = tagsTableView.indexPathForSelectedRow() {

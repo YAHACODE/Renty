@@ -11,44 +11,24 @@ import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
   var window: UIWindow?
 
-
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    
     UIApplication.sharedApplication().statusBarStyle = .LightContent
-
-    
-    // Override point for customization after application launch.
-    
-//    User.registerSubclass()
-
     Parse.setApplicationId("WcGewesLXRGsyQMY2FBn4VWnjxgPSjgvbfvVXuwN", clientKey: "5SfDH4pLjIcEEoOFJVIwHztgSBQq3tdGGmsgAClD")
- 
-
-    
     dispatch_async(dispatch_get_main_queue(), { () ->  Void in
-
     var currentUser = PFUser.currentUser()
     if currentUser != nil {
-        
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        
         var storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
         var initialViewController = storyboard.instantiateViewControllerWithIdentifier("Main") as! UIViewController
-        
         self.window?.rootViewController = initialViewController
         self.window?.makeKeyAndVisible()
     }
     else {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        
         var storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
         var initialViewController = storyboard.instantiateViewControllerWithIdentifier("start") as! UIViewController
-        
         self.window?.rootViewController = initialViewController
         self.window?.makeKeyAndVisible()
     }
@@ -56,8 +36,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // [Optional] Track statistics around application opens.
     PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
-    
-
     
     return true
   }

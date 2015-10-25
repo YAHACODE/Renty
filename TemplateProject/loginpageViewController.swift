@@ -12,22 +12,16 @@ import UIKit
 import Parse
 
 class loginpageViewController: UIViewController, UITextFieldDelegate {
+    
+    var kbHeight: CGFloat!
     @IBOutlet var usernameTextField : UITextField!
     @IBOutlet var passwordTextField : UITextField!
     @IBOutlet var invalidCreds : UILabel!
     @IBOutlet var missingUsername : UILabel!
     @IBOutlet var missingPassword : UILabel!
-    
-    
-//    @IBAction func signUp(sender : AnyObject) {
-//        
-//    }
-    
-    
     override func shouldAutorotate() -> Bool {
         return false
     }
-    
     override func supportedInterfaceOrientations() -> Int {
         return UIInterfaceOrientation.Portrait.rawValue
     }
@@ -37,6 +31,36 @@ class loginpageViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    override func viewWillAppear(animated:Bool) {
+        super.viewWillAppear(animated)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
+    }
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            if let keyboardSize =  (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+                kbHeight = keyboardSize.height - 45.0
+                self.animateTextField(true)
+            }
+        }
+    }
+    func keyboardWillHide(notification: NSNotification) {
+        self.animateTextField(false)
+    }
+    
+    func animateTextField(up: Bool) {
+        var movement = (up ? -kbHeight : kbHeight)
+        UIView.animateWithDuration(0.3, animations: {
+            self.view.frame = CGRectOffset(self.view.frame, 0, movement)
+        })
+    }
+ 
+    
     override func viewDidLoad() {
         usernameTextField.delegate = self
         passwordTextField.delegate = self
@@ -45,16 +69,12 @@ class loginpageViewController: UIViewController, UITextFieldDelegate {
         missingUsername.hidden = true
         textFieldShouldReturn(usernameTextField)
         textFieldShouldReturn(passwordTextField)
-        
-        
         usernameTextField.attributedPlaceholder = NSAttributedString(string:"what's your username",
             attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
         passwordTextField.attributedPlaceholder = NSAttributedString(string:"what's your password",
             attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
 
     }
-    
-    
     
     @IBAction func login(sender : AnyObject) {
         var userCreds = usernameTextField.text
@@ -71,7 +91,6 @@ class loginpageViewController: UIViewController, UITextFieldDelegate {
             if user != nil {
                 self.performSegueWithIdentifier("loginViewSegue", sender: self)
                 user?.save()
-                
             }
             else if  self.usernameTextField.text != "" && self.passwordTextField.text != "" {
                 //checking username validity
@@ -91,7 +110,6 @@ class loginpageViewController: UIViewController, UITextFieldDelegate {
                     self.missingUsername.hidden = true
                     self.missingPassword.hidden = true
                 }
-                /////////////////////
             }
             else if self.usernameTextField.text == "" && self.passwordTextField.text != "" {
                 self.missingUsername.hidden = false
@@ -106,16 +124,10 @@ class loginpageViewController: UIViewController, UITextFieldDelegate {
                 
             }
             else  {
-                
                 self.missingUsername.hidden = false
                 self.missingPassword.hidden = false
                 self.invalidCreds.hidden = true
             }
-            
-            
-            
-            
         }
-        
     }
 }

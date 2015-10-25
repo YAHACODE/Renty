@@ -31,10 +31,6 @@ class ParseHelper {
   
   
         }
-    
-//    static func uploadPhotoForUser(user: PFUser, photo: photo) {
-//        
-//    }
-    
+
 
 }

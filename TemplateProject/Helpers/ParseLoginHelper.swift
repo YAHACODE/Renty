@@ -31,7 +31,6 @@ class ParseLoginHelper : NSObject, NSObjectProtocol {
 
 extension ParseLoginHelper : PFLogInViewControllerDelegate {
   
-  
   func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
     // Determine if this is a Facebook login
     let isFacebookLogin = FBSDKAccessToken.currentAccessToken() != nil

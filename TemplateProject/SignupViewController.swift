@@ -24,16 +24,10 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var missingField : UILabel!
     @IBOutlet var invalidEmail : UILabel!
     var kbHeight: CGFloat!
-
-    
     @IBOutlet weak var border: UIView!
     
- 
-    
     override func viewDidLoad() {
-        
         passwordTextField.delegate = self
-
         super.viewDidLoad()
         passwordTextField.delegate = self
         usernameTextField.delegate = self
@@ -48,8 +42,6 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
         textFieldShouldReturn(usernameTextField)
         textFieldShouldReturn(fulLNameTextField)
         border.setBorder(20.0, width: 1.0, color: UIColor.whiteColor())
-        
-        
         fulLNameTextField.attributedPlaceholder = NSAttributedString(string:"what's your name",
             attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
         emailTextField.attributedPlaceholder = NSAttributedString(string:"what's your email",
@@ -65,19 +57,16 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
-
         return true
     }
     
     override func viewWillAppear(animated:Bool) {
         super.viewWillAppear(animated)
-        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
     }
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
@@ -95,14 +84,12 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
     
     func animateTextField(up: Bool) {
         var movement = (up ? -kbHeight : kbHeight)
-        
         UIView.animateWithDuration(0.3, animations: {
             self.view.frame = CGRectOffset(self.view.frame, 0, movement)
         })
     }
     
     @IBAction func signUp(sender : AnyObject) {
-        
         var userEntered = usernameTextField.text
         var passEntered = passwordTextField.text
         var emailEntered = emailTextField.text
@@ -112,24 +99,18 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
         user.password = passEntered
         user.email = emailEntered
         var savedUser = PFUser(className: "_User")
-        
         func userSignUp() {
-            
             [user .setObject(fullNameEntered, forKey: "FullName")]
             savedUser.setObject(userEntered, forKey: "username")
             savedUser.setObject(passEntered, forKey: "password")
             savedUser.setObject(emailEntered, forKey: "email")
-            
-            
             savedUser.saveInBackgroundWithBlock { (succeeded , error) -> Void in
                 if error == nil {
                     println("saved!")
                 }
                 else {
-                    
                 }
             }
-            
             
             user.signUpInBackgroundWithBlock {
                 (succeeded ,error) -> Void in
@@ -138,13 +119,9 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
                     self.performSegueWithIdentifier("signUpToLogIn", sender: self)
                     savedUser.setObject(user.isAuthenticated() == true, forKey: "authenticated")
                     savedUser.signUp()
-                    
-                    //   savedUser.save()
-                    
                 }
                 else {
                     var errorcode = error!.code
-                    
                     if (errorcode == 125 && errorcode == 202) {
                         self.invalidEmail.hidden = false
                         self.emailTaken.hidden = true
@@ -180,12 +157,9 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
                 
             }
         }
-        
-        
         if userEntered != "" && passEntered != "" && emailEntered != "" && fullNameEntered != ""  {
             missingField.hidden = true
             userSignUp()
-            
         }
         else {
             missingField.hidden = false

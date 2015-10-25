@@ -16,12 +16,15 @@ import Bond
 
 
 
-class AddProductViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate  {
+class AddProductViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UITextViewDelegate {
     
 var products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "Collectibles and Art", "Sporting Goods","Automobile", "other stuff"]
 
     @IBOutlet weak var missingField: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
+    
+    
+    var kbHeight : CGFloat!
     
     @IBOutlet weak var dolarlabel: UILabel!
     @NSManaged var imageFile: PFFile?
@@ -34,6 +37,7 @@ var products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "C
 
     @IBOutlet weak var DescriptionTextField: UITextView!
     
+    @IBOutlet weak var DescriptionTextField2: UITextField!
     @IBOutlet weak var periodField: UITextField!
     @IBOutlet weak var capturedImage: UIImageView!
     @IBOutlet weak var capturedImage2: UIImageView!
@@ -77,11 +81,6 @@ var products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "C
     }
     
     
-    func textfieldreturn(textfield : UITextField) {
-        textfield.delegate = self
-    }
-
-
     
     @IBAction func add(sender: UIButton) {
       
@@ -166,26 +165,64 @@ var products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "C
         capturedImage2.setBorder(13, width: 1, color: borderColor)
         capturedImage3.setBorder(13, width: 1, color: borderColor)
    
-        textfieldreturn(titleTextField)
-        textfieldreturn(PriceTextField)
-      //  textfieldreturn(DescriptionTextField)
-
+//        textfieldreturn(titleTextField)
+//        textfieldreturn(PriceTextField)
+       
+        titleTextField.delegate = self
+        PriceTextField.delegate = self
+        periodField.delegate = self
+        
         textFieldShouldReturn(titleTextField)
         textFieldShouldReturn(PriceTextField)
-      //  textFieldShouldReturn(DescriptionTextField)
-
+        textFieldShouldReturn(periodField)
+        textFieldShouldReturn(DescriptionTextField2)
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(textField: UITextField ) -> Bool {
         textField.resignFirstResponder()
+        titleTextField.resignFirstResponder()
+
         return true
     }
-
     
+
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            if let keyboardSize =  (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
+                kbHeight = keyboardSize.height - 50.0
+                self.animateTextField(true)
+            }
+        }
+    }
+    
+    
+    func keyboardWillHide(notification: NSNotification) {
+        self.animateTextField(false)
+    }
+    
+    func animateTextField(up: Bool) {
+        var movement = (up ? -kbHeight : kbHeight)
+        UIView.animateWithDuration(0.3, animations: {
+            self.view.frame = CGRectOffset(self.view.frame, 0, movement)
+        })
+    }
+    
+    
+    
+    func textfieldreturn(textfield : UITextField) {
+        textfield.delegate = self
+    }
+
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
    
         
     }

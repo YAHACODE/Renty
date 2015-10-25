@@ -8,17 +8,11 @@
 
 import UIKit
 
-
-
-
 class TableViewController: UITableViewController, UISearchResultsUpdating {
-   
     var posts: [Post] = []
-    
     let tableData = ["One","Two","Three","Twenty-One"]
     var filteredposts = [String]()
     var resultSearchController = UISearchController()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -27,9 +21,7 @@ class TableViewController: UITableViewController, UISearchResultsUpdating {
             controller.searchResultsUpdater = self
             controller.dimsBackgroundDuringPresentation = false
             controller.searchBar.sizeToFit()
-            
             self.tableView.tableHeaderView = controller.searchBar
-            
             return controller
         })()
         
@@ -63,16 +55,13 @@ class TableViewController: UITableViewController, UISearchResultsUpdating {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! UITableViewCell
-        
         // 3
         if (self.resultSearchController.active) {
             cell.textLabel?.text = filteredposts[indexPath.row]
-            
             return cell
         }
         else {
             cell.textLabel?.text = tableData[indexPath.row]
-            
             return cell
         }
     }
@@ -80,11 +69,9 @@ class TableViewController: UITableViewController, UISearchResultsUpdating {
     func updateSearchResultsForSearchController(searchController: UISearchController)
     {
         filteredposts.removeAll(keepCapacity: false)
-        
         let searchPredicate = NSPredicate(format: "SELF CONTAINS[c] %@", searchController.searchBar.text)
         let array = (tableData as NSArray).filteredArrayUsingPredicate(searchPredicate)
         filteredposts = array as! [String]
-        
         self.tableView.reloadData()
     }
     

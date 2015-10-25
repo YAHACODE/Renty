@@ -67,9 +67,11 @@ class TagsPageViewController: UIViewController,  TimelineComponentTarget  {
 
     
     func loadInRange(range: Range<Int>, completionBlock: ([Post]?) -> Void) {
+        
+
            let query = Post.query()
            query!.includeKey("user")
-           query!.whereKey("tag", equalTo: selectedTag)
+           query!.whereKey("tag", equalTo: self.selectedTag)
             //query!.whereKey("postlocation", nearGeoPoint:userlocation, withinMiles: 50)
             
            query!.orderByDescending("createdAt")
@@ -80,7 +82,8 @@ class TagsPageViewController: UIViewController,  TimelineComponentTarget  {
                 self.posts = result as? [Post] ?? []
                 completionBlock(self.posts)
 
-            }
+            
+        }
     }
     
     
@@ -119,7 +122,7 @@ extension TagsPageViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("PostCellTags") as! PostTableViewCell
         let post = timelineComponent.content[indexPath.row]
-        post.downloadImage()
+           post.downloadImage()
         cell.post = post
         return cell
     }
