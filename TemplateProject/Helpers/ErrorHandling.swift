@@ -25,7 +25,7 @@ struct ErrorHandling {
     var alert = UIAlertController(title: ErrorTitle, message: ErrorDefaultMessage, preferredStyle: UIAlertControllerStyle.Alert)
     alert.addAction(UIAlertAction(title: ErrorOKButtonTitle, style: UIAlertActionStyle.Default, handler: nil))
     
-    let window = UIApplication.sharedApplication().windows[0] as! UIWindow
+    let window = UIApplication.sharedApplication().windows[0] 
     window.rootViewController?.presentViewControllerFromTopViewController(alert, animated: true, completion: nil)
   }
   

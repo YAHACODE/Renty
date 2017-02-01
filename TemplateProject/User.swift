@@ -15,7 +15,7 @@ import Bond
 import ConvenienceKit
 class User : PFUser, PFSubclassing  {
     var photoUploadTask: UIBackgroundTaskIdentifier?
-    var imageBond: Bond<UIImage?>!
+    var imageBond: Bond
     var profileimage: Dynamic<UIImage?> = Dynamic(nil)
     @NSManaged var Profilepicture: PFFile?
     //MARK: Initialization
@@ -24,6 +24,8 @@ class User : PFUser, PFSubclassing  {
         dispatch_once(&onceToken) {
             // inform Parse about this subclass
             self.registerSubclass()
+            
+            
         }
     }
      override init () {

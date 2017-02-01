@@ -20,6 +20,7 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var pricelabel: UILabel!
     @IBOutlet weak var postImageView1: UIImageView!
     @IBOutlet weak var periodlabel: UILabel!
+    
     var post:Post? {
         didSet {
             // free memory of image stored with post that is no longer displayed
@@ -39,6 +40,7 @@ class PostTableViewCell: UITableViewCell {
             self.user = self.post!.user as? User
         }
     }
+    
     var user : User? {
         didSet{
             self.updateUI()
@@ -57,16 +59,22 @@ class PostTableViewCell: UITableViewCell {
             }
         }
     }
+    
+    
+    
+    
+    
     func updateUI() {
         periodlabel.text = post!.periode as? String
         titleTextlabel.text = post!.title as? String
-        var stringg:NSNumber  = post!.enteredprice!
+        let stringg:NSNumber  = post!.enteredprice!
         let price:String = String(format:"%i", stringg.integerValue)
         pricelabel.text =  "$" + price + "/"
         user!.fetchIfNeeded()
-        var nameText = self.user?.username
+        let nameText = self.user?.username
         self.usernamelabel?.text = nameText
     }
+    
     func getUser(){
         let userQuery = PFQuery(className: "_User")
         userQuery.whereKey("username", equalTo: post!.user!)

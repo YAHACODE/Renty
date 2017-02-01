@@ -85,7 +85,7 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
             for user in self.users {
                 let data = user.Profilepicture?.getData()
                 if data == nil {
-                    println("no data")
+                    print("no data")
                 }
                 else{
                     user.profileimage.value = UIImage(data: data!, scale:1.0)
@@ -109,18 +109,18 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
     
     @IBAction func btnImagePickerClicked(sender: AnyObject)
     {
-        var alert:UIAlertController=UIAlertController(title: "Choose Image", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
-        var cameraAction = UIAlertAction(title: "Camera", style: UIAlertActionStyle.Default)
+        let alert:UIAlertController=UIAlertController(title: "Choose Image", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let cameraAction = UIAlertAction(title: "Camera", style: UIAlertActionStyle.Default)
             {
                 UIAlertAction in
                 self.openCamera()
         }
-        var gallaryAction = UIAlertAction(title: "Gallary", style: UIAlertActionStyle.Default)
+        let gallaryAction = UIAlertAction(title: "Gallary", style: UIAlertActionStyle.Default)
             {
                 UIAlertAction in
                 self.openGallary()
         }
-        var cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel)
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel)
             {
                 UIAlertAction in
         }
@@ -139,6 +139,9 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
             popover!.presentPopoverFromRect(btnClickMe.frame, inView: self.view, permittedArrowDirections: UIPopoverArrowDirection.Any, animated: true)
         }
     }
+    
+    
+    
     func openCamera()
     {
         if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera))
@@ -164,7 +167,7 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
             popover!.presentPopoverFromRect(btnClickMe.frame, inView: self.view, permittedArrowDirections: UIPopoverArrowDirection.Any, animated: true)
         }
     }
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject])
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
     {
         picker .dismissViewControllerAnimated(true, completion: nil)
         imageView.image=info[UIImagePickerControllerOriginalImage] as? UIImage
@@ -177,10 +180,14 @@ class ProfilePageViewController: UIViewController,UIAlertViewDelegate,UIImagePic
         user!.save()
         user!.profileimage.value = profileimage
         user!.uploadImage()
+        
+//        user!.query()
+//        user!.profileimage.value?.description.lastPathComponent.join(<#elements: τ_0_0#>)
+    
     }
     func imagePickerControllerDidCancel(picker: UIImagePickerController)
     {
-        println("picker cancel.")
+        print("picker cancel.")
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

@@ -30,7 +30,7 @@ class Post : PFObject, PFSubclassing {
     var image2: Dynamic<UIImage?> = Dynamic(nil)
     var image3: Dynamic<UIImage?> = Dynamic(nil)
     var photoUploadTask: UIBackgroundTaskIdentifier?
-    var imageBond: Bond<UIImage?>!
+    var imageBond: Bond
     static var imageCache: NSCacheSwift<String, UIImage>!
     //MARK: Initialization
     override class func initialize() {

@@ -23,29 +23,35 @@ class ProductPageViewController: UIViewController, MFMailComposeViewControllerDe
     var image3:UIImage?
     var user: User?
     @IBAction func launchEmail(sender: AnyObject) {
+        
+        //trying to addd phoen number instead of mails
+//        let phone = "tel://982374234";
+//        let url:NSURL = NSURL(string:phone)!;
+//        UIApplication.sharedApplication().openURL(url);
+        
         var usermail  : NSString?
         usermail = self.post!.user?.email
-        println(usermail)
-        var emailTitle = "Rent product"
-        var messageBody = "know everything about this item"
-        var toRecipents = ["usermail"]
-        var mc: MFMailComposeViewController = MFMailComposeViewController()
+        print(usermail)
+        let emailTitle = "Rent product"
+        let messageBody = "know everything about this item"
+        let toRecipents = ["usermail"]
+        let mc: MFMailComposeViewController = MFMailComposeViewController()
         mc.mailComposeDelegate = self
         mc.setSubject(emailTitle)
         mc.setMessageBody(messageBody, isHTML: false)
         mc.setToRecipients(toRecipents)
         self.presentViewController(mc, animated: true, completion: nil)
     }
-    func mailComposeController(controller:MFMailComposeViewController, didFinishWithResult result:MFMailComposeResult, error:NSError) {
-        switch result.value {
-        case MFMailComposeResultCancelled.value:
-            println("Mail cancelled")
-        case MFMailComposeResultSaved.value:
-            println("Mail saved")
-        case MFMailComposeResultSent.value:
-            println("Mail sent")
-        case MFMailComposeResultFailed.value:
-            println("Mail sent failure: %@", [error.localizedDescription])
+    func mailComposeController(controller:MFMailComposeViewController, didFinishWithResult result:MFMailComposeResult, error:NSError?) {
+        switch result.rawValue {
+        case MFMailComposeResultCancelled.rawValue:
+            print("Mail cancelled")
+        case MFMailComposeResultSaved.rawValue:
+            print("Mail saved")
+        case MFMailComposeResultSent.rawValue:
+            print("Mail sent")
+        case MFMailComposeResultFailed.rawValue:
+            print("Mail sent failure: %@", [error.localizedDescription])
         default:
             break
         }
@@ -63,6 +69,8 @@ class ProductPageViewController: UIViewController, MFMailComposeViewControllerDe
             descriptionLabel.text = post.productdescription as? String
             var stringg:NSNumber  = post.enteredprice!
             let price:String = String(format:"%i", stringg.integerValue)
+            let price:String = String(format:"%i", stringg.integerValue)
+
             priceLabel.text = price + "$"
         }
     }
@@ -72,7 +80,7 @@ class ProductPageViewController: UIViewController, MFMailComposeViewControllerDe
         self.user = self.post!.user as? User
         self.profileimageview.layer.cornerRadius = self.profileimageview.frame.size.width / 2
         self.profileimageview.clipsToBounds = true
-        println(post)
+        print(post)
         // Do any additional setup after loading the view.
     }
 

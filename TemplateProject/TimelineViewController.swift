@@ -29,7 +29,7 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
     override func shouldAutorotate() -> Bool {
         return false
     }
-    override func supportedInterfaceOrientations() -> Int {
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return UIInterfaceOrientation.Portrait.rawValue
     }
      override func viewDidLoad() {
@@ -58,7 +58,7 @@ class TimelineViewController: UIViewController, TimelineComponentTarget {
             (userlocation: PFGeoPoint?, error: NSError?) -> Void in
             if error == nil {
                 self.userlocation = userlocation
-                println(userlocation)
+                print(userlocation)
                 if !self.hasLocation {
                     self.hasLocation = true
                     self.timelineComponent.loadInitialIfRequired()
@@ -114,7 +114,7 @@ extension TimelineViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         selectedPost =  self.timelineComponent.content[indexPath.row]
         self.performSegueWithIdentifier("ShowExistingPost", sender: self) //2
-        println(selectedPost)
+        print(selectedPost)
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

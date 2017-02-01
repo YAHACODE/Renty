@@ -50,6 +50,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
             attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
         passwordTextField.attributedPlaceholder = NSAttributedString(string:"what's your password",
             attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
+        
     }
     
 
@@ -70,6 +71,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
+    
     func keyboardWillShow(notification: NSNotification) {
         if let userInfo = notification.userInfo {
             if let keyboardSize =  (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.CGRectValue() {
@@ -78,12 +80,13 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
+   
     func keyboardWillHide(notification: NSNotification) {
         self.animateTextField(false)
     }
     
     func animateTextField(up: Bool) {
-        var movement = (up ? -kbHeight : kbHeight)
+        let movement = (up ? -kbHeight : kbHeight)
         UIView.animateWithDuration(0.3, animations: {
             self.view.frame = CGRectOffset(self.view.frame, 0, movement)
         })
@@ -106,7 +109,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
             savedUser.setObject(emailEntered, forKey: "email")
             savedUser.saveInBackgroundWithBlock { (succeeded , error) -> Void in
                 if error == nil {
-                    println("saved!")
+                    print("saved!")
                 }
                 else {
                 }
@@ -115,7 +118,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
             user.signUpInBackgroundWithBlock {
                 (succeeded ,error) -> Void in
                 if error == nil {
-                    println("user signed up")
+                    print("user signed up")
                     self.performSegueWithIdentifier("signUpToLogIn", sender: self)
                     savedUser.setObject(user.isAuthenticated() == true, forKey: "authenticated")
                     savedUser.signUp()

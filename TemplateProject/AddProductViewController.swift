@@ -73,7 +73,7 @@ var products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "C
    
      func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
         
-        var itemselected = products[row]
+        let itemselected = products[row]
         
         self.itemselected = itemselected
         
@@ -89,15 +89,15 @@ var products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "C
         //input data
         var title = titleTextField?.text
         var productdescription = DescriptionTextField?.text
-        var enteredprice = PriceTextField?.text.toInt()
+        var enteredprice = Int(PriceTextField?.text)
         var tag = self.itemselected
         
         var periode = periodField?.text
 
         
-        println(tag)
+        print(tag)
 
-        println(enteredprice)
+        print(enteredprice)
 
        
         PFGeoPoint.geoPointForCurrentLocationInBackground {
@@ -122,6 +122,7 @@ var products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "C
                     post.image1.value = self.image1!
                     post.image2.value = self.image2!
                     post.image3.value = self.image3!
+
                     post.uploadPost()
                 }
                
@@ -206,7 +207,7 @@ var products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "C
     }
     
     func animateTextField(up: Bool) {
-        var movement = (up ? -kbHeight : kbHeight)
+        let movement = (up ? -kbHeight : kbHeight)
         UIView.animateWithDuration(0.3, animations: {
             self.view.frame = CGRectOffset(self.view.frame, 0, movement)
         })
@@ -232,7 +233,7 @@ var products = ["Fashion", "Home and decor", "Electronics", "Baby and kids" , "C
         // Dispose of any resources that can be recreated.
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.view.endEditing(true)
     }
 }

@@ -17,7 +17,7 @@ class ParseHelper {
 
         
         // Create a query for post
-        var query = PFQuery(className:"Post")
+        let query = PFQuery(className:"Post")
         // Interested in locations near user.
         query.whereKey("postlocation", nearGeoPoint:location, withinMiles: 30)
         // Limit what could be a lot of points.

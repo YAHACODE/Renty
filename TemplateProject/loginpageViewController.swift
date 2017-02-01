@@ -22,7 +22,7 @@ class loginpageViewController: UIViewController, UITextFieldDelegate {
     override func shouldAutorotate() -> Bool {
         return false
     }
-    override func supportedInterfaceOrientations() -> Int {
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return UIInterfaceOrientation.Portrait.rawValue
     }
     
@@ -54,7 +54,7 @@ class loginpageViewController: UIViewController, UITextFieldDelegate {
     }
     
     func animateTextField(up: Bool) {
-        var movement = (up ? -kbHeight : kbHeight)
+        let movement = (up ? -kbHeight : kbHeight)
         UIView.animateWithDuration(0.3, animations: {
             self.view.frame = CGRectOffset(self.view.frame, 0, movement)
         })

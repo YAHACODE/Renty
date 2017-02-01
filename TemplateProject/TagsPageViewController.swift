@@ -42,6 +42,8 @@ class TagsPageViewController: UIViewController,  TimelineComponentTarget  {
                 //println(location)
             } else if let err = error {
                 // println(err.localizedDescription)
+                // println(err.localizedDescription)
+
             }
         }
 
@@ -59,7 +61,7 @@ class TagsPageViewController: UIViewController,  TimelineComponentTarget  {
                 
                 self.userlocation = userlocation
                 
-                println(userlocation)
+                print(userlocation)
                 
             }
         }

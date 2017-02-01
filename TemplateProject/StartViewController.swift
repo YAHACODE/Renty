@@ -18,7 +18,7 @@ class StartViewController: UIViewController {
         return false
     }
     
-    override func supportedInterfaceOrientations() -> Int {
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return UIInterfaceOrientation.Portrait.rawValue
     }
     

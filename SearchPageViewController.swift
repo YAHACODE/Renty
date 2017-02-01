@@ -30,7 +30,7 @@ class SearchPageViewController : UIViewController {
      override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "ToTagsSegue" {
             if let vc = segue.destinationViewController as? TagsPageViewController {
-                if let ip = tagsTableView.indexPathForSelectedRow() {
+                if let ip = tagsTableView.indexPathForSelectedRow {
                     vc.selectedTag = tags[ip.row]
                 }
             }
@@ -45,6 +45,8 @@ extension SearchPageViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tags.count
     }
+    
+    
     //    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     //        return Int(posts.count ?? 0)
     //    }

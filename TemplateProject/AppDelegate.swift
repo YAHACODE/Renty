@@ -21,14 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     if currentUser != nil {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         var storyboard = UIStoryboard(name: "Main", bundle: nil)
-        var initialViewController = storyboard.instantiateViewControllerWithIdentifier("Main") as! UIViewController
+        var initialViewController = storyboard.instantiateViewControllerWithIdentifier("Main") 
         self.window?.rootViewController = initialViewController
         self.window?.makeKeyAndVisible()
     }
     else {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         var storyboard = UIStoryboard(name: "Main", bundle: nil)
-        var initialViewController = storyboard.instantiateViewControllerWithIdentifier("start") as! UIViewController
+        var initialViewController = storyboard.instantiateViewControllerWithIdentifier("start") 
         self.window?.rootViewController = initialViewController
         self.window?.makeKeyAndVisible()
     }
